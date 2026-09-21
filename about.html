@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Our Story &amp; Craft — Meridian Cacao Artisanal Chocolatier</title>
+  <meta name="description" content="Discover the story, founders, craftsmanship, values, and bean-to-bar philosophy behind Meridian Cacao luxury handcrafted chocolates.">
+  <link rel="icon" href="assets/img/artisan/signature_truffles.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Toast Feedback Notification -->
+  <div id="added" role="status">
+    <span class="check-icon">✓</span>
+    <strong id="toastMessage">Added to your sweet selection.</strong>
+  </div>
+
+  <!-- Cart Modal Drawer -->
+  <div class="cart-modal" id="cartDrawer" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3 style="font-family:var(--meridian-serif); font-size:1.6rem; color:var(--meridian-brown);">Your Chocolate Tasting Cart</h3>
+        <button class="cart-close" id="closeCartBtn" aria-label="Close Cart">&times;</button>
+      </div>
+      <div class="cart-items-wrap" id="cartItemsContainer">
+        <!-- Populated dynamically by main.js -->
+      </div>
+      <div class="cart-footer">
+        <div style="background:#fdf6ee; padding:0.75rem 1rem; border-radius:6px; margin-bottom:1.25rem; border:1px dashed #dcbca1; font-size:0.85rem; color:#684a3b; text-align:center;">
+          Complimentary Insulated Cold-Pack Delivery On All Orders
+        </div>
+        <div class="cart-total-row">
+          <span style="font-weight:600;">Estimated Subtotal:</span>
+          <span class="cart-total-price" id="cartTotalPrice">$0.00</span>
+        </div>
+        <button class="btn btn-primary" style="width: 100%;" onclick="alert('Thank you for savoring with Meridian Cacao! Your order has been placed with cold-pack temperature protection.');">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="header" id="mainHeader">
+    <div class="main-header">
+      <!-- Brand Logo -->
+      <div class="logo">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Main Navigation Menu: Home → Home2 → About → Orders → Services → Blog -->
+      <nav aria-label="Main Navigation">
+        <ul class="main-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home-2.html">Home2</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Icons -->
+      <div class="main-menu-right">
+        <a href="index.html#signature" class="nav-utility-btn" id="wishlistBtn" title="Your Wishlist" aria-label="Wishlist">
+          <span style="color:var(--meridian-gold-light); font-size:1.25rem;">♥</span>
+          <span class="nav-badge" id="wishlistCountBadge">0</span>
+        </a>
+
+        <button class="nav-utility-btn" id="cartTriggerBtn" title="Shopping Cart" aria-label="Cart">
+          <span style="font-size:1.2rem;">🛒</span>
+          <span class="nav-badge" id="cartCountBadge">0</span>
+        </button>
+
+        <button class="nav-utility-btn" onclick="alert('Meridian Connoisseur Portal: Please sign in or register to view order history and subscription deliveries.');" title="My Account" aria-label="Account">
+          <span style="font-size:1.2rem;">👤</span>
+        </button>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Open Navigation Menu">
+          <span style="font-size:1.4rem; color:var(--meridian-gold-light);">☰</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div>
+      <button class="drawer-close" id="mobileDrawerClose" aria-label="Close Navigation Menu">&times;</button>
+      <div style="margin-bottom: 2rem;">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="home-2.html">Home2</a>
+        <a href="about.html" class="active">About</a>
+        <a href="orders.html">Orders</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div style="color: rgba(255,255,255,0.7); font-size: 0.85rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.15);">
+      <p style="margin-bottom:0.25rem;">Master Chocolatier Concierge:</p>
+      <p style="color: var(--meridian-gold-light); font-weight: 600;">concierge@meridiancacao.com</p>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <!-- 1. ABOUT HERO -->
+    <section class="about-hero-banner" id="about-hero">
+      <div class="container" data-aos="fade-up">
+        <div class="section-eyebrow" style="color:var(--meridian-gold-light);">THE MERIDIAN HERITAGE</div>
+        <h1 class="section-hero-title light" style="font-size:clamp(2.5rem, 5.5vw, 4.5rem); margin-bottom:1.25rem;">
+          Crafted with Passion. Inspired by Chocolate.
+        </h1>
+        <p class="section-subtitle light" style="max-width:700px; margin:0 auto;">
+          Discover the story, people and craftsmanship behind every chocolate we create. From remote tropical cacao agroforests to our Hudson Valley confectionery atelier.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. OUR STORY -->
+    <section class="story-preview-section" id="story">
+      <div class="container">
+        <div class="story-split-grid">
+          <div class="gift-img-frame" data-aos="fade-right">
+            <img src="assets/img/artisan/bean_to_bar_craft.jpg" alt="Artisan Chocolate Crafting Workshop" loading="lazy">
+            <div class="gift-badge-overlay">
+              <div class="gift-badge-title">Established 2018</div>
+              <div class="gift-badge-subtitle">Hudson Valley Atelier &amp; Confectionery</div>
+            </div>
+          </div>
+
+          <div class="gift-content-wrap" data-aos="fade-left">
+            <div class="section-eyebrow">A JOURNEY OF DEVOTION</div>
+            <h2 class="section-hero-title">Our Story</h2>
+            <p style="font-size:1.05rem; color:#533e32; line-height:1.8; margin-bottom:1.25rem;">
+              Meridian Cacao began not in a boardroom, but in a sunlit kitchen around a solitary 5kg stone melanger. We were driven by a singular, intoxicating revelation: commercial chocolate had forgotten what cocoa actually tasted like.
+            </p>
+            <p style="font-size:0.98rem; color:#685043; line-height:1.75; margin-bottom:1.25rem;">
+              Real cocoa is fruit. It is alive with wild raspberries, mountain blossoms, forest honey, and rich earthy soils. We set out to honor that truth. Our very first batch of Madagascar 70% single-estate dark chocolate sold out within two hours at a local farmers' market.
+            </p>
+            <p style="font-size:0.98rem; color:#685043; line-height:1.75; margin-bottom:2rem;">
+              As our reputation quietly spread among culinary critics, pastry chefs, and discerning chocolate lovers, we remained steadfast in our founding creed: slow stone conching, zero palm oil or fillers, 100% pure cocoa butter, and deep personal partnerships with the regenerative farmers who cultivate heirloom cacao.
+            </p>
+            <div style="display:flex; gap:2rem; padding-top:1.5rem; border-top:1px solid #e7dbcd;">
+              <div>
+                <span style="font-family:var(--meridian-serif); font-size:2rem; font-weight:700; color:var(--meridian-gold-dark); display:block;">100%</span>
+                <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#785f52;">Pure Cocoa Butter</span>
+              </div>
+              <div>
+                <span style="font-family:var(--meridian-serif); font-size:2rem; font-weight:700; color:var(--meridian-gold-dark); display:block;">72 Hours</span>
+                <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#785f52;">Granite Stone Conched</span>
+              </div>
+              <div>
+                <span style="font-family:var(--meridian-serif); font-size:2rem; font-weight:700; color:var(--meridian-gold-dark); display:block;">Direct</span>
+                <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#785f52;">Agroforestry Trade</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. OUR FOUNDERS -->
+    <section class="founders-section" id="founders">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">THE VISIONARIES</div>
+          <h2 class="section-hero-title">Meet Our Founders</h2>
+          <p class="section-subtitle">
+            A harmonious partnership between an obsessive master confectioner and a passionate tropical agroforestry botanist.
+          </p>
+        </div>
+
+        <div style="margin-bottom:3rem; border-radius:12px; overflow:hidden; box-shadow:0 16px 40px rgba(20,7,4,0.12);" data-aos="fade-up">
+          <img src="assets/img/artisan/founders_portrait.jpg" alt="Julian Vance and Clara Thorne in Atelier" style="width:100%; height:auto; display:block;">
+        </div>
+
+        <div class="founder-cards-grid">
+          <!-- Founder 1: Julian Vance -->
+          <div class="founder-card" data-aos="fade-up">
+            <div class="founder-info-content">
+              <h3 class="founder-name">Julian Vance</h3>
+              <div class="founder-role-title">Master Chocolatier &amp; Co-Founder</div>
+              <p style="font-size:0.95rem; color:#5c4538; line-height:1.75; margin-bottom:1.25rem;">
+                Trained in Paris and Zurich across classical patisserie and fine confectionery. Julian spent over a decade perfecting the delicate crystalline science of cacao tempering and marble enrobing before founding Meridian Cacao.
+              </p>
+              <div style="background:#fdfaf6; padding:1.25rem; border-left:3px solid var(--meridian-gold); font-size:0.9rem; color:#553e32; font-style:italic; line-height:1.6;">
+                "Chocolate is not mere sugar; it is agricultural art, an intricate vintage as expressive and nuanced as grand cru wine."
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder 2: Clara Thorne -->
+          <div class="founder-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="founder-info-content">
+              <h3 class="founder-name">Clara Thorne</h3>
+              <div class="founder-role-title">Sourcing Director &amp; Co-Founder</div>
+              <p style="font-size:0.95rem; color:#5c4538; line-height:1.75; margin-bottom:1.25rem;">
+                With a background in tropical agroforestry and botanical conservation, Clara spends four months every year living among smallholder farming cooperatives in Madagascar, Peru, and Ecuador, ensuring fair pricing and heirloom tree preservation.
+              </p>
+              <div style="background:#fdfaf6; padding:1.25rem; border-left:3px solid var(--meridian-gold); font-size:0.9rem; color:#553e32; font-style:italic; line-height:1.6;">
+                "By paying sustainable premiums directly to cacao growers, we ensure rich forest biodiversity and the survival of rare heirloom varieties."
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OUR JOURNEY (TIMELINE) -->
+    <section class="flavor-section" id="journey">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">MILESTONES OF CRAFTSMANSHIP</div>
+          <h2 class="section-hero-title">Our Journey</h2>
+          <p class="section-subtitle">
+            From our humble first kitchen batch to becoming a celebrated modern chocolate house.
+          </p>
+        </div>
+
+        <div class="timeline-track-list">
+          <div class="timeline-node-item" data-aos="fade-up">
+            <div class="timeline-node-year">2018 — The Beginning</div>
+            <h4 style="font-family:var(--meridian-serif); font-size:1.4rem; color:var(--meridian-brown); margin-bottom:0.4rem;">Kitchen Slab Experiments</h4>
+            <p style="font-size:0.92rem; color:#634c3e; line-height:1.65;">Julian and Clara begin micro-batch stone-grinding on a second-hand 5kg granite melanger, perfecting origin roasting temperatures.</p>
+          </div>
+
+          <div class="timeline-node-item" data-aos="fade-up">
+            <div class="timeline-node-year">2019 — First Chocolate Collection</div>
+            <h4 style="font-family:var(--meridian-serif); font-size:1.4rem; color:var(--meridian-brown); margin-bottom:0.4rem;">The Single-Origin Trio</h4>
+            <p style="font-size:0.92rem; color:#634c3e; line-height:1.65;">Debuted three single-estate dark bars (Madagascar 70%, Peru 75%, and Ecuador 80%), winning regional artisanal accolades.</p>
+          </div>
+
+          <div class="timeline-node-item" data-aos="fade-up">
+            <div class="timeline-node-year">2021 — Growing the Artisan Workshop</div>
+            <h4 style="font-family:var(--meridian-serif); font-size:1.4rem; color:var(--meridian-brown); margin-bottom:0.4rem;">The Hudson Valley Atelier</h4>
+            <p style="font-size:0.92rem; color:#634c3e; line-height:1.65;">Moved into a dedicated solar-powered atelier with custom temperature-controlled marble rooms and low-velocity conching suites.</p>
+          </div>
+
+          <div class="timeline-node-item" data-aos="fade-up">
+            <div class="timeline-node-year">2022 — Expanding the Collection</div>
+            <h4 style="font-family:var(--meridian-serif); font-size:1.4rem; color:var(--meridian-brown); margin-bottom:0.4rem;">Truffles &amp; Liquid Caramels</h4>
+            <p style="font-size:0.92rem; color:#634c3e; line-height:1.65;">Introduced hand-rolled fresh cream truffles, sea salt liquid caramels, and seasonal nut-praline confections.</p>
+          </div>
+
+          <div class="timeline-node-item" data-aos="fade-up">
+            <div class="timeline-node-year">2023 — Introducing Gift Experiences</div>
+            <h4 style="font-family:var(--meridian-serif); font-size:1.4rem; color:var(--meridian-brown); margin-bottom:0.4rem;">Bespoke Keepsake Packaging</h4>
+            <p style="font-size:0.92rem; color:#634c3e; line-height:1.65;">Launched custom drawer gift boxes with hand-tied satin ribbons and calligraphed wax-sealed greeting cards for celebratory gifting.</p>
+          </div>
+
+          <div class="timeline-node-item" data-aos="fade-up">
+            <div class="timeline-node-year">2024 — Launching Seasonal Collections</div>
+            <h4 style="font-family:var(--meridian-serif); font-size:1.4rem; color:var(--meridian-brown); margin-bottom:0.4rem;">Holiday &amp; Festival Curations</h4>
+            <p style="font-size:0.92rem; color:#634c3e; line-height:1.65;">Introduced limited-edition holiday flights celebrating Valentine's, Diwali, Christmas, and single-harvest cask-aged vintage bars.</p>
+          </div>
+
+          <div class="timeline-node-item" data-aos="fade-up">
+            <div class="timeline-node-year">2025–2026 — Building the Chocolate Community</div>
+            <h4 style="font-family:var(--meridian-serif); font-size:1.4rem; color:var(--meridian-brown); margin-bottom:0.4rem;">The Connoisseur Tasting Club</h4>
+            <p style="font-size:0.92rem; color:#634c3e; line-height:1.65;">Delighting over 50,000 discerning patrons worldwide through monthly cold-pack subscriptions, virtual masterclasses, and origin tours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. OUR EVOLUTION -->
+    <section class="why-chocolate-section" id="evolution">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">ORGANIC GROWTH</div>
+          <h2 class="section-hero-title">From a Passion to a Chocolate House</h2>
+          <p class="section-subtitle">
+            How a kitchen obsession transformed into a modern luxury institution while preserving every nuance of handcrafted integrity.
+          </p>
+        </div>
+
+        <div class="why-grid" style="grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));">
+          <div class="why-block" data-aos="fade-up" style="background:#ffffff; border-radius:8px; border:1px solid #e3d5c5; text-align:left; padding:2rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--meridian-gold-dark); text-transform:uppercase; letter-spacing:0.12em;">Stage 01</span>
+            <h3 class="why-heading" style="margin:0.5rem 0 0.75rem;">Small Artisan Workshop</h3>
+            <p class="why-text">Micro-batch kitchen testing, hand-sorting every single cacao bean, and discovering single-origin profiles.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="100" style="background:#ffffff; border-radius:8px; border:1px solid #e3d5c5; text-align:left; padding:2rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--meridian-gold-dark); text-transform:uppercase; letter-spacing:0.12em;">Stage 02</span>
+            <h3 class="why-heading" style="margin:0.5rem 0 0.75rem;">Growing Chocolate Brand</h3>
+            <p class="why-text">Partnering directly with agroforestry co-ops, establishing climate-controlled roasting, and building our loyal clientele.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="200" style="background:#ffffff; border-radius:8px; border:1px solid #e3d5c5; text-align:left; padding:2rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--meridian-gold-dark); text-transform:uppercase; letter-spacing:0.12em;">Stage 03</span>
+            <h3 class="why-heading" style="margin:0.5rem 0 0.75rem;">Premium Chocolate Collection</h3>
+            <p class="why-text">Expanding from single-origin bars into filled bonbons, rare pralines, and personalized keepsake gift presentations.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="300" style="background:#ffffff; border-radius:8px; border:1px solid #e3d5c5; text-align:left; padding:2rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--meridian-gold-dark); text-transform:uppercase; letter-spacing:0.12em;">Stage 04</span>
+            <h3 class="why-heading" style="margin:0.5rem 0 0.75rem;">Modern Artisanal House</h3>
+            <p class="why-text">A premier confectionery destination shipping worldwide with thermal cold-packs, monthly tasting clubs, and zero compromises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FROM COCOA BEAN TO CHOCOLATE (THE CRAFT) -->
+    <section class="bean-to-bar-section" id="craft">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">METICULOUS DISCIPLINE</div>
+          <h2 class="section-hero-title">The Craft Behind Every Bite</h2>
+          <p class="section-subtitle">
+            Attention to detail is maintained throughout the chocolate-making process. Eight deliberate steps where science meets artistry.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:1.75rem;">
+          <div class="step-box" data-aos="fade-up">
+            <div class="step-num-circle">01</div>
+            <h3 class="step-name">Cocoa Bean Selection</h3>
+            <p class="step-detail">Heirloom Criollo beans hand-inspected for uniform fermentation and moisture content.</p>
+          </div>
+
+          <div class="step-box" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-num-circle">02</div>
+            <h3 class="step-name">Gentle Roasting</h3>
+            <p class="step-detail">Low-temperature convection roasting unlocks subtle floral notes without scorching delicate volatile oils.</p>
+          </div>
+
+          <div class="step-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-num-circle">03</div>
+            <h3 class="step-name">Stone Grinding</h3>
+            <p class="step-detail">Granite wheels crush roasted nibs into silky liquid cocoa liquor over continuous 72-hour cycles.</p>
+          </div>
+
+          <div class="step-box" data-aos="fade-up" data-aos-delay="150">
+            <div class="step-num-circle">04</div>
+            <h3 class="step-name">Artisanal Conching</h3>
+            <p class="step-detail">Gentle warm aeration aerates the mass, rounding harsh astringencies into warm honey and caramel undertones.</p>
+          </div>
+
+          <div class="step-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-num-circle">05</div>
+            <h3 class="step-name">Marble Tempering</h3>
+            <p class="step-detail">Chilled granite table tempering aligns stable Beta-V cocoa butter crystals for a loud snap and mirror shine.</p>
+          </div>
+
+          <div class="step-box" data-aos="fade-up" data-aos-delay="250">
+            <div class="step-num-circle">06</div>
+            <h3 class="step-name">Precision Molding</h3>
+            <p class="step-detail">Poured into custom geometric molds, gently vibrated to expel micro-bubbles and ensure uniform density.</p>
+          </div>
+
+          <div class="step-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-num-circle">07</div>
+            <h3 class="step-name">Hand Finishing</h3>
+            <p class="step-detail">Bonbons hand-painted with colored cocoa butter; truffles hand-dusted with 24k gold leaf and raw cocoa.</p>
+          </div>
+
+          <div class="step-box" data-aos="fade-up" data-aos-delay="350">
+            <div class="step-num-circle">08</div>
+            <h3 class="step-name">Keepsake Packaging</h3>
+            <p class="step-detail">Enclosed in plant-based compostable barrier foil, nested in rigid drawer gift boxes tied with silk ribbon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. OUR INGREDIENTS -->
+    <section class="why-chocolate-section" id="ingredients" style="background:#ffffff;">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">PURITY &amp; PROVENANCE</div>
+          <h2 class="section-hero-title">Only What Matters</h2>
+          <p class="section-subtitle">
+            We believe the greatest luxury is transparency. You will never find palm oils, artificial emulsifiers, or preservatives in our cellar.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-block" data-aos="fade-up">
+            <div class="why-icon-wrap">🍫</div>
+            <h3 class="why-heading">Heirloom Cacao</h3>
+            <p class="why-text">Single-estate beans with natural flavor complexity, never alkalized or chemically Dutch-processed.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-icon-wrap">🧈</div>
+            <h3 class="why-heading">Pure Cocoa Butter</h3>
+            <p class="why-text">100% natural expeller-pressed cocoa butter that melts at body temperature for an immaculate clean mouthfeel.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="200">
+            <div class="why-icon-wrap">🌸</div>
+            <h3 class="why-heading">Natural Botanicals</h3>
+            <p class="why-text">True Bourbon vanilla beans, hand-harvested French lavender, and cold-pressed citrus peels.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="300">
+            <div class="why-icon-wrap">🌰</div>
+            <h3 class="why-heading">Fresh Nuts &amp; Fruits</h3>
+            <p class="why-text">Piedmont IGP hazelnuts, Marcona almonds, Bronte pistachios, and freeze-dried mountain raspberries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. OUR VALUES -->
+    <section class="flavor-section" id="values">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">OUR GUIDING PRINCIPLES</div>
+          <h2 class="section-hero-title">Our Values</h2>
+          <p class="section-subtitle">
+            The enduring commitments that shape every recipe, partnership, and customer interaction.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:2rem;">
+          <div class="pairing-card" data-aos="fade-up">
+            <div class="pairing-tag">Core Value 01</div>
+            <h3 class="pairing-formula" style="font-size:1.4rem;">Quality</h3>
+            <p class="pairing-desc">Uncompromising standards in raw bean sourcing, temperature control, and recipe balance.</p>
+          </div>
+
+          <div class="pairing-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="pairing-tag">Core Value 02</div>
+            <h3 class="pairing-formula" style="font-size:1.4rem;">Craftsmanship</h3>
+            <p class="pairing-desc">Honoring patient old-world confectionery techniques that cannot be rushed by industrial automation.</p>
+          </div>
+
+          <div class="pairing-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="pairing-tag">Core Value 03</div>
+            <h3 class="pairing-formula" style="font-size:1.4rem;">Creativity</h3>
+            <p class="pairing-desc">Venturing beyond tradition with surprising, balanced culinary pairings and elegant aesthetics.</p>
+          </div>
+
+          <div class="pairing-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="pairing-tag">Core Value 04</div>
+            <h3 class="pairing-formula" style="font-size:1.4rem;">Sustainability</h3>
+            <p class="pairing-desc">Direct agroforestry trade, living wages for farmers, compostable wrappers, and solar-powered facilities.</p>
+          </div>
+
+          <div class="pairing-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="pairing-tag">Core Value 05</div>
+            <h3 class="pairing-formula" style="font-size:1.4rem;">Customer Experience</h3>
+            <p class="pairing-desc">Every order treated like a private gift, featuring cold-pack delivery guarantees and concierge support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. OUR PHILOSOPHY (QUOTE SECTION) -->
+    <section class="philosophy-quote-block">
+      <div class="container" data-aos="fade-up">
+        <div class="section-eyebrow" style="color:var(--meridian-gold-light); margin-bottom:1.5rem;">OUR PHILOSOPHY</div>
+        <blockquote class="philosophy-quote-text">
+          "Chocolate should be more than a treat. It is an invitation to pause, to breathe, to close your eyes, and to savor the extraordinary poetry of soil, sunlight, and human hands."
+        </blockquote>
+        <div style="font-family:var(--meridian-sans); font-size:1rem; color:var(--meridian-gold-light); letter-spacing:0.15em; text-transform:uppercase;">
+          — Julian Vance &amp; Clara Thorne, Founders
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. OUR TEAM -->
+    <section class="why-chocolate-section" id="team" style="background:#ffffff;">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">THE CRAFTSPEOPLE</div>
+          <h2 class="section-hero-title">Our Team</h2>
+          <p class="section-subtitle">
+            Meet the passionate chocolatiers, roasters, designers, and concierges who bring Meridian Cacao to life every day.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-block" data-aos="fade-up" style="background:#fdfaf6; border-radius:8px; border:1px solid #e7dbce; padding:2.25rem 1.5rem;">
+            <div style="font-size:2.2rem; margin-bottom:1rem;">🧑‍🍳</div>
+            <h3 class="why-heading">Chocolatiers</h3>
+            <p class="why-text">Master artisans who hand-temper, pipe silky ganaches, and hand-roll our delicate seasonal truffles.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="100" style="background:#fdfaf6; border-radius:8px; border:1px solid #e7dbce; padding:2.25rem 1.5rem;">
+            <div style="font-size:2.2rem; margin-bottom:1rem;">🔥</div>
+            <h3 class="why-heading">Production Team</h3>
+            <p class="why-text">Roasting specialists and stone-grinder operators who monitor every batch for 72 continuous hours.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="200" style="background:#fdfaf6; border-radius:8px; border:1px solid #e7dbce; padding:2.25rem 1.5rem;">
+            <div style="font-size:2.2rem; margin-bottom:1rem;">🎨</div>
+            <h3 class="why-heading">Creative Team</h3>
+            <p class="why-text">Packaging architects, calligraphers, and photographers who ensure unboxing is pure visual poetry.</p>
+          </div>
+
+          <div class="why-block" data-aos="fade-up" data-aos-delay="300" style="background:#fdfaf6; border-radius:8px; border:1px solid #e7dbce; padding:2.25rem 1.5rem;">
+            <div style="font-size:2.2rem; margin-bottom:1rem;">🤍</div>
+            <h3 class="why-heading">Customer Concierge</h3>
+            <p class="why-text">Dedicated helpers ensuring cold-pack fulfillment, bespoke corporate orders, and tasting advice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. MILESTONES / ACHIEVEMENTS -->
+    <section class="flavor-section" style="padding:4.5rem 0;">
+      <div class="container">
+        <div class="milestones-stat-grid" data-aos="fade-up">
+          <div>
+            <div class="stat-number">8+</div>
+            <div class="stat-label-text">Years of Craftsmanship</div>
+          </div>
+          <div>
+            <div class="stat-number">45+</div>
+            <div class="stat-label-text">Chocolate Creations</div>
+          </div>
+          <div>
+            <div class="stat-number">50k+</div>
+            <div class="stat-label-text">Happy Customers</div>
+          </div>
+          <div>
+            <div class="stat-number">120k+</div>
+            <div class="stat-label-text">Gift Boxes Created</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. OUR VISION -->
+    <section class="gift-split-section" id="vision">
+      <div class="container">
+        <div class="gift-split-grid">
+          <div class="gift-content-wrap" data-aos="fade-right">
+            <div class="section-eyebrow">LOOKING FORWARD</div>
+            <h2 class="section-hero-title">Our Vision</h2>
+            <p style="font-size:1.05rem; color:#533e32; line-height:1.8; margin-bottom:1.25rem;">
+              Our dream is to expand the global palate for authentic, uncompromised chocolate while proving that luxury and ecological regenerative agriculture can thrive together.
+            </p>
+            <p style="font-size:0.98rem; color:#685043; line-height:1.75; margin-bottom:1.5rem;">
+              We are actively investing in cacao seed sanctuaries in Latin America and Africa to save endangered ancient wild Criollo varieties from commercial extinction. Every bar you savor with us directly finances tree plantings, fair living wages, and educational bursaries for farming families.
+            </p>
+            <ul class="gift-feature-list" style="margin-bottom:0;">
+              <li class="gift-feature-item">
+                <span class="gift-feature-icon">✦</span>
+                <span>Protecting ancient wild cacao genetics through agroforestry trusts.</span>
+              </li>
+              <li class="gift-feature-item">
+                <span class="gift-feature-icon">✦</span>
+                <span>Zero-carbon solar-powered conching facilities by 2027.</span>
+              </li>
+              <li class="gift-feature-item">
+                <span class="gift-feature-icon">✦</span>
+                <span>Global tasting education inspiring mindful food appreciation.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="gift-img-frame" data-aos="fade-left">
+            <img src="assets/img/artisan/luxury_gift_box.jpg" alt="Meridian Cacao Gift Collection" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. CALL TO ACTION -->
+    <section class="about-cta-banner" style="background:var(--meridian-dark); color:#ffffff; padding:7rem 1.5rem; text-align:center;">
+      <div class="container" data-aos="fade-up">
+        <div class="section-eyebrow" style="color:var(--meridian-gold-light);">BEGIN YOUR TASTING ODYSSEY</div>
+        <h2 class="section-hero-title light" style="margin-bottom:1.25rem;">Ready to Discover Your Chocolate?</h2>
+        <p class="section-subtitle light" style="max-width:620px; margin:0 auto 2.5rem;">
+          Explore our single-origin bars, hand-rolled fresh ganaches, or design a custom gift box for yourself or someone extraordinary.
+        </p>
+        <div style="display:flex; justify-content:center; gap:1.25rem; flex-wrap:wrap;">
+          <a href="index.html#signature" class="btn-meridian-primary">Explore Chocolates</a>
+          <a href="index.html#custom-box" class="btn-meridian-outline">Build Your Gift Box</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 14. FOOTER (Matching Home Page) -->
+  <footer class="global-luxury-footer" style="background:var(--meridian-dark); color:#ffffff; padding:5.5rem 0 2.5rem; border-top:1px solid rgba(197,155,99,0.25);">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:3.5rem; margin-bottom:4rem;">
+        <!-- Col 1: Brand Info -->
+        <div>
+          <div style="margin-bottom:1.25rem;">
+            <a href="index.html" class="custom-brand-logo">
+              <div class="brand-crest-box">
+                <span class="crest-icon">✦</span>
+              </div>
+              <div class="brand-text-block">
+                <span class="brand-title">SCHMITTEN</span>
+                <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+              </div>
+            </a>
+          </div>
+          <p style="color:rgba(255,255,255,0.7); font-size:0.92rem; line-height:1.7; margin-bottom:1.75rem; max-width:320px;">
+            Crafted with passion, made for moments. Bean-to-bar single-origin chocolates, hand-rolled fresh truffles, and luxury keepsake gift boxes.
+          </p>
+          <div style="display:flex; gap:0.75rem;">
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">IG</a>
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">PT</a>
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">FB</a>
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">YT</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Confections -->
+        <div>
+          <h4 style="font-family:var(--meridian-serif); font-size:1.25rem; color:var(--meridian-gold-light); margin-bottom:1.25rem;">Confections</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem;">
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">All Chocolates</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Schmitten Luxury Bars</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Hoppits Energy Bars</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Schmitten Barks</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Gift Assortments</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Pages in exact order -->
+        <div>
+          <h4 style="font-family:var(--meridian-serif); font-size:1.25rem; color:var(--meridian-gold-light); margin-bottom:1.25rem;">Pages</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem;">
+            <li><a href="index.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Home</a></li>
+            <li><a href="home-2.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Home2</a></li>
+            <li><a href="about.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">About</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Orders</a></li>
+            <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Services</a></li>
+            <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Care & Atelier -->
+        <div>
+          <h4 style="font-family:var(--meridian-serif); font-size:1.25rem; color:var(--meridian-gold-light); margin-bottom:1.25rem;">Customer Care</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem;">
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Order Tracking</a></li>
+            <li><a href="about.html#values" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Cold-Pack Guarantee</a></li>
+            <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Corporate Gifting</a></li>
+            <li><a href="about.html#craft" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Bean to Bar Craft</a></li>
+            <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">News &amp; Media</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.12); flex-wrap:wrap; gap:1rem; font-size:0.85rem; color:rgba(255,255,255,0.6);">
+        <div>&copy; 2026 Schmitten Artisanal Chocolatier. All Rights Reserved.</div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="about.html" style="color:rgba(255,255,255,0.6); text-decoration:none;">Privacy Policy</a>
+          <a href="about.html" style="color:rgba(255,255,255,0.6); text-decoration:none;">Terms &amp; Conditions</a>
+          <a href="about.html#values" style="color:rgba(255,255,255,0.6); text-decoration:none;">Ethical Sourcing Statement</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

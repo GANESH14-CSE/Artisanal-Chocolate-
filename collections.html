@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bean-to-bar collection — Meridian Cacao</title>
+<meta name="description" content="Eight single-origin bars with cocoa origin, variety, ferment, flavour profile, ingredients and price.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="assets/img/logo.svg" alt="">
+      <span class="logo__name">Meridian Cacao<span>Bean to bar</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" data-open="false" aria-label="Primary">
+      <a href="home-2.html">Home 2</a>
+      <a href="collections.html" aria-current="page">Collections</a>
+      <a href="truffles.html">Truffles</a>
+      <a href="pairings.html">Pairing guide</a>
+      <a href="gift-box.html">Gift boxes</a>
+      <a href="seasonal.html">Seasonal</a>
+      <a href="subscription.html">Subscription</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Home</a> · Collections</p>
+    <h1>The bean-to-bar collection</h1>
+    <p>Eight bars, each from a single origin and a single harvest. Prices are for 70 g. Open a card for the variety, the harvest window, how long it fermented and exactly what is in it.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="heading-row">
+      <h2>Filter by style</h2>
+      <p>Dark bars carry only cacao and sugar unless the ingredient list says otherwise. Milk and white are made with our own pressed cocoa butter.</p>
+    </div>
+    <div class="chiprow" id="bar-filters">
+      <button class="chip" type="button" data-type="all" aria-pressed="true">Everything</button>
+      <button class="chip" type="button" data-type="dark" aria-pressed="false">Dark</button>
+      <button class="chip" type="button" data-type="milk" aria-pressed="false">Milk</button>
+      <button class="chip" type="button" data-type="white" aria-pressed="false">White</button>
+    </div>
+    <p class="dim" id="bar-count" role="status" style="margin-bottom:2rem"></p>
+    <div class="grid" id="bar-results"></div>
+  </div>
+</section>
+
+<section class="section section--warm">
+  <div class="wrap">
+    <div class="heading-row">
+      <h2>How to read a flavour profile</h2>
+      <p>Nobody has added raspberry to the Kilombero bar. The fruit comes from fermentation.</p>
+    </div>
+    <div class="grid grid--three">
+      <article class="card">
+        <h3>The notes are real, not added</h3>
+        <p>Every flavour note on our cards comes from the cacao itself — from its genetics, the soil, and above all the four to seven days it spent fermenting. Where we do add something, it appears in the ingredient list.</p>
+      </article>
+      <article class="card">
+        <h3>Percentage is not quality</h3>
+        <p>A 78% bar is not better than a 66% one; it simply has less sugar and more cacao. A poorly fermented 85% will taste worse than a well-made milk bar, every time.</p>
+      </article>
+      <article class="card">
+        <h3>Eat it at room temperature</h3>
+        <p>Cold chocolate tastes of almost nothing. Take it out of the fridge twenty minutes early, let a square melt on the tongue rather than chewing, and breathe out through your nose.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="callout" style="padding:0">
+      <div>
+        <h2>Not sure where to begin?</h2>
+        <p>Take the Idukki 72% and the Kilombero 70% together. One is deep and spiced, the other sharp and fruity, and tasting them side by side teaches more than any description can.</p>
+      </div>
+      <div>
+        <p>Or let us choose for you every month, and read why afterwards.</p>
+        <a class="btn" href="subscription.html">See subscription plans</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="colophon">
+  <div class="wrap">
+    <div class="colophon__grid">
+      <div>
+        <a class="logo" href="index.html" style="margin-bottom:1rem">
+          <img class="logo__mark" src="assets/img/logo.svg" alt="">
+          <span class="logo__name">Meridian Cacao<span>Bean to bar</span></span>
+        </a>
+        <p>We buy cacao at origin, roast it in Bengaluru, and make everything in one room. Nothing leaves the workshop that we would not eat ourselves.</p>
+        <form class="newsletter" data-demo="Thank you — your first origin note is on its way.">
+          <label for="nl-email">Get the monthly origin note, plus new releases before they sell out.</label>
+          <input id="nl-email" type="email" required placeholder="you@example.com">
+          <button class="btn" type="submit">Subscribe</button>
+          <p class="status-msg" role="status" style="width:100%"></p>
+        </form>
+      </div>
+      <div>
+        <h4>Chocolate</h4>
+        <ul>
+          <li><a href="collections.html">Bean-to-bar collection</a></li>
+          <li><a href="truffles.html">Truffle varieties</a></li>
+          <li><a href="seasonal.html">Seasonal releases</a></li>
+          <li><a href="gift-box.html">Build a gift box</a></li>
+          <li><a href="pairings.html">Flavour pairing guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Meridian</h4>
+        <ul>
+          <li><a href="about.html">About the workshop</a></li>
+          <li><a href="about.html#sourcing">How we source</a></li>
+          <li><a href="subscription.html">Chocolate of the month</a></li>
+          <li><a href="home-2.html">Home 2</a></li>
+          <li><a href="contact.html">Contact and visits</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Workshop</h4>
+        <ul>
+          <li><a href="contact.html">14 Cookson Lane, Bengaluru 560001</a></li>
+          <li><a href="tel:+918040000000">+91 80 4000 0000</a></li>
+          <li><a href="mailto:hello@meridiancacao.example">hello@meridiancacao.example</a></li>
+          <li><span style="color:rgba(243,231,211,.6);font-size:.85rem">Tue–Sun, 10.00–19.00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon__base">
+      <span>&copy; <span id="year">2026</span> Meridian Cacao. Sample project, original design and copy.</span>
+      <span>Cacao bought direct. Prices include tax.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

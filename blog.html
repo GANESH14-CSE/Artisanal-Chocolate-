@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Blogs & Media — Schmitten Luxury Chocolates</title>
+  <meta name="description" content="Read stories, chocolate recipes, festive gifting insights, and celebrate International Chocolate Day with Schmitten Chocolates.">
+  <link rel="icon" href="assets/img/schmitten/logo.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="added" role="status">
+    <span class="check-icon">✓</span>
+    <strong>Item added to your selection.</strong>
+  </div>
+
+  <!-- Main Header Navigation -->
+  <header class="header">
+    <div class="main-header">
+      <div class="logo">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation in exact specified order: Home → Home2 → About → Orders → Services → Blog -->
+      <nav aria-label="Main Navigation">
+        <ul class="main-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home-2.html">Home2</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right Utilities -->
+      <div class="main-menu-right">
+        <a href="orders.html" class="header-action-link" title="Sweetlist">
+          <div class="header-icon-wrap">
+            <span style="font-size: 1.2rem; color: var(--gold);">♥</span>
+            <span class="sweetlist-count">0</span>
+          </div>
+        </a>
+
+        <a href="javascript:void(0);" class="header-action-link open-cart-btn" id="menu-cart" title="Cart">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/cart.png" alt="Cart">
+            <span class="cart-count">0</span>
+          </div>
+        </a>
+
+        <a href="services.html#tour" class="header-action-link" title="Store Locator">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/location.png" alt="Store Locator">
+          </div>
+        </a>
+
+        <button class="mobile-toggle" aria-label="Open Navigation Menu">
+          <img src="assets/img/schmitten/menu.png" alt="Menu">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <button class="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+      <div style="margin-bottom: 2rem;">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="home-2.html">Home2</a>
+        <a href="about.html">About</a>
+        <a href="orders.html">Orders</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html" class="active">Blog</a>
+      </nav>
+    </div>
+    <div style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">
+      <p>Need assistance?</p>
+      <p style="color: var(--gold); font-weight: 600;">relations@schmitten.co</p>
+    </div>
+  </aside>
+
+  <!-- Cart Modal Drawer -->
+  <div class="cart-modal" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3>Your Sweet Selection</h3>
+        <button class="cart-close" aria-label="Close Cart">&times;</button>
+      </div>
+      <div class="cart-items-wrap">
+        <!-- Rendered by main.js -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Total:</span>
+          <span class="cart-total-price">Rs. 0</span>
+        </div>
+        <a href="orders.html" class="btn btn-primary" style="width: 100%; text-align: center;">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- Breadcrumb Banner -->
+    <section class="page-head-banner" style="background-image: url('assets/img/schmitten/page-head-blog.jpg');">
+      <div class="page-head-content" data-aos="fade-down" data-aos-duration="800">
+        <h1>Media & Blogs</h1>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span style="color: var(--white);">Blogs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Articles List -->
+    <!-- Blog Articles Grid (6 Compact Posts) -->
+    <section class="blog-section">
+      <div class="container blog-container">
+        <div class="text-center" data-aos="fade-up" style="margin-bottom: 2.75rem;">
+          <span class="section-sub-title">Stories & Inspirations</span>
+          <h2 class="section-main-title">Latest From Schmitten</h2>
+        </div>
+
+        <div class="blog-list">
+          <!-- Post 1 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800">
+            <div class="blog-card-img">
+              <img src="assets/img/schmitten/blog-int-chocolate-day.webp" alt="Schmitten Celebrates International Chocolate Day" loading="lazy">
+              <span class="blog-badge-tag">Celebration</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>📅 12 Sep, 2026</span>
+              </div>
+              <h3 class="blog-title">
+                Schmitten Celebrates International Chocolate Day with Creativity & Indulgence
+              </h3>
+              <p class="blog-excerpt">
+                Schmitten celebrated International Chocolate Day on 9th September with an engaging celebration that brought together creativity, innovation and a shared love for chocolate.
+              </p>
+              <div class="blog-card-action">
+                <a href="javascript:void(0);" class="blog-read-btn" onclick="alert('Schmitten celebrated International Chocolate Day on 9th September with interactive workshops, chocolate sculpting competitions, and tasting experiences designed to celebrate imagination and love for fine cocoa.');">
+                  Read Story <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div class="blog-card-img">
+              <img src="assets/img/schmitten/blog-art-of-gifting.webp" alt="Beyond the Sweet Box" loading="lazy">
+              <span class="blog-badge-tag">Gifting Guide</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>📅 20 Oct, 2025</span>
+              </div>
+              <h3 class="blog-title">
+                Beyond the Sweet Box — The Art of Luxury Gifting with Schmitten
+              </h3>
+              <p class="blog-excerpt">
+                Festive gifting has evolved. Discover how curated artisanal boxes, gold-embossed sleeves, and single-origin slabs turn gifting into an unforgettable gesture.
+              </p>
+              <div class="blog-card-action">
+                <a href="javascript:void(0);" class="blog-read-btn" onclick="alert('This festive season, unwrap something different — refined, indulgent, and unforgettable. Gift Schmitten luxury chocolate boxes for authentic sophistication.');">
+                  Read Story <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div class="blog-card-img">
+              <img src="assets/img/schmitten/blog-chocolate-day-event.webp" alt="Schmitten Celebrated International Chocolate Day" loading="lazy">
+              <span class="blog-badge-tag">Events</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>📅 13 Sep, 2025</span>
+              </div>
+              <h3 class="blog-title">
+                Schmitten Celebrated International Chocolate Day Across India
+              </h3>
+              <p class="blog-excerpt">
+                International Chocolate Day united thousands of chocolate connoisseurs across 70+ boutique stores in India with sensory tasting bars and sweet surprises.
+              </p>
+              <div class="blog-card-action">
+                <a href="javascript:void(0);" class="blog-read-btn" onclick="alert('With fun activities, new launches, and sweet surprises across 70+ outlets, Schmitten brought smiles to thousands of true chocolate lovers.');">
+                  Read Story <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800">
+            <div class="blog-card-img">
+              <img src="assets/img/schmitten/blog-rakhi.webp" alt="Celebrate the Bond Beyond Rakhi with Schmitten Moments" loading="lazy">
+              <span class="blog-badge-tag">Festivals</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>📅 09 Aug, 2025</span>
+              </div>
+              <h3 class="blog-title">
+                Celebrate the Bond Beyond Rakhi with Schmitten Moments
+              </h3>
+              <p class="blog-excerpt">
+                Raksha Bandhan is a celebration that goes far beyond ritual. Discover handcrafted chocolate plaques and bespoke assortment boxes created for family joy.
+              </p>
+              <div class="blog-card-action">
+                <a href="javascript:void(0);" class="blog-read-btn" onclick="alert('Our custom Rakhi hampers brought brother and sister closer together with handcrafted chocolate plaques and dedicated message cards.');">
+                  Read Story <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div class="blog-card-img">
+              <img src="assets/img/schmitten/blog-friendship.webp" alt="Celebrate the Sweetest Friend in Your Life" loading="lazy">
+              <span class="blog-badge-tag">Friendship</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>📅 03 Aug, 2025</span>
+              </div>
+              <h3 class="blog-title">
+                Let’s Celebrate the Sweetest Friend in Your Life with Schmitten!
+              </h3>
+              <p class="blog-excerpt">
+                Life is always sweeter shared with the ones who match your vibe and always save you the last square. Explore our vibrant dual-pack celebratory pairings.
+              </p>
+              <div class="blog-card-action">
+                <a href="javascript:void(0);" class="blog-read-btn" onclick="alert('Friendship Day sparked our viral giveaway where over 10,000 duos won exclusive Hoppits and Schmitten chocolate bundles.');">
+                  Read Story <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div class="blog-card-img">
+              <img src="assets/img/schmitten/choco-blog.webp" alt="The Master Chocolatier Guide to Single-Origin Cacao" loading="lazy">
+              <span class="blog-badge-tag">Connoisseur</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>📅 18 Jan, 2026</span>
+              </div>
+              <h3 class="blog-title">
+                The Master Chocolatier’s Guide to Single-Origin Cacao & Tasting
+              </h3>
+              <p class="blog-excerpt">
+                Uncover the delicate terroir differences between Ghanaian cocoa and Madagascar citrus-floral notes, paired with 72-hour granite conching mastery.
+              </p>
+              <div class="blog-card-action">
+                <a href="javascript:void(0);" class="blog-read-btn" onclick="alert('Explore how single-origin cacao yields distinct aromatic profiles: from Ghana’s deep earthy roast to Madagascar’s red berry vibrancy, crafted without compromise.');">
+                  Read Story <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Pagination UI matching reference website -->
+        <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 3.5rem;" data-aos="fade-up">
+          <button class="filter-btn active" style="min-width: 44px;">1</button>
+          <button class="filter-btn" style="min-width: 44px;">2</button>
+          <button class="filter-btn" style="min-width: 44px;">3</button>
+          <button class="filter-btn" style="min-width: 44px;">»</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Luxury Footer & 10% OFF Newsletter Banner -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="offer-card" data-aos="fade-up">
+        <div class="offer-badge">
+          10%<span>OFF</span>
+        </div>
+        <div>
+          <h3 class="section-main-title text-yellow" style="font-size: 1.8rem; margin-bottom: 0.3rem;">Newsletter Subscription</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin: 0;">Subscribe and get 10% OFF on your first luxury chocolate order.</p>
+        </div>
+        <form class="newsletter-form" id="FooterSubscribeForm">
+          <input type="email" class="newsletter-input" placeholder="Enter Email ID" required>
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        </form>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <div style="margin-bottom: 1.25rem;">
+            <a href="index.html" class="custom-brand-logo">
+              <div class="brand-crest-box">
+                <span class="crest-icon">✦</span>
+              </div>
+              <div class="brand-text-block">
+                <span class="brand-title">SCHMITTEN</span>
+                <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+              </div>
+            </a>
+          </div>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+            Crafted with European precision and cocoa beans from Ghana and Madagascar. Delivering timeless moments of pure bliss.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="orders.html">All Chocolates</a></li>
+            <li><a href="orders.html">Schmitten Luxury Bars</a></li>
+            <li><a href="orders.html">Hoppits Energy Bars</a></li>
+            <li><a href="orders.html">Schmitten Barks</a></li>
+            <li><a href="orders.html">Gift Assortments</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home2</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Phone:</strong><br>
+              <a href="tel:+912612961100">+91 261 2961100</a>
+            </li>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Email:</strong><br>
+              <a href="mailto:relations@schmitten.co">relations@schmitten.co</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright-bar">
+        <div>© 2026 Schmitten Luxury Chocolates. All Rights Reserved.</div>
+        <div class="copyright-links">
+          <a href="about.html">Privacy Policy</a>
+          <a href="about.html">Terms & Conditions</a>
+          <a href="services.html">Delivery & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

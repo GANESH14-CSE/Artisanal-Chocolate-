@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Meridian Cacao — Handcrafted Artisanal Chocolates & Confections</title>
+  <meta name="description" content="Discover handcrafted bean-to-bar chocolates, single-origin truffles, luxury gift boxes, seasonal collections and chocolate subscriptions.">
+  <link rel="icon" href="assets/img/artisan/signature_truffles.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Toast Feedback Notification -->
+  <div id="added" role="status">
+    <span class="check-icon">✓</span>
+    <strong id="toastMessage">Added to your sweet selection.</strong>
+  </div>
+
+
+  <!-- Cart Modal Drawer -->
+  <div class="cart-modal" id="cartDrawer" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3 style="font-family:var(--meridian-serif); font-size:1.6rem; color:var(--meridian-brown);">Your Chocolate Tasting Cart</h3>
+        <button class="cart-close" id="closeCartBtn" aria-label="Close Cart">&times;</button>
+      </div>
+      <div class="cart-items-wrap" id="cartItemsContainer">
+        <!-- Populated dynamically by main.js -->
+      </div>
+      <div class="cart-footer">
+        <div style="background:#fdf6ee; padding:0.75rem 1rem; border-radius:6px; margin-bottom:1.25rem; border:1px dashed #dcbca1; font-size:0.85rem; color:#684a3b; text-align:center;">
+          Complimentary Insulated Cold-Pack Delivery On All Orders
+        </div>
+        <div class="cart-total-row">
+          <span style="font-weight:600;">Estimated Subtotal:</span>
+          <span class="cart-total-price" id="cartTotalPrice">$0.00</span>
+        </div>
+        <button class="btn btn-primary" style="width: 100%;" onclick="alert('Thank you for savoring with Meridian Cacao! Your order has been placed with cold-pack temperature protection.');">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. HEADER / NAVBAR -->
+  <header class="header" id="mainHeader">
+    <div class="main-header">
+      <!-- Brand Logo -->
+      <div class="logo">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Main Navigation Menu: Home → Home2 → About → Orders → Services → Blog -->
+      <nav aria-label="Main Navigation">
+        <ul class="main-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="home-2.html">Home2</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Icons -->
+      <div class="main-menu-right">
+        <!-- In-Place Search Bar -->
+        <div class="header-inline-search-wrap" id="headerSearchWrap">
+          <button class="nav-utility-btn" id="searchTriggerBtn" title="Search Chocolates" aria-label="Search">
+            <span style="font-size:1.15rem;">🔍</span>
+          </button>
+          <div class="header-inline-search-field" id="headerSearchField">
+            <input type="text" id="siteSearchInput" placeholder="Search chocolates, truffles..." autocomplete="off" aria-label="Search confections">
+            <button type="button" id="closeSearchBtn" class="search-inline-close" aria-label="Close search">&times;</button>
+          </div>
+          <div class="search-live-dropdown" id="searchLiveDropdown" style="display:none;"></div>
+        </div>
+
+        <!-- Wishlist Icon -->
+        <a href="#signature" class="nav-utility-btn" id="wishlistBtn" title="Your Wishlist" aria-label="Wishlist">
+          <span style="color:var(--meridian-gold-light); font-size:1.25rem;">♥</span>
+          <span class="nav-badge" id="wishlistCountBadge">0</span>
+        </a>
+
+        <!-- Cart Icon -->
+        <button class="nav-utility-btn" id="cartTriggerBtn" title="Shopping Cart" aria-label="Cart">
+          <span style="font-size:1.2rem;">🛒</span>
+          <span class="nav-badge" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- Account Icon -->
+        <button class="nav-utility-btn" onclick="alert('Meridian Connoisseur Portal: Please sign in or register to view order history and subscription deliveries.');" title="My Account" aria-label="Account">
+          <span style="font-size:1.2rem;">👤</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Open Navigation Menu">
+          <span style="font-size:1.4rem; color:var(--meridian-gold-light);">☰</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div>
+      <button class="drawer-close" id="mobileDrawerClose" aria-label="Close Navigation Menu">&times;</button>
+      <div style="margin-bottom: 2rem;">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="home-2.html">Home2</a>
+        <a href="about.html">About</a>
+        <a href="orders.html">Orders</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div style="color: rgba(255,255,255,0.7); font-size: 0.85rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.15);">
+      <p style="margin-bottom:0.25rem;">Master Chocolatier Concierge:</p>
+      <p style="color: var(--meridian-gold-light); font-weight: 600;">concierge@meridiancacao.com</p>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <!-- 2. HERO SECTION -->
+    <section class="artisan-hero" id="hero">
+      <div class="hero-inner-container" data-aos="fade-up">
+        <div class="section-eyebrow">
+          <span>✦</span> HEIRLOOM BEAN-TO-BAR CONFECTIONS <span>✦</span>
+        </div>
+        <h1 class="hero-main-heading">Crafted with Passion, Made for Moments</h1>
+        <p class="hero-description">
+          Discover handcrafted chocolates made with carefully selected cocoa and unforgettable flavors. From single-estate beans to hand-rolled truffles, each creation is a sensory celebration.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#signature" class="btn-meridian-primary">Shop Chocolates</a>
+          <a href="#flavors" class="btn-meridian-outline">Explore Collection</a>
+        </div>
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <span class="trust-icon">✦</span> Single-Estate Heirloom Cocoa
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✦</span> 72-Hour Granite Conching
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✦</span> 100% Pure Cocoa Butter
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✦</span> Regenerative Direct Trade
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SIGNATURE CHOCOLATES -->
+    <section class="signature-section" id="signature">
+      <div class="container">
+        <div style="text-align: center;" data-aos="fade-up">
+          <div class="section-eyebrow">FINE ARTISAN FLIGHTS</div>
+          <h2 class="section-hero-title">Our Signature Chocolates</h2>
+          <p class="section-subtitle">
+            Slow-crafted micro-batches shaped by hand on Vermont granite slabs. Savor the delicate harmony of pure cocoa butter, roasted inclusions, and rare terroirs.
+          </p>
+        </div>
+
+        <div class="signature-grid">
+          <!-- Product 1: Madagascar Dark Chocolate 70% -->
+          <div class="sig-card" data-aos="fade-up">
+            <div class="sig-img-box">
+              <span class="badge-cocoa">70% Cocoa</span>
+              <button class="btn-card-wishlist" data-wishlist="madagascar-dark-70" aria-label="Add to Wishlist">♥</button>
+              <img src="assets/img/artisan/signature_truffles.jpg" alt="Madagascar Dark Chocolate 70%" loading="lazy">
+            </div>
+            <div class="sig-content">
+              <h3 class="sig-title">Madagascar Dark Chocolate 70%</h3>
+              <div class="sig-flavor-tag">Wild Raspberry &amp; Citrus Honey Notes</div>
+              <p class="sig-desc">Direct-trade Criollo cocoa from the Sambirano Valley. Clean citrus snap, gentle acidity, and an extraordinarily long fruit finish.</p>
+              <div class="sig-meta-row">
+                <span class="sig-price">$12.50</span>
+                <span class="sig-rating">★★★★★ 4.9 <span style="color:#887063; font-weight:400;">(148)</span></span>
+              </div>
+              <button class="btn-sig-cart" data-add-item="madagascar-dark-70" data-name="Madagascar Dark Chocolate 70%" data-price="12.50">
+                <span>Add to Cart</span> <span>🛒</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2: Hazelnut Crunch -->
+          <div class="sig-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="sig-img-box">
+              <span class="badge-cocoa">48% Cocoa</span>
+              <button class="btn-card-wishlist" data-wishlist="hazelnut-crunch" aria-label="Add to Wishlist">♥</button>
+              <img src="assets/img/artisan/signature_truffles.jpg" alt="Hazelnut Crunch Praline" loading="lazy">
+            </div>
+            <div class="sig-content">
+              <h3 class="sig-title">Hazelnut Crunch Praline</h3>
+              <div class="sig-flavor-tag">Piedmont Hazelnuts &amp; Golden Wafers</div>
+              <p class="sig-desc">Slow-roasted Langhe hazelnuts ground into silky caramelized praline, folded with crushed golden feuilletine flakes.</p>
+              <div class="sig-meta-row">
+                <span class="sig-price">$11.00</span>
+                <span class="sig-rating">★★★★★ 4.8 <span style="color:#887063; font-weight:400;">(112)</span></span>
+              </div>
+              <button class="btn-sig-cart" data-add-item="hazelnut-crunch" data-name="Hazelnut Crunch Praline" data-price="11.00">
+                <span>Add to Cart</span> <span>🛒</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3: Sea Salt Caramel -->
+          <div class="sig-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="sig-img-box">
+              <span class="badge-cocoa">65% Cocoa</span>
+              <button class="btn-card-wishlist" data-wishlist="sea-salt-caramel" aria-label="Add to Wishlist">♥</button>
+              <img src="assets/img/artisan/signature_truffles.jpg" alt="Sea Salt Caramel Dome" loading="lazy">
+            </div>
+            <div class="sig-content">
+              <h3 class="sig-title">Sea Salt Caramel</h3>
+              <div class="sig-flavor-tag">Liquid Fleur de Sel in Velvet Shell</div>
+              <p class="sig-desc">Slow-simmered browned butter caramel with French Guérande sea salt crystals, encased inside a thin 65% dark chocolate dome.</p>
+              <div class="sig-meta-row">
+                <span class="sig-price">$13.50</span>
+                <span class="sig-rating">★★★★★ 5.0 <span style="color:#887063; font-weight:400;">(236)</span></span>
+              </div>
+              <button class="btn-sig-cart" data-add-item="sea-salt-caramel" data-name="Sea Salt Caramel Dome" data-price="13.50">
+                <span>Add to Cart</span> <span>🛒</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4: Pistachio Delight -->
+          <div class="sig-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="sig-img-box">
+              <span class="badge-cocoa">38% Cocoa</span>
+              <button class="btn-card-wishlist" data-wishlist="pistachio-delight" aria-label="Add to Wishlist">♥</button>
+              <img src="assets/img/artisan/signature_truffles.jpg" alt="Pistachio Delight Bonbon" loading="lazy">
+            </div>
+            <div class="sig-content">
+              <h3 class="sig-title">Pistachio Delight</h3>
+              <div class="sig-flavor-tag">Bronte Pistachio &amp; White Ganache</div>
+              <p class="sig-desc">Rare Sicilian emerald pistachios stone-ground with Bourbon vanilla and alpine cream, enclosed in an artisan-painted shell.</p>
+              <div class="sig-meta-row">
+                <span class="sig-price">$14.00</span>
+                <span class="sig-rating">★★★★★ 4.9 <span style="color:#887063; font-weight:400;">(94)</span></span>
+              </div>
+              <button class="btn-sig-cart" data-add-item="pistachio-delight" data-name="Pistachio Delight Bonbon" data-price="14.00">
+                <span>Add to Cart</span> <span>🛒</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 5: Classic Milk Chocolate -->
+          <div class="sig-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="sig-img-box">
+              <span class="badge-cocoa">42% Cocoa</span>
+              <button class="btn-card-wishlist" data-wishlist="classic-milk" aria-label="Add to Wishlist">♥</button>
+              <img src="assets/img/artisan/signature_truffles.jpg" alt="Classic Milk Chocolate 42%" loading="lazy">
+            </div>
+            <div class="sig-content">
+              <h3 class="sig-title">Classic Milk Chocolate</h3>
+              <div class="sig-flavor-tag">Alpine Cream &amp; Warm Toasted Toffee</div>
+              <p class="sig-desc">Finely balanced Venezuelan Criollo nibs with grass-fed meadow cream and natural cane sugar. Rich, nostalgic, and extraordinarily smooth.</p>
+              <div class="sig-meta-row">
+                <span class="sig-price">$10.50</span>
+                <span class="sig-rating">★★★★★ 4.8 <span style="color:#887063; font-weight:400;">(165)</span></span>
+              </div>
+              <button class="btn-sig-cart" data-add-item="classic-milk" data-name="Classic Milk Chocolate 42%" data-price="10.50">
+                <span>Add to Cart</span> <span>🛒</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. EXPLORE BY FLAVOR -->
+    <section class="flavor-section" id="flavors">
+      <div class="container">
+        <div style="text-align: center;" data-aos="fade-up">
+          <div class="section-eyebrow">CURATED TASTING PALETTES</div>
+          <h2 class="section-hero-title">Explore by Flavor</h2>
+          <p class="section-subtitle">
+            Every chocolate bar and hand-dipped truffle in our cellar expresses a distinct aromatic profile, curated to transport your palate.
+          </p>
+        </div>
+
+        <div class="flavor-grid">
+          <!-- Card 1: Dark & Rich -->
+          <div class="flavor-card" data-aos="fade-up">
+            <div>
+              <span class="flavor-badge">Single Estate</span>
+              <h3 class="flavor-card-title">Dark &amp; Rich</h3>
+              <p class="flavor-card-desc">Profound single-origin harvests ranging from 70% to 85% cocoa. Unfiltered notes of toasted oak, tobacco leaf, and bittersweet cherry.</p>
+            </div>
+            <a href="#signature" class="flavor-action-link">Discover Dark Flights <span>→</span></a>
+          </div>
+
+          <!-- Card 2: Nutty & Crunchy -->
+          <div class="flavor-card" data-aos="fade-up" data-aos-delay="100">
+            <div>
+              <span class="flavor-badge">Artisan Roasted</span>
+              <h3 class="flavor-card-title">Nutty &amp; Crunchy</h3>
+              <p class="flavor-card-desc">Heirloom Piedmont hazelnuts, Spanish Marcona almonds, and roasted pecans caramelized in copper pans and folded into velvety ganache.</p>
+            </div>
+            <a href="#signature" class="flavor-action-link">Explore Nut Collections <span>→</span></a>
+          </div>
+
+          <!-- Card 3: Fruity & Fresh -->
+          <div class="flavor-card" data-aos="fade-up" data-aos-delay="200">
+            <div>
+              <span class="flavor-badge">Real Botanicals</span>
+              <h3 class="flavor-card-title">Fruity &amp; Fresh</h3>
+              <p class="flavor-card-desc">Crisp freeze-dried mountain raspberries, tangy passion fruit curd, and sun-drenched Mediterranean orange zest infusions.</p>
+            </div>
+            <a href="#signature" class="flavor-action-link">Taste Fresh Infusions <span>→</span></a>
+          </div>
+
+          <!-- Card 4: Caramel & Sweet -->
+          <div class="flavor-card" data-aos="fade-up" data-aos-delay="300">
+            <div>
+              <span class="flavor-badge">Fleur de Sel</span>
+              <h3 class="flavor-card-title">Caramel &amp; Sweet</h3>
+              <p class="flavor-card-desc">Golden browned butter caramels, dark smoked toffees, and dulce de leche truffles sprinkled with hand-harvested Atlantic sea salt.</p>
+            </div>
+            <a href="#signature" class="flavor-action-link">View Caramel Selections <span>→</span></a>
+          </div>
+
+          <!-- Card 5: Coffee Inspired -->
+          <div class="flavor-card" data-aos="fade-up" data-aos-delay="400">
+            <div>
+              <span class="flavor-badge">Single Origin Arabica</span>
+              <h3 class="flavor-card-title">Coffee Inspired</h3>
+              <p class="flavor-card-desc">Micro-batch cold-brew ganache made from Ethiopian Yirgacheffe beans, finished with roasted mocha nib crumbles.</p>
+            </div>
+            <a href="#signature" class="flavor-action-link">Explore Coffee Truffles <span>→</span></a>
+          </div>
+
+          <!-- Card 6: Exotic Flavors -->
+          <div class="flavor-card" data-aos="fade-up" data-aos-delay="500">
+            <div>
+              <span class="flavor-badge">Chocolatier Reserve</span>
+              <h3 class="flavor-card-title">Exotic Flavors</h3>
+              <p class="flavor-card-desc">Wild Kashmiri saffron, Japanese Uji matcha, green cardamom pods, and pink peppercorns creating unexpected culinary symphonies.</p>
+            </div>
+            <a href="#signature" class="flavor-action-link">Taste Reserve Pairings <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WHY OUR CHOCOLATE -->
+    <section class="why-chocolate-section">
+      <div class="container">
+        <div style="text-align: center;" data-aos="fade-up">
+          <div class="section-eyebrow">THE MERIDIAN STANDARD</div>
+          <h2 class="section-hero-title">Why Our Chocolate</h2>
+          <p class="section-subtitle">
+            In an era of industrial shortcuts, we honor the ancient, patient art of fine confectionery with uncompromised ethics and purity.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <!-- Feature 1 -->
+          <div class="why-block" data-aos="fade-up">
+            <div class="why-icon-wrap">🌱</div>
+            <h3 class="why-heading">Premium Cocoa</h3>
+            <p class="why-text">
+              Sourced exclusively from single-estate heirloom Criollo and Trinitario varieties, paying above Fair-Trade premiums directly to regenerative cacao growers.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="why-block" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-icon-wrap">✨</div>
+            <h3 class="why-heading">Handcrafted</h3>
+            <p class="why-text">
+              Slowly stone-ground in small 50kg melangers and hand-tempered on chilled marble slabs to preserve volatile botanical terroirs and create a crisp snap.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="why-block" data-aos="fade-up" data-aos-delay="200">
+            <div class="why-icon-wrap">🍯</div>
+            <h3 class="why-heading">Rich Flavors</h3>
+            <p class="why-text">
+              Crafted with 100% pure cocoa butter, unrefined sugars, and organic fruit and spice extracts. Never diluted with palm oil, soy lecithin, or artificial flavors.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="why-block" data-aos="fade-up" data-aos-delay="300">
+            <div class="why-icon-wrap">🎁</div>
+            <h3 class="why-heading">Made for Moments</h3>
+            <p class="why-text">
+              Presented in bespoke, FSC-certified presentation boxes tied with copper satin ribbon. Curated for mindful slow tasting, celebratory sharing, and thoughtful gifting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. GIFT COLLECTION -->
+    <section class="gift-split-section" id="gift-boxes">
+      <div class="container">
+        <div class="gift-split-grid">
+          <div class="gift-img-frame" data-aos="fade-right">
+            <img src="assets/img/artisan/luxury_gift_box.jpg" alt="Luxury Chocolate Gift Box" loading="lazy">
+            <div class="gift-badge-overlay">
+              <div class="gift-badge-title">Bespoke Keepsake Box</div>
+              <div class="gift-badge-subtitle">Hand-tied copper ribbon &amp; wax seal</div>
+            </div>
+          </div>
+
+          <div class="gift-content-wrap" data-aos="fade-left">
+            <div class="section-eyebrow">LUXURY PRESENTATIONS</div>
+            <h2 class="section-hero-title">Make Every Moment Sweeter</h2>
+            <p style="font-size:1.05rem; color:#5c473b; line-height:1.75; margin-bottom:1.5rem;">
+              Thoughtfully crafted chocolate boxes for birthdays, anniversaries, celebrations and special moments. An unforgettable tactile and sensory gesture that lingers long after the final bite.
+            </p>
+            <ul class="gift-feature-list">
+              <li class="gift-feature-item">
+                <span class="gift-feature-icon">✦</span>
+                <span><strong>Curated Assortments:</strong> Hand-selected dark truffles, sea salt caramels, and fruit bonbons.</span>
+              </li>
+              <li class="gift-feature-item">
+                <span class="gift-feature-icon">✦</span>
+                <span><strong>Rigid Drawer Packaging:</strong> Foil-stamped botanical packaging designed to be cherished as keepsakes.</span>
+              </li>
+              <li class="gift-feature-item">
+                <span class="gift-feature-icon">✦</span>
+                <span><strong>Personalized Calligraphy:</strong> Handwritten luxury greeting card included with your custom heartfelt message.</span>
+              </li>
+              <li class="gift-feature-item">
+                <span class="gift-feature-icon">✦</span>
+                <span><strong>Cold-Pack Temperature Control:</strong> Delivered in thermal protective eco-packaging guaranteed to arrive in pristine condition.</span>
+              </li>
+            </ul>
+            <div>
+              <a href="#custom-box" class="btn-meridian-primary">Explore Gift Collection</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CREATE YOUR OWN CHOCOLATE BOX -->
+    <section class="box-builder-section" id="custom-box">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow" style="color:var(--meridian-gold-light);">CUSTOM CONFECTIONERY ATELIER</div>
+          <h2 class="section-hero-title light">Your Chocolates. Your Way.</h2>
+          <p class="section-subtitle light">
+            Design a custom gift box tailored to your exact palate. Choose your preferred box size, select your favorite bonbon varieties, pick elegant packaging, and pen a personal message.
+          </p>
+        </div>
+
+        <div class="builder-layout-grid">
+          <!-- Left: Live Preview Box -->
+          <div class="builder-preview-panel" data-aos="fade-right">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+              <span style="font-family:var(--meridian-serif); font-size:1.3rem; color:var(--meridian-gold-light);">Box Preview</span>
+              <span style="font-size:0.85rem; background:rgba(197,155,99,0.25); border:1px solid var(--meridian-gold); padding:0.2rem 0.6rem; border-radius:4px;" id="boxCapacityLabel">16 Pieces Selected</span>
+            </div>
+
+            <div class="builder-box-visual" id="boxVisualContainer">
+              <div class="box-selected-tray">
+                <div class="tray-cell">70%</div>
+                <div class="tray-cell">Caramel</div>
+                <div class="tray-cell">Hazelnut</div>
+                <div class="tray-cell">Pistachio</div>
+                <div class="tray-cell">Truffle</div>
+                <div class="tray-cell">Espresso</div>
+                <div class="tray-cell">Berry</div>
+                <div class="tray-cell">70%</div>
+                <div class="tray-cell">Caramel</div>
+                <div class="tray-cell">Gold</div>
+                <div class="tray-cell">Hazelnut</div>
+                <div class="tray-cell">Matcha</div>
+                <div class="tray-cell">Pistachio</div>
+                <div class="tray-cell">Truffle</div>
+                <div class="tray-cell">Berry</div>
+                <div class="tray-cell">Fleur</div>
+              </div>
+              <div style="font-size:0.92rem; color:rgba(255,255,255,0.85);">
+                <strong id="boxPackagingName" style="color:var(--meridian-gold-light);">Midnight Velvet Box</strong> • 16-Piece Tasting Flight
+              </div>
+            </div>
+
+            <div style="background:rgba(20,7,4,0.4); padding:1.25rem; border-radius:6px; border:1px solid rgba(255,255,255,0.1);">
+              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--meridian-gold-light); margin-bottom:0.35rem;">Personalized Card Preview</div>
+              <div id="messagePreviewText" style="font-family:var(--meridian-serif); font-style:italic; font-size:1.05rem; color:#fff5e8;">
+                "Wishing you timeless sweetness and unforgettable moments."
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Controls -->
+          <div class="builder-controls-panel" data-aos="fade-left">
+            <!-- Step 1: Size -->
+            <div class="builder-step-block">
+              <div class="builder-step-label">Step 1: Choose Quantities</div>
+              <div class="pill-selector-group" id="sizeSelectorGroup">
+                <button class="builder-pill" data-size="8" data-price="24.00">8 Pieces ($24)</button>
+                <button class="builder-pill active" data-size="16" data-price="44.00">16 Pieces ($44)</button>
+                <button class="builder-pill" data-size="32" data-price="78.00">32 Pieces ($78)</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Packaging -->
+            <div class="builder-step-block">
+              <div class="builder-step-label">Step 2: Select Packaging Style</div>
+              <div class="pill-selector-group" id="packSelectorGroup">
+                <button class="builder-pill active" data-pack="Midnight Velvet">Midnight Velvet</button>
+                <button class="builder-pill" data-pack="Terracotta Silk">Terracotta Silk</button>
+                <button class="builder-pill" data-pack="Champagne Gold">Champagne Gold</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Select Chocolates -->
+            <div class="builder-step-block">
+              <div class="builder-step-label">Step 3: Preferred Chocolate Selection</div>
+              <div class="pill-selector-group" id="varietySelectorGroup">
+                <button class="builder-pill active" data-variety="Chef Curated Harmony">Chef Curated</button>
+                <button class="builder-pill" data-variety="Pure Dark Flight">Pure Dark Flight</button>
+                <button class="builder-pill" data-variety="Caramel & Nut Reverie">Caramel &amp; Nuts</button>
+                <button class="builder-pill" data-variety="Exotic Reserve">Exotic Reserve</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Personalized Message -->
+            <div class="builder-step-block">
+              <div class="builder-step-label">Step 4: Personalized Message</div>
+              <textarea class="builder-msg-textarea" id="builderMessageInput" placeholder="Type your personalized gift note here (up to 180 characters)...">Wishing you timeless sweetness and unforgettable moments.</textarea>
+            </div>
+
+            <!-- Summary Bar -->
+            <div class="builder-summary-row">
+              <div>
+                <span style="font-size:0.85rem; color:rgba(255,255,255,0.7); display:block;">Custom Box Total:</span>
+                <span style="font-family:var(--meridian-sans); font-size:2rem; font-weight:700; color:var(--meridian-gold-light);" id="customBoxPriceLabel">$44.00</span>
+              </div>
+              <button class="btn-meridian-primary" id="btnBuildBoxCart">
+                Build Your Box
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FLAVOR PAIRING GUIDE -->
+    <section class="pairing-section" id="pairing">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">CULINARY ALCHEMY</div>
+          <h2 class="section-hero-title">Discover the Perfect Pairing</h2>
+          <p class="section-subtitle">
+            Unlock new dimensions of pleasure when fine cacao meets complimentary fruit, coffee, and mineral pairings curated by our master sommelier.
+          </p>
+        </div>
+
+        <div class="pairing-grid">
+          <!-- Pairing 1 -->
+          <div class="pairing-card" data-aos="fade-up">
+            <div class="pairing-tag">Morning Awakening</div>
+            <h3 class="pairing-formula">Dark Chocolate × Espresso</h3>
+            <p class="pairing-desc">
+              An intense 72% Madagascar dark bar brings deep floral and raspberry acidity that slices through the creamy, roasted hazelnut crema of single-origin Arabica espresso.
+            </p>
+          </div>
+
+          <!-- Pairing 2 -->
+          <div class="pairing-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="pairing-tag">Summer Reverie</div>
+            <h3 class="pairing-formula">Milk Chocolate × Strawberries</h3>
+            <p class="pairing-desc">
+              Luscious Alpine meadow creaminess in our 42% milk chocolate wraps softly around the bright, juicy tartness of sun-ripened wild garden strawberries.
+            </p>
+          </div>
+
+          <!-- Pairing 3 -->
+          <div class="pairing-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="pairing-tag">Afternoon Indulgence</div>
+            <h3 class="pairing-formula">Hazelnut Chocolate × Cappuccino</h3>
+            <p class="pairing-desc">
+              Piedmont Langhe hazelnut praline melts synchronously with velvety steamed micro-foam, releasing intoxicating roasted nutty notes that elevate midday coffee breaks.
+            </p>
+          </div>
+
+          <!-- Pairing 4 -->
+          <div class="pairing-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="pairing-tag">Evening Connoisseur</div>
+            <h3 class="pairing-formula">Caramel Chocolate × Sea Salt</h3>
+            <p class="pairing-desc">
+              Brown butter toffee richness reaches unprecedented gastronomic balance when kissed by crunchy Guérande mineral salt crystals and a neat pour of smoky Islay whiskey.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:3.5rem;" data-aos="fade-up">
+          <a href="#custom-box" class="btn-meridian-primary">Explore Pairing Guide</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FROM BEAN TO BAR -->
+    <section class="bean-to-bar-section" id="craft">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">THE ARTISAN JOURNEY</div>
+          <h2 class="section-hero-title">From Bean to Bar</h2>
+          <p class="section-subtitle">
+            True artisanal chocolate requires respect for agriculture, chemistry, and time. Discover the 5-step metamorphosis from raw cocoa fruit to handcrafted confections.
+          </p>
+        </div>
+
+        <div class="process-steps-row">
+          <!-- Step 1 -->
+          <div class="step-box" data-aos="fade-up">
+            <div class="step-num-circle">01</div>
+            <h3 class="step-name">Cocoa Beans</h3>
+            <p class="step-detail">Heirloom Criollo pods harvested by hand, fermented in wooden cedar boxes, and sun-dried in ocean breezes.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-num-circle">02</div>
+            <h3 class="step-name">Roasting</h3>
+            <p class="step-detail">Gentle low-temperature convection roasting that unlocks delicate terroir aromatics without scorching volatile oils.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-num-circle">03</div>
+            <h3 class="step-name">Grinding</h3>
+            <p class="step-detail">Continuous 72-hour granite stone melange refining, reducing cocoa mass particles to microscopic silky smoothness.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-num-circle">04</div>
+            <h3 class="step-name">Tempering</h3>
+            <p class="step-detail">Master chocolatiers hand-temper the molten mass on chilled Vermont marble, locking in crystalline shine and snap.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="step-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-num-circle">05</div>
+            <h3 class="step-name">Handcrafted Chocolate</h3>
+            <p class="step-detail">Individual truffles hand-dipped, gold-leaf dusted, and packaged in protective botanical foil for connoisseurs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. SEASONAL COLLECTION -->
+    <section class="seasonal-section" id="seasonal">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow" style="color:var(--meridian-gold-light);">LIMITED TIME CONFECTIONS</div>
+          <h2 class="section-hero-title light">A Taste of the Season</h2>
+          <p class="section-subtitle light">
+            Special culinary releases inspired by nature's calendar, holiday traditions, and fleeting agricultural harvests.
+          </p>
+        </div>
+
+        <div class="seasonal-grid">
+          <!-- Collection 1 -->
+          <div class="seasonal-card" data-aos="fade-up">
+            <div class="seasonal-label">February Release</div>
+            <h3 class="seasonal-card-title">Valentine's Collection</h3>
+            <p class="seasonal-card-desc">Ruby cocoa hearts filled with French champagne ganache, wild mountain rose water, and raspberry caramel pearls.</p>
+          </div>
+
+          <!-- Collection 2 -->
+          <div class="seasonal-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="seasonal-label">Autumn Festival</div>
+            <h3 class="seasonal-card-title">Diwali Collection</h3>
+            <p class="seasonal-card-desc">Gilded dark chocolate squares infused with Kashmiri saffron, hand-ground pistachio mawa, and crushed golden almonds.</p>
+          </div>
+
+          <!-- Collection 3 -->
+          <div class="seasonal-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="seasonal-label">Winter Holiday</div>
+            <h3 class="seasonal-card-title">Christmas Collection</h3>
+            <p class="seasonal-card-desc">Festive spiced gingerbread caramel, roasted mountain chestnut pralines, and candied winter clementine peel.</p>
+          </div>
+
+          <!-- Collection 4 -->
+          <div class="seasonal-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="seasonal-label">Single Tree Vintage</div>
+            <h3 class="seasonal-card-title">Limited Edition Collection</h3>
+            <p class="seasonal-card-desc">Micro-harvest bars aged inside charred American bourbon casks for 90 days before final stone-conching.</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:3.5rem;" data-aos="fade-up">
+          <a href="#custom-box" class="btn-meridian-primary">Explore Seasonal Collection</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CHOCOLATE SUBSCRIPTION -->
+    <section class="subscription-section" id="subscription">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">CONNOISSEUR CLUB</div>
+          <h2 class="section-hero-title">Chocolate, Every Month</h2>
+          <p class="section-subtitle">
+            Receive freshly tempered origin bars, seasonal truffles, and sommelier tasting guides delivered to your doorstep in thermal cold-packs each month.
+          </p>
+        </div>
+
+        <div class="sub-cards-grid">
+          <!-- Tier 1: Classic -->
+          <div class="sub-plan-card" data-aos="fade-up">
+            <h3 class="sub-plan-title">Classic</h3>
+            <p style="text-align:center; color:#785c4f; font-size:0.88rem;">The perfect casual tasting journey</p>
+            <div class="sub-plan-price">$28 <span>/ month</span></div>
+            <ul class="sub-feature-list">
+              <li class="sub-feature-item">2 Single-Origin Artisan Chocolate Bars</li>
+              <li class="sub-feature-item">4 Handcrafted Seasonal Fresh Truffles</li>
+              <li class="sub-feature-item">Printed Terroir Map &amp; Tasting Notes</li>
+              <li class="sub-feature-item">Free Temperature-Controlled Cold Shipping</li>
+            </ul>
+            <button class="btn-meridian-primary" onclick="alert('Thank you! You selected the Classic Discovery Subscription ($28/mo).');">Explore Subscription</button>
+          </div>
+
+          <!-- Tier 2: Premium (Featured) -->
+          <div class="sub-plan-card featured" data-aos="fade-up" data-aos-delay="100">
+            <span class="sub-badge-pill">Most Loved</span>
+            <h3 class="sub-plan-title">Premium</h3>
+            <p style="text-align:center; color:#785c4f; font-size:0.88rem;">Our flagship connoisseur experience</p>
+            <div class="sub-plan-price">$48 <span>/ month</span></div>
+            <ul class="sub-feature-list">
+              <li class="sub-feature-item">4 Single-Estate Rare Origin Bars</li>
+              <li class="sub-feature-item">8 Hand-Painted Signature Bonbons</li>
+              <li class="sub-feature-item">Sommelier Beverage &amp; Wine Pairing Card</li>
+              <li class="sub-feature-item">15% Off All Online Store Purchases</li>
+              <li class="sub-feature-item">Complimentary Priority Express Shipping</li>
+            </ul>
+            <button class="btn-meridian-primary" onclick="alert('Thank you! You selected the Premium Connoisseur Club ($48/mo).');">Explore Subscription</button>
+          </div>
+
+          <!-- Tier 3: Luxury -->
+          <div class="sub-plan-card" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="sub-plan-title">Luxury</h3>
+            <p style="text-align:center; color:#785c4f; font-size:0.88rem;">Master Chocolatier private reserve</p>
+            <div class="sub-plan-price">$78 <span>/ month</span></div>
+            <ul class="sub-feature-list">
+              <li class="sub-feature-item">16 Master Reserve Truffles &amp; Caramels</li>
+              <li class="sub-feature-item">4 Limited Cask-Aged Harvest Bars</li>
+              <li class="sub-feature-item">Exclusive Advance Access to Seasonal Releases</li>
+              <li class="sub-feature-item">Invitation to Bi-Annual Virtual Masterclass</li>
+              <li class="sub-feature-item">Personalized Wax-Sealed Tasting Portfolio</li>
+            </ul>
+            <button class="btn-meridian-primary" onclick="alert('Thank you! You selected the Luxury Master Reserve Subscription ($78/mo).');">Explore Subscription</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. CUSTOMER REVIEWS -->
+    <section class="reviews-section">
+      <div class="container">
+        <div style="text-align:center;" data-aos="fade-up">
+          <div class="section-eyebrow">VOICES OF CONNOISSEURS</div>
+          <h2 class="section-hero-title">Loved by Chocolate Lovers</h2>
+          <p class="section-subtitle">
+            Read what master pastry chefs, culinary critics, and discerning chocolate lovers say about Meridian Cacao creations.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <div class="review-card" data-aos="fade-up">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "The Madagascar 70% is hands down the most nuanced chocolate I've ever tasted. The bright wild raspberry notes and velvety melt on the tongue are simply astonishing."
+            </p>
+            <div class="review-author-wrap">
+              <div>
+                <div class="review-author-name">Eleanor Vance</div>
+                <div class="review-author-role">Pastry Chef &amp; Food Stylist, Paris</div>
+              </div>
+              <span style="color:var(--meridian-gold); font-size:0.8rem; font-weight:700;">Verified</span>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "Ordered the 16-piece bespoke gift box for our anniversary. The rigid presentation, copper silk ribbon, wax seal, and fleur de sel caramel was unmatched in luxury."
+            </p>
+            <div class="review-author-wrap">
+              <div>
+                <div class="review-author-name">Marcus Sterling</div>
+                <div class="review-author-role">Private Connoisseur, London</div>
+              </div>
+              <span style="color:var(--meridian-gold); font-size:0.8rem; font-weight:700;">Verified</span>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "Their monthly chocolate subscription has spoiled all other commercial chocolate for me. Every single month feels like an intimate culinary journey through rare cocoa terroirs."
+            </p>
+            <div class="review-author-wrap">
+              <div>
+                <div class="review-author-name">Dr. Sophia Chen</div>
+                <div class="review-author-role">Culinary Critic &amp; Author, New York</div>
+              </div>
+              <span style="color:var(--meridian-gold); font-size:0.8rem; font-weight:700;">Verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. NEWSLETTER -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-box" data-aos="fade-up">
+          <div class="section-eyebrow" style="color:var(--meridian-gold-light);">STAY INFORMED</div>
+          <h2 class="section-hero-title light">Stay in the Sweetest Loop</h2>
+          <p style="color:rgba(255,255,255,0.8); font-size:1rem; line-height:1.7;">
+            Subscribe to receive private announcements for rare single-harvest releases, seasonal collection launches, exclusive subscriber gifts, and inspiring chocolate stories.
+          </p>
+
+          <form id="newsletterForm" class="newsletter-form-row">
+            <input type="email" class="newsletter-input-field" placeholder="Enter your email address" required id="newsletterEmail">
+            <button type="submit" class="btn-meridian-primary">Subscribe</button>
+          </form>
+          <div style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:0.75rem;">
+            We respect your inbox. Unsubscribe at any time with a single click.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 15. FOOTER -->
+  <footer class="global-luxury-footer" style="background:var(--meridian-dark); color:#ffffff; padding:5.5rem 0 2.5rem; border-top:1px solid rgba(197,155,99,0.25);">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:3.5rem; margin-bottom:4rem;">
+        <!-- Col 1: Brand Info -->
+        <div>
+          <div style="margin-bottom:1.25rem;">
+            <a href="index.html" class="custom-brand-logo">
+              <div class="brand-crest-box">
+                <span class="crest-icon">✦</span>
+              </div>
+              <div class="brand-text-block">
+                <span class="brand-title">SCHMITTEN</span>
+                <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+              </div>
+            </a>
+          </div>
+          <p style="color:rgba(255,255,255,0.7); font-size:0.92rem; line-height:1.7; margin-bottom:1.75rem; max-width:320px;">
+            Crafted with passion, made for moments. Bean-to-bar single-origin chocolates, hand-rolled fresh truffles, and luxury keepsake gift boxes.
+          </p>
+          <!-- Social Icons -->
+          <div style="display:flex; gap:0.75rem;">
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">IG</a>
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">PT</a>
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">FB</a>
+            <a href="#" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(197,155,99,0.3); display:flex; align-items:center; justify-content:center; color:var(--meridian-gold-light); text-decoration:none;">YT</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Confections -->
+        <div>
+          <h4 style="font-family:var(--meridian-serif); font-size:1.25rem; color:var(--meridian-gold-light); margin-bottom:1.25rem;">Confections</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem;">
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">All Chocolates</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Schmitten Luxury Bars</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Hoppits Energy Bars</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Schmitten Barks</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Gift Assortments</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Pages in exact order -->
+        <div>
+          <h4 style="font-family:var(--meridian-serif); font-size:1.25rem; color:var(--meridian-gold-light); margin-bottom:1.25rem;">Pages</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem;">
+            <li><a href="index.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Home</a></li>
+            <li><a href="home-2.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Home2</a></li>
+            <li><a href="about.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">About</a></li>
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Orders</a></li>
+            <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Services</a></li>
+            <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Care & Atelier -->
+        <div>
+          <h4 style="font-family:var(--meridian-serif); font-size:1.25rem; color:var(--meridian-gold-light); margin-bottom:1.25rem;">Customer Care</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem;">
+            <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Order Tracking</a></li>
+            <li><a href="about.html#values" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Cold-Pack Guarantee</a></li>
+            <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Corporate Gifting</a></li>
+            <li><a href="about.html#craft" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Bean to Bar Craft</a></li>
+            <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">News &amp; Media</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.12); flex-wrap:wrap; gap:1rem; font-size:0.85rem; color:rgba(255,255,255,0.6);">
+        <div>&copy; 2026 Schmitten Artisanal Chocolatier. All Rights Reserved.</div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="about.html" style="color:rgba(255,255,255,0.6); text-decoration:none;">Privacy Policy</a>
+          <a href="about.html" style="color:rgba(255,255,255,0.6); text-decoration:none;">Terms &amp; Conditions</a>
+          <a href="about.html#values" style="color:rgba(255,255,255,0.6); text-decoration:none;">Ethical Sourcing Statement</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

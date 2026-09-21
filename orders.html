@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Collections / Corporate Gifting — Schmitten Luxury Chocolates</title>
+  <meta name="description" content="Explore Schmitten Luxury Chocolates collections, corporate gifting selections, dark and milk chocolates, and custom hampers.">
+  <link rel="icon" href="assets/img/schmitten/logo.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="added" role="status">
+    <span class="check-icon">✓</span>
+    <strong>Item added to your selection.</strong>
+  </div>
+
+  <!-- Main Header Navigation with Bespoke Brand Mark -->
+  <header class="header">
+    <div class="main-header">
+      <div class="logo">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation in exact specified order: Home → Home2 → About → Orders → Services → Blog -->
+      <nav aria-label="Main Navigation">
+        <ul class="main-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home-2.html">Home2</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="orders.html" class="active">Orders</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right Utilities -->
+      <div class="main-menu-right">
+        <a href="orders.html" class="header-action-link" title="Sweetlist">
+          <div class="header-icon-wrap">
+            <span style="font-size: 1.2rem; color: var(--gold);">♥</span>
+            <span class="sweetlist-count">0</span>
+          </div>
+        </a>
+
+        <a href="javascript:void(0);" class="header-action-link open-cart-btn" id="menu-cart" title="Cart">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/cart.png" alt="Cart">
+            <span class="cart-count">0</span>
+          </div>
+        </a>
+
+        <a href="services.html#tour" class="header-action-link" title="Store Locator">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/location.png" alt="Store Locator">
+          </div>
+        </a>
+
+        <button class="mobile-toggle" aria-label="Open Navigation Menu">
+          <img src="assets/img/schmitten/menu.png" alt="Menu">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <button class="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+      <div style="margin-bottom: 2rem;">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="home-2.html">Home2</a>
+        <a href="about.html">About</a>
+        <a href="orders.html" class="active">Orders</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">
+      <p>Need assistance?</p>
+      <p style="color: var(--gold); font-weight: 600;">relations@schmitten.co</p>
+    </div>
+  </aside>
+
+  <!-- Cart Modal Drawer -->
+  <div class="cart-modal" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3>Your Sweet Selection</h3>
+        <button class="cart-close" aria-label="Close Cart">&times;</button>
+      </div>
+      <div class="cart-items-wrap">
+        <!-- Rendered by main.js -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Total:</span>
+          <span class="cart-total-price">Rs. 0</span>
+        </div>
+        <button class="btn btn-primary" style="width: 100%;" onclick="alert('Thank you for placing your order with Schmitten! Your order has been placed successfully.');">Complete Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- Collections / Corporate Gifting Section matching user screenshot -->
+    <section class="collections-page-section">
+      <div class="container">
+        <!-- Title and Top Action Bar matching user screenshot -->
+        <div class="collections-title-bar">
+          <h1 class="collections-main-title">Collections / Corporate Gifting</h1>
+          <div class="collections-bar-right">
+            <!-- Hide / Show Filter Button -->
+            <button class="btn-hide-filter" id="btnToggleFilter" type="button" aria-label="Toggle Filter Visibility">
+              <span id="hideFilterText">Hide Filter</span>
+              <span id="hideFilterIcon" style="font-size: 1.1rem; line-height: 1;">☰</span>
+            </button>
+
+            <!-- Sort By Dropdown -->
+            <div class="sort-dropdown-wrap" id="sortDropdownWrap">
+              <button class="btn-sort-trigger" id="btnSortTrigger" type="button" aria-haspopup="true" aria-expanded="false">
+                <span id="currentSortLabel">Sort By</span>
+                <span style="font-size: 0.75rem; margin-left: 2px;">▼</span>
+              </button>
+              <ul class="sort-dropdown-menu" id="sortDropdownMenu">
+                <li><a href="javascript:void(0);" data-sort="phl">Price High to Low</a></li>
+                <li><a href="javascript:void(0);" data-sort="plh">Price Low to High</a></li>
+                <li><a href="javascript:void(0);" data-sort="az">A to Z</a></li>
+                <li><a href="javascript:void(0);" data-sort="za">Z to A</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Quick-Pills Visual Navigation -->
+        <div class="category-quick-pills" id="categoryQuickPills">
+          <div class="category-pill-item active" data-cat-pill="all">
+            <img src="assets/img/schmitten/prod-creamy-milk.webp" alt="All Collections">
+            <span>All Collections</span>
+          </div>
+          <div class="category-pill-item" data-cat-pill="schmitten-luxury">
+            <img src="assets/img/schmitten/prod-intense-dark.webp" alt="Schmitten Bars">
+            <span>Schmitten Bars</span>
+          </div>
+          <div class="category-pill-item" data-cat-pill="hoppits-chocolates">
+            <img src="assets/img/schmitten/prod-cookie-crush.webp" alt="Hoppits Bars">
+            <span>Hoppits Nougat</span>
+          </div>
+          <div class="category-pill-item" data-cat-pill="gift-collection">
+            <img src="assets/img/schmitten/gift-collection.webp" alt="Gift Hampers">
+            <span>Gift Hampers</span>
+          </div>
+          <div class="category-pill-item" data-cat-pill="schmitten-barks">
+            <img src="assets/img/schmitten/combo-collection.webp" alt="Combos">
+            <span>Celebration Combos</span>
+          </div>
+          <div class="category-pill-item" data-cat-pill="schmitten-spreads">
+            <img src="assets/img/schmitten/choco-recipe.webp" alt="Spreads">
+            <span>Hazelnut Spreads</span>
+          </div>
+        </div>
+
+        <!-- Side-by-Side Layout: Left Filter Sidebar + Right Products Grid -->
+        <div class="orders-layout-container" id="ordersLayoutContainer">
+          <!-- Left Accordion Filter Sidebar -->
+          <aside class="filter-sidebar" id="filterSidebar" aria-label="Product Filters">
+            <div class="filter-accordion-list">
+              <!-- 1. Categories Accordion -->
+              <div class="filter-accordion-item open">
+                <button class="filter-accordion-header" type="button">
+                  <span>CATEGORIES</span>
+                  <span class="acc-chevron">▼</span>
+                </button>
+                <div class="filter-accordion-body">
+                  <label class="filter-radio-item">
+                    <input type="radio" name="catFilter" value="all" checked>
+                    <span>All Categories</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="catFilter" value="schmitten-luxury">
+                    <span>Schmitten Luxury Chocolates</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="catFilter" value="hoppits-chocolates">
+                    <span>Hoppits Chocolates</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="catFilter" value="schmitten-barks">
+                    <span>Schmitten Barks &amp; Combos</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="catFilter" value="schmitten-spreads">
+                    <span>Schmitten Spreads</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="catFilter" value="gift-collection">
+                    <span>Gift Collection</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 2. Brands Accordion -->
+              <div class="filter-accordion-item open">
+                <button class="filter-accordion-header" type="button">
+                  <span>BRANDS</span>
+                  <span class="acc-chevron">▼</span>
+                </button>
+                <div class="filter-accordion-body">
+                  <label class="filter-radio-item">
+                    <input type="radio" name="brandFilter" value="all" checked>
+                    <span>All Brands</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="brandFilter" value="Schmitten">
+                    <span>Schmitten</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="brandFilter" value="Hoppits">
+                    <span>Hoppits</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 3. Flavour Types Accordion -->
+              <div class="filter-accordion-item open">
+                <button class="filter-accordion-header" type="button">
+                  <span>FLAVOUR TYPES</span>
+                  <span class="acc-chevron">▼</span>
+                </button>
+                <div class="filter-accordion-body">
+                  <label class="filter-radio-item">
+                    <input type="radio" name="flavourFilter" value="all" checked>
+                    <span>All Flavours</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="flavourFilter" value="dark">
+                    <span>Dark</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="flavourFilter" value="milk">
+                    <span>Milk</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="flavourFilter" value="nuts">
+                    <span>Nuts &amp; Roasted Almonds</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="flavourFilter" value="fruits">
+                    <span>Fruits &amp; Orange Zest</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="flavourFilter" value="cookie-crisps">
+                    <span>Cookie &amp; Crisps</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 4. Price Range Accordion -->
+              <div class="filter-accordion-item open">
+                <button class="filter-accordion-header" type="button">
+                  <span>PRICE RANGE</span>
+                  <span class="acc-chevron">▼</span>
+                </button>
+                <div class="filter-accordion-body">
+                  <label class="filter-radio-item">
+                    <input type="radio" name="priceRangeFilter" value="all" checked>
+                    <span>All Prices</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="priceRangeFilter" value="under-100">
+                    <span>Under Rs. 100</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="priceRangeFilter" value="100-300">
+                    <span>Rs. 100 - Rs. 300</span>
+                  </label>
+                  <label class="filter-radio-item">
+                    <input type="radio" name="priceRangeFilter" value="above-300">
+                    <span>Above Rs. 300</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 5. Occasions Accordion (Open by default matching screenshot) -->
+              <div class="filter-accordion-item open">
+                <button class="filter-accordion-header" type="button">
+                  <span>OCCASIONS</span>
+                  <span class="acc-chevron">▲</span>
+                </button>
+                <div class="filter-accordion-body">
+                  <label class="filter-checkbox-item">
+                    <input type="checkbox" name="occasion" value="corporate-gifting" id="chkCorporateGifting" checked>
+                    <span>Corporate Gifting</span>
+                  </label>
+                  <label class="filter-checkbox-item">
+                    <input type="checkbox" name="occasion" value="healthy-snacking" id="chkHealthySnacking">
+                    <span>Healthy Snacking</span>
+                  </label>
+                  <label class="filter-checkbox-item">
+                    <input type="checkbox" name="occasion" value="giveaways" id="chkGiveaways">
+                    <span>Giveaways</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right Products Content Area -->
+          <div class="shop-main-content">
+            <!-- Filter Status & Counter Bar -->
+            <div class="collection-filter-status-bar">
+              <div>
+                Showing <span class="results-count" id="activeProductCount">12</span> of 12 Luxury Confections
+              </div>
+              <button class="btn-reset-filters" id="btnResetFilters" type="button">Reset All Filters</button>
+            </div>
+
+            <!-- Products Grid with 12 Authentic Schmitten & Hoppits items -->
+            <div class="schmitten-products-grid" id="ordersProductsGrid">
+              
+              <!-- Product 1 -->
+              <div class="schmitten-card" 
+                   data-id="creamy-milk" 
+                   data-name="Creamy Milk Chocolate 70g" 
+                   data-price="80" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-luxury" 
+                   data-flavour="milk" 
+                   data-occasion="corporate-gifting healthy-snacking"
+                   data-img="assets/img/schmitten/prod-creamy-milk.webp"
+                   data-cocoa="38% Fine Milk Cocoa"
+                   data-weight="70g"
+                   data-desc="Velvety smooth European milk chocolate crafted with rich dairy milk and single-origin West African cocoa beans for a delicate, melt-in-mouth finish.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-creamy-milk.webp" alt="Creamy Milk Chocolate 70g" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="creamy-milk" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="creamy-milk" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Creamy Milk Chocolate 70g</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 80</span> <span class="unit">/ 70g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 2 -->
+              <div class="schmitten-card" 
+                   data-id="intense-dark" 
+                   data-name="Intense Dark Chocolate 70g" 
+                   data-price="80" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-luxury" 
+                   data-flavour="dark" 
+                   data-occasion="corporate-gifting"
+                   data-img="assets/img/schmitten/prod-intense-dark.webp"
+                   data-cocoa="65% Intense Dark Cocoa"
+                   data-weight="70g"
+                   data-desc="Bold, bittersweet dark chocolate with subtle roasted nutty undertones and deep cocoa richness. The benchmark of European dark confectionery.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-intense-dark.webp" alt="Intense Dark Chocolate 70g" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="intense-dark" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="intense-dark" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Intense Dark Chocolate 70g</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 80</span> <span class="unit">/ 70g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 3 -->
+              <div class="schmitten-card" 
+                   data-id="almond-orange" 
+                   data-name="Dark Chocolate with Almond & Twist Of Orange 70g" 
+                   data-price="90" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-luxury" 
+                   data-flavour="dark fruits nuts" 
+                   data-occasion="corporate-gifting giveaways"
+                   data-img="assets/img/schmitten/prod-almond-orange.webp"
+                   data-cocoa="60% Dark Cocoa"
+                   data-weight="70g"
+                   data-desc="A sophisticated pairing of crisp Mediterranean Valencia almonds with zesty candied orange peel enrobed in velvety dark chocolate.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-almond-orange.webp" alt="Dark Chocolate with Almond & Twist Of Orange 70g" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="almond-orange" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="almond-orange" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Dark Chocolate with Almond &amp; Twist Of Orange 70g</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 90</span> <span class="unit">/ 70g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 4 -->
+              <div class="schmitten-card" 
+                   data-id="roasted-almonds" 
+                   data-name="Dark Chocolate with Rich and Roasted Almonds 70g" 
+                   data-price="90" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-luxury" 
+                   data-flavour="dark nuts" 
+                   data-occasion="corporate-gifting healthy-snacking"
+                   data-img="assets/img/schmitten/prod-roasted-almonds.webp"
+                   data-cocoa="60% Dark Cocoa"
+                   data-weight="70g"
+                   data-desc="Slow-roasted Californian almonds immersed in rich cocoa liquor, delivering an irresistible crunch and satisfying smoky nutty finish.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-roasted-almonds.webp" alt="Dark Chocolate with Rich and Roasted Almonds 70g" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="roasted-almonds" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="roasted-almonds" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Dark Chocolate with Rich and Roasted Almonds 70g</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 90</span> <span class="unit">/ 70g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 5 -->
+              <div class="schmitten-card" 
+                   data-id="cocoa-nibs" 
+                   data-name="Dark Chocolate with Crunchy Cocoa Nibs 70g" 
+                   data-price="95" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-luxury" 
+                   data-flavour="dark" 
+                   data-occasion="corporate-gifting giveaways"
+                   data-img="assets/img/schmitten/prod-cocoa-nibs.webp"
+                   data-cocoa="72% Reserve Cocoa"
+                   data-weight="70g"
+                   data-desc="Pure roasted crushed cacao nibs sprinkled throughout our high-intensity dark chocolate tablet for a raw, energetic crunch and antioxidant vigor.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-cocoa-nibs.webp" alt="Dark Chocolate with Crunchy Cocoa Nibs 70g" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="cocoa-nibs" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="cocoa-nibs" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Dark Chocolate with Crunchy Cocoa Nibs 70g</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 95</span> <span class="unit">/ 70g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 6 -->
+              <div class="schmitten-card" 
+                   data-id="madagascar-70" 
+                   data-name="Madagascar Single-Origin 70% Dark 70g" 
+                   data-price="120" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-luxury" 
+                   data-flavour="dark fruits" 
+                   data-occasion="corporate-gifting"
+                   data-img="assets/img/schmitten/prod-madagascar-70.webp"
+                   data-cocoa="70% Single Estate"
+                   data-weight="70g"
+                   data-desc="Sourced exclusively from the fertile Sambirano Valley, featuring natural raspberry brilliance, red fruit acidity, and pink pepper notes.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-madagascar-70.webp" alt="Madagascar Single-Origin 70% Dark 70g" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="madagascar-70" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="madagascar-70" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Madagascar Single-Origin 70% Dark 70g</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 120</span> <span class="unit">/ 70g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 7 -->
+              <div class="schmitten-card" 
+                   data-id="cookie-crush" 
+                   data-name="Hoppits Cookie Crush Nougat Bar" 
+                   data-price="45" 
+                   data-brand="Hoppits" 
+                   data-category="hoppits-chocolates" 
+                   data-flavour="milk cookie-crisps" 
+                   data-occasion="healthy-snacking giveaways"
+                   data-img="assets/img/schmitten/prod-cookie-crush.webp"
+                   data-cocoa="Smooth Milk Chocolate"
+                   data-weight="40g"
+                   data-desc="Crunchy dark cocoa cookie crumbles blended with whipped honey nougat, enrobed in thick creamy Swiss-style milk chocolate.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-cookie-crush.webp" alt="Hoppits Cookie Crush Nougat Bar" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="cookie-crush" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="cookie-crush" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Hoppits Cookie Crush Nougat Bar</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 45</span> <span class="unit">/ 40g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 8 -->
+              <div class="schmitten-card" 
+                   data-id="rice-crispies" 
+                   data-name="Hoppits Roasted Nuts & Rice Crispies Bar" 
+                   data-price="45" 
+                   data-brand="Hoppits" 
+                   data-category="hoppits-chocolates" 
+                   data-flavour="nuts cookie-crisps" 
+                   data-occasion="healthy-snacking"
+                   data-img="assets/img/schmitten/prod-rice-crispies.webp"
+                   data-cocoa="Caramel Milk Chocolate"
+                   data-weight="40g"
+                   data-desc="Golden toasted rice crisps and crunchy roasted peanuts folded into caramel-infused milk chocolate for on-the-go vitality.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/prod-rice-crispies.webp" alt="Hoppits Roasted Nuts & Rice Crispies Bar" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="rice-crispies" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="rice-crispies" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Hoppits Roasted Nuts &amp; Rice Crispies Bar</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 45</span> <span class="unit">/ 40g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 9 -->
+              <div class="schmitten-card" 
+                   data-id="gift-collection-hamper" 
+                   data-name="Schmitten Royal Connoisseur Gift Hamper" 
+                   data-price="450" 
+                   data-brand="Schmitten" 
+                   data-category="gift-collection" 
+                   data-flavour="dark milk nuts fruits" 
+                   data-occasion="corporate-gifting"
+                   data-img="assets/img/schmitten/gift-collection.webp"
+                   data-cocoa="Assorted Grand Cru"
+                   data-weight="350g"
+                   data-desc="An opulent gift assortment featuring 4 premium Schmitten chocolate bars, gourmet nuts, and hand-tied metallic satin ribbon with bespoke greeting card.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/gift-collection.webp" alt="Schmitten Royal Connoisseur Gift Hamper" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="gift-collection-hamper" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="gift-collection-hamper" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Schmitten Royal Connoisseur Gift Hamper</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 450</span> <span class="unit">/ Hamper</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 10 -->
+              <div class="schmitten-card" 
+                   data-id="truffle-celebration" 
+                   data-name="Schmitten Artisan Truffle Celebration Box" 
+                   data-price="380" 
+                   data-brand="Schmitten" 
+                   data-category="gift-collection" 
+                   data-flavour="dark milk" 
+                   data-occasion="corporate-gifting giveaways"
+                   data-img="assets/img/schmitten/choco-collection.webp"
+                   data-cocoa="Handcrafted Ganache"
+                   data-weight="280g"
+                   data-desc="A curated 12-piece tray of handcrafted velvet chocolate truffles, hazelnut praline spheres, and salted dark caramel jewels.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/choco-collection.webp" alt="Schmitten Artisan Truffle Celebration Box" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="truffle-celebration" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="truffle-celebration" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Schmitten Artisan Truffle Celebration Box</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 380</span> <span class="unit">/ Box</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 11 -->
+              <div class="schmitten-card" 
+                   data-id="duo-celebration-combo" 
+                   data-name="Schmitten Luxury Bar Duo Celebration Combo" 
+                   data-price="260" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-barks" 
+                   data-flavour="dark milk nuts" 
+                   data-occasion="corporate-gifting healthy-snacking"
+                   data-img="assets/img/schmitten/combo-collection.webp"
+                   data-cocoa="Twin Bar Set"
+                   data-weight="200g"
+                   data-desc="A twin presentation box combining our Intense Dark Almond bar with Creamy Milk Chocolate, packaged in an embossed gold-stamped sleeve.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/combo-collection.webp" alt="Schmitten Luxury Bar Duo Celebration Combo" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="duo-celebration-combo" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="duo-celebration-combo" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Schmitten Luxury Bar Duo Celebration Combo</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 260</span> <span class="unit">/ Duo Pack</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 12 -->
+              <div class="schmitten-card" 
+                   data-id="hazelnut-cocoa-spread" 
+                   data-name="Schmitten Gourmet Roasted Hazelnut Cocoa Spread" 
+                   data-price="220" 
+                   data-brand="Schmitten" 
+                   data-category="schmitten-spreads" 
+                   data-flavour="nuts milk" 
+                   data-occasion="healthy-snacking"
+                   data-img="assets/img/schmitten/choco-recipe.webp"
+                   data-cocoa="Rich Hazelnut & Cacao"
+                   data-weight="320g Jar"
+                   data-desc="Made with 40% slow-roasted hazelnuts and premium cocoa butter. Palm-oil free, exquisitely silky, and perfect for croissants or warm waffles.">
+                <div class="schmitten-img-holder">
+                  <img src="assets/img/schmitten/choco-recipe.webp" alt="Schmitten Gourmet Roasted Hazelnut Cocoa Spread" loading="lazy">
+                  <div class="schmitten-hover-actions">
+                    <button class="action-circle-btn" data-view-info="hazelnut-cocoa-spread" title="Product Details">
+                      <span style="font-style: italic; font-weight: 700; font-family: serif;">i</span>
+                    </button>
+                    <button class="action-circle-btn" data-add-cart="hazelnut-cocoa-spread" title="Add to Cart">
+                      <span style="font-size: 1.1rem;">🛒</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="schmitten-body">
+                  <h4 class="schmitten-name">Schmitten Gourmet Roasted Hazelnut Cocoa Spread</h4>
+                  <div class="saperator"></div>
+                  <div class="schmitten-price">
+                    <span>Rs. 220</span> <span class="unit">/ 320g Jar</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corporate Gifting Visual Showcase -->
+    <section class="corp-showcase-section">
+      <div class="container">
+        <div class="text-center" data-aos="fade-up">
+          <span class="section-sub-title" style="color: #92b07e; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.88rem;">Corporate Confectionery Suite</span>
+          <h2 class="section-main-title" style="font-family: var(--font-serif); font-size: 2.2rem; color: #35160d; margin-top: 0.4rem;">
+            Why India's Fortune 500 Choose Schmitten
+          </h2>
+          <p style="max-width: 680px; margin: 0.5rem auto 0; color: #6a5247; font-size: 1rem; line-height: 1.6;">
+            From executive onboarding gifts to Diwali and anniversary hampers, we deliver precision confectionery experiences.
+          </p>
+        </div>
+
+        <div class="corp-showcase-grid">
+          <div class="corp-showcase-card" data-aos="fade-up">
+            <div class="corp-showcase-img">
+              <img src="assets/img/artisan/corporate_wooden_chest.jpg" alt="Laser Engraved Wooden Chests">
+            </div>
+            <div class="corp-showcase-body">
+              <h4>Bespoke Laser-Engraved Wooden Keepsakes</h4>
+              <p>Hand-hewn mahogany and cedar chest cases embossed with your corporate logo in gold leaf foil with authentic sealing wax.</p>
+            </div>
+          </div>
+
+          <div class="corp-showcase-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="corp-showcase-img">
+              <img src="assets/img/artisan/bean_to_bar_craft.jpg" alt="Artisanal Hand-Poured Bean-to-Bar Craft">
+            </div>
+            <div class="corp-showcase-body">
+              <h4>Artisanal Bean-to-Bar Master Craftsmanship</h4>
+              <p>Hand-roasted single-origin Ghana and Madagascar cocoa nibs conched for over 72 hours for incomparable silkiness.</p>
+            </div>
+          </div>
+
+          <div class="corp-showcase-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="corp-showcase-img">
+              <img src="assets/img/schmitten/factory-tour.jpg" alt="Automated Swiss & German Production Plant">
+            </div>
+            <div class="corp-showcase-body">
+              <h4>Swiss &amp; German Automated Production Plant</h4>
+              <p>100% automated touch-free moulding line ensuring absolute food safety, precise temper, and pan-India cold-chain logistics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick View Modal Dialog -->
+    <div class="quickview-modal-backdrop" id="quickViewModal" aria-hidden="true" role="dialog">
+      <div class="quickview-modal-dialog">
+        <button class="quickview-modal-close" id="closeQuickViewModal" aria-label="Close dialog">&times;</button>
+        <div class="quickview-modal-image-col">
+          <img id="qvImage" src="assets/img/schmitten/prod-creamy-milk.webp" alt="Chocolate Preview">
+        </div>
+        <div class="quickview-modal-info-col">
+          <span class="quickview-brand-pill" id="qvBrand">SCHMITTEN</span>
+          <h3 class="quickview-title" id="qvTitle">Creamy Milk Chocolate 70g</h3>
+          <div class="quickview-price-tag" id="qvPrice">Rs. 80</div>
+          <p class="quickview-desc" id="qvDesc">
+            Velvety smooth European milk chocolate crafted with rich dairy milk and single-origin West African cocoa beans for a delicate, melt-in-mouth finish.
+          </p>
+          <div class="quickview-specs">
+            <div class="quickview-spec-item">
+              <strong>Cocoa Profile</strong>
+              <span id="qvCocoa">38% Fine Milk Cocoa</span>
+            </div>
+            <div class="quickview-spec-item">
+              <strong>Net Weight</strong>
+              <span id="qvWeight">70g</span>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="qvAddToCartBtn" style="width: 100%;">
+            Add To Cart 🛒
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Luxury Footer & 10% OFF Newsletter Banner -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="offer-card" data-aos="fade-up">
+        <div class="offer-badge">
+          10%<span>OFF</span>
+        </div>
+        <div>
+          <h3 class="section-main-title text-yellow" style="font-size: 1.8rem; margin-bottom: 0.3rem;">Newsletter Subscription</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin: 0;">Subscribe and get 10% OFF on your first luxury chocolate order.</p>
+        </div>
+        <form class="newsletter-form" id="FooterSubscribeForm">
+          <input type="email" class="newsletter-input" placeholder="Enter Email ID" required>
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        </form>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <div style="margin-bottom: 1rem;">
+            <a href="index.html" class="custom-brand-logo">
+              <div class="brand-crest-box">
+                <span class="crest-icon">✦</span>
+              </div>
+              <div class="brand-text-block">
+                <span class="brand-title">SCHMITTEN</span>
+                <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+              </div>
+            </a>
+          </div>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+            Crafted with European precision and cocoa beans from Ghana and Madagascar. Delivering timeless moments of pure bliss.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="orders.html">All Chocolates</a></li>
+            <li><a href="orders.html">Schmitten Luxury Bars</a></li>
+            <li><a href="orders.html">Hoppits Energy Bars</a></li>
+            <li><a href="orders.html">Schmitten Barks</a></li>
+            <li><a href="orders.html">Gift Assortments</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home2</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Phone:</strong><br>
+              <a href="tel:+912612961100">+91 261 2961100</a>
+            </li>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Email:</strong><br>
+              <a href="mailto:relations@schmitten.co">relations@schmitten.co</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright-bar">
+        <div>© 2026 Schmitten Artisanal Chocolatier. All Rights Reserved.</div>
+        <div class="copyright-links">
+          <a href="about.html">Privacy Policy</a>
+          <a href="about.html">Terms & Conditions</a>
+          <a href="services.html">Delivery & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

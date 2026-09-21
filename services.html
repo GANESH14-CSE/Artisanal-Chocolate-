@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Corporate Gifting & Services — Schmitten Luxury Chocolates</title>
+  <meta name="description" content="Elevate corporate relationships and personal occasions with custom Schmitten Luxury Chocolate gift hampers, bespoke sleeve branding, and chocolate factory tours.">
+  <link rel="icon" href="assets/img/schmitten/logo.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="added" role="status">
+    <span class="check-icon">✓</span>
+    <strong>Item added to your selection.</strong>
+  </div>
+
+  <!-- Main Header Navigation -->
+  <header class="header">
+    <div class="main-header">
+      <div class="logo">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation in exact specified order: Home → Home2 → About → Orders → Services → Blog -->
+      <nav aria-label="Main Navigation">
+        <ul class="main-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home-2.html">Home2</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right Utilities -->
+      <div class="main-menu-right">
+        <a href="orders.html" class="header-action-link" title="Sweetlist">
+          <div class="header-icon-wrap">
+            <span style="font-size: 1.2rem; color: var(--gold);">♥</span>
+            <span class="sweetlist-count">0</span>
+          </div>
+        </a>
+
+        <a href="javascript:void(0);" class="header-action-link open-cart-btn" id="menu-cart" title="Cart">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/cart.png" alt="Cart">
+            <span class="cart-count">0</span>
+          </div>
+        </a>
+
+        <a href="#tour" class="header-action-link" title="Store Locator">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/location.png" alt="Store Locator">
+          </div>
+        </a>
+
+        <button class="mobile-toggle" aria-label="Open Navigation Menu">
+          <img src="assets/img/schmitten/menu.png" alt="Menu">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <button class="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+      <div style="margin-bottom: 2rem;">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="home-2.html">Home2</a>
+        <a href="about.html">About</a>
+        <a href="orders.html">Orders</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">
+      <p>Need assistance?</p>
+      <p style="color: var(--gold); font-weight: 600;">relations@schmitten.co</p>
+    </div>
+  </aside>
+
+  <!-- Cart Modal Drawer -->
+  <div class="cart-modal" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3>Your Sweet Selection</h3>
+        <button class="cart-close" aria-label="Close Cart">&times;</button>
+      </div>
+      <div class="cart-items-wrap">
+        <!-- Rendered by main.js -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Total:</span>
+          <span class="cart-total-price">Rs. 0</span>
+        </div>
+        <a href="orders.html" class="btn btn-primary" style="width: 100%; text-align: center;">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- Breadcrumb Banner -->
+    <section class="page-head-banner" style="background-image: url('assets/img/schmitten/page-head-bg.jpg');">
+      <div class="page-head-content" data-aos="fade-down" data-aos-duration="800">
+        <h1>Services & Corporate Gifting</h1>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span style="color: var(--white);">Services</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 Luxury Confectionery Services Suite -->
+    <section class="services-section">
+      <div class="container">
+        <div class="text-center" data-aos="fade-up">
+          <span class="section-sub-title">Bespoke Confectionery Suite</span>
+          <h2 class="section-main-title">8 Tailored Luxury Confectionery Services</h2>
+          <p style="max-width: 780px; margin: 0 auto 3.5rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+            From executive corporate milestone gifting and personalized wedding monograms to sensory sommelier masterclasses and automated European factory tours, discover our comprehensive range of bespoke chocolate services.
+          </p>
+        </div>
+
+        <!-- 8 Services Grid -->
+        <div class="services-grid-8">
+          
+          <!-- Service 1 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/artisan/corporate_wooden_chest.jpg" alt="Corporate Milestone & Executive Gifting">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">👑</div>
+                  <span class="service-badge-pill">Corporate B2B</span>
+                </div>
+                <h3 class="service-card-title">Corporate Milestone &amp; Executive Gifting</h3>
+                <p class="service-card-desc">
+                  Elevate client relationships and honor top executive milestones with customized foil-stamped sleeves, laser-engraved timber presentation cases, and personalized CEO greeting notes.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> Custom company branding &amp; ribbon</li>
+                  <li><span class="check">✓</span> Pan-India cold-pack logistics</li>
+                  <li><span class="check">✓</span> Volume-tiered commercial pricing</li>
+                  <li><span class="check">✓</span> Minimum order: 25 units</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Corporate Milestone & Executive Gifting">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/artisan/wedding_favors_luxury.jpg" alt="Bespoke Wedding Favors">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">💍</div>
+                  <span class="service-badge-pill">Private Celebrations</span>
+                </div>
+                <h3 class="service-card-title">Bespoke Wedding &amp; Anniversary Favors</h3>
+                <p class="service-card-desc">
+                  Enchant your wedding guests with personalized monogrammed chocolate bonbons, royal burgundy &amp; champagne silk ribbon packaging, and custom wax-sealed cards matching your wedding palette.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> Custom wax seals with couple initials</li>
+                  <li><span class="check">✓</span> Chef consultation for bespoke flavors</li>
+                  <li><span class="check">✓</span> Luxury 2-piece &amp; 4-piece keepsake boxes</li>
+                  <li><span class="check">✓</span> Direct wedding planner coordination</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Bespoke Wedding & Anniversary Favors">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/artisan/sommelier_tasting_flight.jpg" alt="Private Chocolate Tasting & Sommelier Workshops">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">🍷</div>
+                  <span class="service-badge-pill">Sensory Workshop</span>
+                </div>
+                <h3 class="service-card-title">Private Chocolate Tasting &amp; Sommelier Workshops</h3>
+                <p class="service-card-desc">
+                  Curated interactive sensory tastings for executive retreats and private connoisseur gatherings. Experience single-origin bean-to-bar comparative cuppings guided by our Master Chocolatiers.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> 6 single-origin rare harvest flights</li>
+                  <li><span class="check">✓</span> Sommelier tasting wheels &amp; aroma guides</li>
+                  <li><span class="check">✓</span> Available on-site or at our atelier</li>
+                  <li><span class="check">✓</span> 60–90 minute masterclass format</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Private Chocolate Tasting & Sommelier Workshops">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/artisan/bean_to_bar_craft.jpg" alt="Custom Logo & 3D Molded Chocolate Creations">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">🎨</div>
+                  <span class="service-badge-pill">Custom 3D Molding</span>
+                </div>
+                <h3 class="service-card-title">Custom Logo &amp; 3D Molded Chocolate Creations</h3>
+                <p class="service-card-desc">
+                  Precision food-grade 3D cast chocolate emblems, miniature architectural replicas, festive crests, and commemorative medallions crafted in 70% dark, velvety milk, or amber white chocolate.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> Precision CAD &amp; food-grade silicone tooling</li>
+                  <li><span class="check">✓</span> Edible 24k gold leaf &amp; luster finish</li>
+                  <li><span class="check">✓</span> Custom presentation display blister</li>
+                  <li><span class="check">✓</span> High relief detail reproduction</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Custom Logo & 3D Molded Chocolate Creations">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/artisan/signature_truffles.jpg" alt="Luxury Hospitality & Turndown Confectionery">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">🏨</div>
+                  <span class="service-badge-pill">Five-Star Suites</span>
+                </div>
+                <h3 class="service-card-title">Luxury Hospitality &amp; Turndown Confectionery</h3>
+                <p class="service-card-desc">
+                  Curated boutique chocolate amenities for luxury hotels, presidential suites, private aviation, and luxury cruise lines. Single-serve pillow bonbons, arrival welcome hampers, and dessert accompaniments.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> Scheduled recurring weekly/monthly supply</li>
+                  <li><span class="check">✓</span> Tamper-evident branded foil envelopes</li>
+                  <li><span class="check">✓</span> Dedicated temperature-managed distribution</li>
+                  <li><span class="check">✓</span> Certified allergen &amp; dietary tracking</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Luxury Hospitality & Turndown Confectionery">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/schmitten/about-page.jpg" alt="Chocolate & Wine Spirits Masterclasses">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">🥃</div>
+                  <span class="service-badge-pill">Masterclass</span>
+                </div>
+                <h3 class="service-card-title">Chocolate &amp; Spirits / Wine Pairing Masterclasses</h3>
+                <p class="service-card-desc">
+                  Explore the intricate chemistry between aged single-malt whiskies, vintage tawny ports, craft rums, and high-percentage single-origin cacao. Guided by certified sommeliers.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> Curated 5-course spirits &amp; chocolate pairing</li>
+                  <li><span class="check">✓</span> Guided tasting notes booklet</li>
+                  <li><span class="check">✓</span> Ideal for executive retreats &amp; private clubs</li>
+                  <li><span class="check">✓</span> Dedicated Sommelier host included</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Chocolate & Wine / Spirits Masterclasses">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 7 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/artisan/luxury_gift_box.jpg" alt="Curated Festive & Seasonal Hampers">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">🎁</div>
+                  <span class="service-badge-pill">Festive Curation</span>
+                </div>
+                <h3 class="service-card-title">Curated Festive &amp; Seasonal Hampers</h3>
+                <p class="service-card-desc">
+                  Celebrate Diwali, Christmas, New Year, and Eid with opulent luxury hampers loaded with chocolate barks, roasted almond rochers, gold-dusted truffle jars, and handcrafted keepsake metal lanterns.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> Rigid velvet &amp; copper presentation trunks</li>
+                  <li><span class="check">✓</span> Personalized calligraphy greeting tags</li>
+                  <li><span class="check">✓</span> Early-bird festival booking discounts</li>
+                  <li><span class="check">✓</span> Bulk multi-recipient pan-India dispatch</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Curated Festive & Seasonal Hampers">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 8 -->
+          <div class="service-card-luxury" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+            <div class="service-card-photo">
+              <img src="assets/img/schmitten/factory-tour.jpg" alt="Automated European Factory Tour & Atelier">
+            </div>
+            <div class="service-card-body">
+              <div>
+                <div class="service-header-row">
+                  <div class="service-icon-box">🏛</div>
+                  <span class="service-badge-pill">Live Atelier Tour</span>
+                </div>
+                <h3 class="service-card-title">Automated European Factory Tour &amp; Atelier</h3>
+                <p class="service-card-desc">
+                  Step inside our 100% automated European manufacturing plant. Witness raw cacao roasting, 72-hour granite conching, continuous tempering, and taste warm molten chocolate straight off the press.
+                </p>
+                <ul class="service-inclusions">
+                  <li><span class="check">✓</span> 90-minute VIP behind-the-scenes access</li>
+                  <li><span class="check">✓</span> Master chocolatier live demonstration</li>
+                  <li><span class="check">✓</span> Fresh warm chocolate sampling</li>
+                  <li><span class="check">✓</span> Complimentary gift bag for all attendees</li>
+                </ul>
+              </div>
+              <div class="service-card-footer">
+                <button class="btn-service-inquire" data-service-select="Automated European Factory Tour & Atelier">
+                  Inquire For Service →
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 4-Step Bespoke Process Timeline -->
+        <div class="process-section" data-aos="fade-up" data-aos-duration="800">
+          <div class="text-center" style="margin-bottom: 3.5rem;">
+            <span class="section-sub-title">How We Collaborate</span>
+            <h2 class="section-main-title" style="color: #ffffff; font-size: 2.2rem; margin-bottom: 0.5rem;">Our 4-Step Bespoke Service Journey</h2>
+            <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">From initial sensory consultation to temperature-protected white-glove arrival.</p>
+          </div>
+
+          <div class="process-grid-4">
+            <div class="process-card">
+              <div class="process-step-number">1</div>
+              <h4>Sensory Consultation</h4>
+              <p>Discuss your event theme, guest count, and flavor preferences. We dispatch a curated complimentary tasting flight sampler.</p>
+            </div>
+
+            <div class="process-card">
+              <div class="process-step-number">2</div>
+              <h4>Packaging Proofing</h4>
+              <p>Our graphic atelier renders photorealistic 3D mockups of your custom sleeve, ribbon palette, embossed logo, and greeting cards.</p>
+            </div>
+
+            <div class="process-card">
+              <div class="process-step-number">3</div>
+              <h4>Fresh Batch Crafting</h4>
+              <p>Confections are tempered and hand-finished in micro-batches right before your dispatch date using 100% pure single-origin cacao.</p>
+            </div>
+
+            <div class="process-card">
+              <div class="process-step-number">4</div>
+              <h4>White-Glove Cold Delivery</h4>
+              <p>Packaged in insulated thermal containers with cold packs and live tracking for pristine arrival anywhere in India or internationally.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curated Atelier Master Commission Gallery -->
+        <div class="atelier-gallery-section" data-aos="fade-up" style="border-radius: var(--radius-lg); margin-bottom: 4.5rem; padding: 3rem; background: #220c06; border: 1px solid rgba(197, 155, 99, 0.3);">
+          <div class="text-center">
+            <span class="section-sub-title" style="color: var(--gold-champagne);">Visual Masterpieces</span>
+            <h2 class="section-main-title" style="color: #ffffff; font-size: 2.2rem; margin-bottom: 0.5rem;">Curated Confectionery Commissions</h2>
+            <p style="color: rgba(255,255,255,0.75); max-width: 650px; margin: 0 auto;">A glimpse of bespoke commissions crafted for luxury weddings, corporate leaders, and sensory gourmands.</p>
+          </div>
+          <div class="atelier-gallery-grid">
+            <div class="atelier-gallery-item">
+              <img src="assets/img/artisan/corporate_wooden_chest.jpg" alt="Executive Laser Engraved Chest">
+              <div class="atelier-gallery-overlay">
+                <h5>Executive Mahogany Chest</h5>
+                <span>Bespoke 24k Gold Foil &amp; Wax Seal</span>
+              </div>
+            </div>
+            <div class="atelier-gallery-item">
+              <img src="assets/img/artisan/wedding_favors_luxury.jpg" alt="Bespoke Wedding Bonbon Keepsakes">
+              <div class="atelier-gallery-overlay">
+                <h5>Grand Wedding Monograms</h5>
+                <span>Ivory Satin Silk &amp; Gold Truffles</span>
+              </div>
+            </div>
+            <div class="atelier-gallery-item">
+              <img src="assets/img/artisan/sommelier_tasting_flight.jpg" alt="Sommelier Chocolate Cupping Flight">
+              <div class="atelier-gallery-overlay">
+                <h5>Sommelier Cupping Flight</h5>
+                <span>Five Terroir Single-Origin Slate</span>
+              </div>
+            </div>
+            <div class="atelier-gallery-item">
+              <img src="assets/img/artisan/bean_to_bar_craft.jpg" alt="Artisanal Bean to Bar Roasting">
+              <div class="atelier-gallery-overlay">
+                <h5>Granite Stone Conching</h5>
+                <span>72-Hour Pure Cacao Refinement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corporate Bulk Buying & Service Inquiry Form -->
+        <div class="form-card" id="inquiryFormCard" data-aos="zoom-in" data-aos-duration="800" style="margin-bottom: 5rem;">
+          <div class="text-center" style="margin-bottom: 2.5rem;">
+            <span class="section-sub-title">Bespoke Concierge</span>
+            <h2 class="section-main-title" style="font-size: 2.2rem; margin-bottom: 0.5rem;">Request a Tailored Service Quotation</h2>
+            <p style="color: var(--text-muted);">Select your preferred service below and our luxury confectionery director will respond within 4 business hours.</p>
+          </div>
+
+          <form id="frmCorporateGifting" data-ajax="true">
+            <div class="form-grid">
+              
+              <div class="form-group full-width">
+                <label for="ServiceCategory" style="font-weight: 700; color: var(--gold-vibrant);">Select Service Required *</label>
+                <select class="form-control" id="ServiceCategory" required style="background: rgba(35, 14, 8, 0.9); color: var(--gold-champagne); font-weight: 600; border-color: var(--gold);">
+                  <option value="Corporate Milestone & Executive Gifting">1. Corporate Milestone & Executive Gifting</option>
+                  <option value="Bespoke Wedding & Anniversary Favors">2. Bespoke Wedding & Anniversary Favors</option>
+                  <option value="Private Chocolate Tasting & Sommelier Workshops">3. Private Chocolate Tasting & Sommelier Workshops</option>
+                  <option value="Custom Logo & 3D Molded Chocolate Creations">4. Custom Logo & 3D Molded Chocolate Creations</option>
+                  <option value="Luxury Hospitality & Turndown Confectionery">5. Luxury Hospitality & Turndown Confectionery</option>
+                  <option value="Chocolate & Wine / Spirits Masterclasses">6. Chocolate & Wine / Spirits Masterclasses</option>
+                  <option value="Curated Festive & Seasonal Hampers">7. Curated Festive & Seasonal Hampers</option>
+                  <option value="Automated European Factory Tour & Atelier">8. Automated European Factory Tour & Live Atelier</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="FullName">Your Full Name *</label>
+                <input type="text" class="form-control" id="FullName" required placeholder="e.g. Rahul Sharma">
+              </div>
+
+              <div class="form-group">
+                <label for="CompanyName">Company / Organization Name</label>
+                <input type="text" class="form-control" id="CompanyName" placeholder="e.g. Enterprise Ltd. / Private Event">
+              </div>
+
+              <div class="form-group">
+                <label for="Email">Email ID *</label>
+                <input type="email" class="form-control" id="Email" required placeholder="you@company.com">
+              </div>
+
+              <div class="form-group">
+                <label for="ContactNo">Contact Phone No. *</label>
+                <input type="tel" class="form-control" id="ContactNo" required placeholder="+91 98765 43210">
+              </div>
+
+              <div class="form-group full-width">
+                <label for="DeliveryAddress">Event / Delivery Location *</label>
+                <input type="text" class="form-control" id="DeliveryAddress" required placeholder="Street address, venue, building, city">
+              </div>
+
+              <div class="form-group">
+                <label for="City">City *</label>
+                <input type="text" class="form-control" id="City" required placeholder="e.g. Mumbai / Delhi / Bengaluru">
+              </div>
+
+              <div class="form-group">
+                <label for="EstimatedQuantity">Estimated Quantity / Guests *</label>
+                <input type="text" class="form-control" id="EstimatedQuantity" required placeholder="e.g. 100 boxes / 50 attendees">
+              </div>
+
+              <div class="form-group">
+                <label for="DeliveryDate">Target Event / Delivery Date *</label>
+                <input type="date" class="form-control" id="DeliveryDate" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="ProductDetail">Specific Customization Notes &amp; Dietary Requirements *</label>
+                <textarea class="form-control" id="ProductDetail" rows="4" required placeholder="Specify your desired chocolate types (Dark 70%, Milk, Pralines), logo printing requests, packaging colors, or special dietary considerations..."></textarea>
+              </div>
+
+              <div class="form-group full-width" style="margin-top: 1rem; text-align: center;">
+                <button type="submit" class="btn btn-primary" style="min-width: 260px; margin-inline: auto;">SUBMIT BESPOKE INQUIRY</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Factory Tour Section Anchor -->
+        <div id="tour" class="factory-tour-wrap" data-aos="fade-up" data-aos-duration="800">
+          <img src="assets/img/schmitten/factory-tour.jpg" alt="Schmitten Chocolate Factory Tour">
+          <div class="factory-tour-overlay">
+            <span class="section-sub-title">Chocolate Tasting &amp; Experience</span>
+            <h2 class="section-main-title text-white">Visit Our Automated Chocolate Plant</h2>
+            <p style="color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; max-width: 650px;">
+              Experience the enchanting transformation of raw cacao pods into silky smooth luxury bars. Factory tours operate Tuesday through Sunday with master chocolatier demonstrations and private tastings.
+            </p>
+            <div>
+              <a href="tel:+912612961100" class="btn btn-primary btn-border-3">Call +91 261 2961100 to Reserve</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Luxury Footer & 10% OFF Newsletter Banner -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="offer-card" data-aos="fade-up">
+        <div class="offer-badge">
+          10%<span>OFF</span>
+        </div>
+        <div>
+          <h3 class="section-main-title text-yellow" style="font-size: 1.8rem; margin-bottom: 0.3rem;">Newsletter Subscription</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin: 0;">Subscribe and get 10% OFF on your first luxury chocolate order.</p>
+        </div>
+        <form class="newsletter-form" id="FooterSubscribeForm">
+          <input type="email" class="newsletter-input" placeholder="Enter Email ID" required>
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        </form>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <div style="margin-bottom: 1.25rem;">
+            <a href="index.html" class="custom-brand-logo">
+              <div class="brand-crest-box">
+                <span class="crest-icon">✦</span>
+              </div>
+              <div class="brand-text-block">
+                <span class="brand-title">SCHMITTEN</span>
+                <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+              </div>
+            </a>
+          </div>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+            Crafted with European precision and cocoa beans from Ghana and Madagascar. Delivering timeless moments of pure bliss.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="orders.html">All Chocolates</a></li>
+            <li><a href="orders.html">Schmitten Luxury Bars</a></li>
+            <li><a href="orders.html">Hoppits Energy Bars</a></li>
+            <li><a href="orders.html">Schmitten Barks</a></li>
+            <li><a href="orders.html">Gift Assortments</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home2</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Phone:</strong><br>
+              <a href="tel:+912612961100">+91 261 2961100</a>
+            </li>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Email:</strong><br>
+              <a href="mailto:relations@schmitten.co">relations@schmitten.co</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright-bar">
+        <div>© 2026 Schmitten Luxury Chocolates. All Rights Reserved.</div>
+        <div class="copyright-links">
+          <a href="about.html">Privacy Policy</a>
+          <a href="about.html">Terms & Conditions</a>
+          <a href="services.html">Delivery & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
