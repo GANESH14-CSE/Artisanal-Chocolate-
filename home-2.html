@@ -7,6 +7,7 @@
   <meta name="description" content="Enter the Schmitten Connoisseur Reserve. An immersive sensory exploration of single-estate rare cacao harvests, sommelier spirit pairings, and private atelier craft.">
   <link rel="icon" href="assets/img/schmitten/logo.webp" type="image/webp">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mobile-fixes.css">
 </head>
 <body>
 
@@ -64,6 +65,7 @@
           <li><a href="orders.html">Orders</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
@@ -83,6 +85,22 @@
 
         <button class="nav-utility-btn" onclick="alert('Schmitten Grand Cru Portal: Welcome back to your connoisseur account.');" title="My Account" aria-label="Account">
           <span style="font-size:1.2rem;">👤</span>
+        </button>
+
+        <!-- Theme Toggle (Dark / Light Mode) -->
+        <button class="nav-circle-btn theme-toggle-btn" id="themeToggleBtn" type="button" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button class="nav-circle-btn rtl-toggle-btn" id="rtlToggleBtn" type="button" title="Toggle RTL / LTR" aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
         </button>
 
         <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Open Navigation Menu">
@@ -115,7 +133,22 @@
         <a href="orders.html">Orders</a>
         <a href="services.html">Services</a>
         <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.15);">
+        <button class="nav-circle-btn theme-toggle-btn" type="button" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="nav-circle-btn rtl-toggle-btn" type="button" title="Toggle RTL / LTR" aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+      </div>
     </div>
     <div style="color: #6a5146; font-size: 0.85rem; padding-top:1.5rem; border-top:1px solid #ebdcd0;">
       <p style="margin-bottom:0.25rem;">Grand Cru Sommelier Desk:</p>
@@ -144,13 +177,13 @@
           Welcome to our sensory tasting salon. Explore rare single-estate cacao vintages, sommelier spirits pairings, and limited batch creations crafted for the world's most discerning chocolate connoisseurs.
         </p>
 
-        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 3.5rem;" data-aos="fade-up" data-aos-delay="300">
-          <a href="#sensory-flight" class="btn btn-primary" style="padding: 0.95rem 2.5rem;">Explore Sensory Flight</a>
+        <div class="salon-cta-row" data-aos="fade-up" data-aos-delay="300">
+          <a href="#vault-archive" class="btn btn-primary" style="padding: 0.95rem 2.5rem;">Explore Vault Reserve</a>
           <a href="#grand-cru-society" class="btn btn-border-3" style="padding: 0.95rem 2.5rem;">Join Grand Cru Reserve</a>
         </div>
 
         <!-- Metric Badges -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; border-top: 1px solid #ebdcd0; padding-top: 2rem;" data-aos="fade-up" data-aos-delay="400">
+        <div class="metrics-badges-grid" data-aos="fade-up" data-aos-delay="400">
           <div>
             <div style="font-family: var(--font-serif); font-size: 1.8rem; color: #4a1f13; font-weight: 700;">100%</div>
             <div style="font-size: 0.85rem; color: #6a5146; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Heirloom Cacao Genetics</div>
@@ -160,117 +193,12 @@
             <div style="font-size: 0.85rem; color: #6a5146; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Granite Stone Conching</div>
           </div>
           <div>
-            <div style="font-family: var(--font-serif); font-size: 1.8rem; color: #4a1f13; font-weight: 700;">Zero Additives</div>
+            <div style="font-family: var(--font-serif); font-size: 1.8rem; color: #4a1f13; font-weight: 700;">Pure Cocoa</div>
             <div style="font-size: 0.85rem; color: #6a5146; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">No Soy Lecithins or Palm Oil</div>
           </div>
           <div>
             <div style="font-family: var(--font-serif); font-size: 1.8rem; color: #4a1f13; font-weight: 700;">Direct Trade</div>
             <div style="font-size: 0.85rem; color: #6a5146; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">2.8x Fairtrade Farmgate Price</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. INTERACTIVE TERROIR SENSORY FLIGHT (Interactive Sensory Room) -->
-    <section class="terroir-section" id="sensory-flight">
-      <div class="container">
-        <div class="text-center" data-aos="fade-up">
-          <span class="section-sub-title">Single Estate Microclimates</span>
-          <h2 class="section-main-title">Interactive Terroir Sensory Flight</h2>
-          <p style="max-width: 680px; margin: 0 auto 3rem; color: #6a5146; font-size: 1.05rem;">
-            Just like fine vintage wine, cacao reflects its volcanic soil, rainforest canopy, and ocean trade winds. Select an estate origin below to analyze its aromatic spectrum.
-          </p>
-        </div>
-
-        <!-- Terroir Selection Tabs -->
-        <div class="terroir-tabs-row" data-aos="fade-up" id="terroirTabsGroup">
-          <button class="terroir-tab-btn active" data-origin="madagascar">Madagascar (Sambirano Valley)</button>
-          <button class="terroir-tab-btn" data-origin="ghana">Ghana (Suhum Agroforest)</button>
-          <button class="terroir-tab-btn" data-origin="ecuador">Ecuador (Esmeraldas Arriba)</button>
-          <button class="terroir-tab-btn" data-origin="peru">Peru (Ucayali River Basin)</button>
-        </div>
-
-        <!-- Interactive Terroir Display Card -->
-        <div class="terroir-display-card" id="terroirDisplayCard" data-aos="zoom-in">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-              <span id="terroirFlag" style="font-size: 1.5rem;">🇲🇬</span>
-              <span id="terroirRegion" style="font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; color: var(--gold-copper); text-transform: uppercase;">Sambirano Valley, North Madagascar</span>
-            </div>
-            <h3 id="terroirName" style="font-family: var(--font-serif); font-size: 2.2rem; color: #35160d; margin-bottom: 1.25rem;">
-              Madagascar Single-Estate 72%
-            </h3>
-            <p id="terroirStory" style="color: #553a2f; line-height: 1.7; margin-bottom: 1.75rem; font-size: 1.02rem;">
-              Cultivated in alluvial volcanic soil fed by the Sambirano River. Famous among world pastry chefs for its natural berry acidity, raspberry brilliance, and delicate pink pepper finish with zero added fruit flavors.
-            </p>
-
-            <div style="background: #fdf6ed; padding: 1.25rem; border-radius: 8px; border: 1px solid #ebdcd0; border-left: 4px solid var(--gold); margin-bottom: 2rem;">
-              <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--gold-copper); letter-spacing: 0.1em; margin-bottom: 0.4rem;">Master Sommelier Pairing Note:</div>
-              <p id="terroirPairing" style="color: #4a1f13; margin: 0; font-size: 0.92rem; font-style: italic;">
-                "Pair with a chilled Speyside Single Malt or freshly extracted double-shot espresso to amplify the tart red currant finish."
-              </p>
-            </div>
-
-            <button class="btn btn-primary" onclick="alert('Madagascar 72% added to your tasting flight.');" id="btnOrderTerroir">
-              Reserve This Origin Bar ($14.50)
-            </button>
-          </div>
-
-          <!-- Sensory Radar Meters -->
-          <div style="background: #fcf8f4; padding: 2rem; border-radius: 12px; border: 1px solid #ebdcd0; box-shadow: 0 4px 16px rgba(53, 22, 13, 0.04);">
-            <h4 style="font-family: var(--font-serif); color: #35160d; font-size: 1.2rem; margin-bottom: 1.5rem; text-align: center;">
-              Aroma &amp; Palate Analysis
-            </h4>
-
-            <div class="flavor-meter-row">
-              <div class="flavor-meter-label">
-                <span>Berry / Fruit Acidity</span>
-                <span id="meterFruitVal">92%</span>
-              </div>
-              <div class="flavor-meter-track">
-                <div class="flavor-meter-fill" id="meterFruit" style="width: 92%;"></div>
-              </div>
-            </div>
-
-            <div class="flavor-meter-row">
-              <div class="flavor-meter-label">
-                <span>Roasted Cocoa Body</span>
-                <span id="meterRoastVal">68%</span>
-              </div>
-              <div class="flavor-meter-track">
-                <div class="flavor-meter-fill" id="meterRoast" style="width: 68%;"></div>
-              </div>
-            </div>
-
-            <div class="flavor-meter-row">
-              <div class="flavor-meter-label">
-                <span>Floral &amp; Citrus Blossom</span>
-                <span id="meterFloralVal">78%</span>
-              </div>
-              <div class="flavor-meter-track">
-                <div class="flavor-meter-fill" id="meterFloral" style="width: 78%;"></div>
-              </div>
-            </div>
-
-            <div class="flavor-meter-row">
-              <div class="flavor-meter-label">
-                <span>Earthy &amp; Woody Notes</span>
-                <span id="meterEarthVal">45%</span>
-              </div>
-              <div class="flavor-meter-track">
-                <div class="flavor-meter-fill" id="meterEarth" style="width: 45%;"></div>
-              </div>
-            </div>
-
-            <div class="flavor-meter-row">
-              <div class="flavor-meter-label">
-                <span>Melting Silkiness</span>
-                <span id="meterSilkVal">88%</span>
-              </div>
-              <div class="flavor-meter-track">
-                <div class="flavor-meter-fill" id="meterSilk" style="width: 88%;"></div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -288,28 +216,28 @@
         </div>
 
         <!-- Featured Vault Chest Showcase -->
-        <div style="background: #ffffff; border-radius: var(--radius-lg); border: 1px solid #ebdcd0; padding: 2.5rem; margin-bottom: 3.5rem; display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; align-items: center; box-shadow: 0 10px 30px rgba(53, 22, 13, 0.06);" data-aos="fade-up">
+        <div class="vault-showcase-box" data-aos="fade-up">
           <div>
             <div class="vault-seal">SERIALLY NUMBERED COLLECTOR'S RELEASE</div>
-            <h3 style="font-family: var(--font-serif); font-size: 2.2rem; color: #35160d; margin-bottom: 1rem;">
+            <h3 class="vault-showcase-title">
               The Vault Founder's Mahogany Chest
             </h3>
-            <p style="color: #553a2f; line-height: 1.7; font-size: 1.02rem; margin-bottom: 1.5rem;">
+            <p class="vault-showcase-desc">
               Strictly limited to 100 chests per seasonal solstice. Houses 8 rare vintage origin bars wrapped in gold foil with hand-stamped wax seals, enclosed in French-polished dark mahogany timber.
             </p>
-            <div style="display: flex; align-items: center; gap: 1.5rem;">
-              <span style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: #35160d;">$185.00</span>
-              <button class="btn btn-primary" onclick="alert('The Vault Founder Chest reserved in your selection.');">
+            <div class="vault-action-row">
+              <span class="vault-showcase-price">$185.00</span>
+              <button class="btn btn-primary btn-vault-acquire" onclick="alert('The Vault Founder Chest reserved in your selection.');">
                 Acquire Numbered Chest →
               </button>
             </div>
           </div>
-          <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 10px 25px rgba(53, 22, 13, 0.12); border: 1px solid #ebdcd0;">
-            <img src="assets/img/artisan/corporate_wooden_chest.jpg" alt="Vault Founder's Mahogany Chest" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="vault-showcase-img">
+            <img src="assets/img/artisan/corporate_wooden_chest.jpg" alt="Vault Founder's Mahogany Chest">
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+        <div class="vault-batch-grid">
           
           <!-- Vault 1 -->
           <div class="vault-card" data-aos="fade-up">
@@ -547,144 +475,28 @@
       </div>
     </section>
 
-    <!-- 7. SENSORY FLAVOR PROFILER QUIZ -->
-    <section class="quiz-section" id="flavor-quiz">
-      <div class="container">
-        <div class="text-center" data-aos="fade-up">
-          <span class="section-sub-title">Palate Calibration</span>
-          <h2 class="section-main-title">Find Your Signature Chocolate Soul</h2>
-          <p style="max-width: 650px; margin: 0 auto 3rem; color: #6a5146; font-size: 1.05rem;">
-            Answer 2 intuitive sensory questions to receive a tailored chocolate profile crafted by our master sommelier.
-          </p>
-        </div>
-
-        <div class="quiz-container-box" data-aos="zoom-in">
-          
-          <!-- Step 1 -->
-          <div style="margin-bottom: 2.5rem;">
-            <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: #35160d; margin-bottom: 1rem;">
-              Step 1: Which cocoa intensity appeals to your palate?
-            </h4>
-            <div class="quiz-options-group" id="quizStep1Group">
-              <button class="quiz-opt-btn active" data-q1="sweet">
-                <strong>Silky &amp; Gentle</strong><br>
-                <span style="font-size: 0.78rem; opacity: 0.75;">Milk &amp; Toasted Caramel (42%–55%)</span>
-              </button>
-              <button class="quiz-opt-btn" data-q1="balanced">
-                <strong>Balanced &amp; Elegant</strong><br>
-                <span style="font-size: 0.78rem; opacity: 0.75;">Semi-Dark &amp; Nutty (65%–74%)</span>
-              </button>
-              <button class="quiz-opt-btn" data-q1="bold">
-                <strong>Deep &amp; Intense</strong><br>
-                <span style="font-size: 0.78rem; opacity: 0.75;">Single Origin Reserve (80%–88%)</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div style="margin-bottom: 2.5rem;">
-            <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: #35160d; margin-bottom: 1rem;">
-              Step 2: Which sensory aroma note inspires you?
-            </h4>
-            <div class="quiz-options-group" id="quizStep2Group">
-              <button class="quiz-opt-btn active" data-q2="fruity">
-                <strong>Wild Red Berries</strong><br>
-                <span style="font-size: 0.78rem; opacity: 0.75;">Raspberry, tart cherry, citrus blossom</span>
-              </button>
-              <button class="quiz-opt-btn" data-q2="nutty">
-                <strong>Roasted Nuts &amp; Praline</strong><br>
-                <span style="font-size: 0.78rem; opacity: 0.75;">Hazelnut, toasted walnut, brown butter</span>
-              </button>
-              <button class="quiz-opt-btn" data-q2="smoky">
-                <strong>Smoked Salt &amp; Oak</strong><br>
-                <span style="font-size: 0.78rem; opacity: 0.75;">Bourbon barrel, peated smoke, fleur de sel</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Dynamic Quiz Result -->
-          <div class="quiz-result-card" id="quizResultBox">
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); letter-spacing: 0.15em; text-transform: uppercase;">
-              YOUR SENSORY PROFILE MATCH
-            </span>
-            <h3 id="quizResultTitle" style="font-family: var(--font-serif); font-size: 1.8rem; color: #35160d; margin: 0.5rem 0 1rem;">
-              The Vibrant Epilogue: 72% Madagascar Sambirano Ganache
-            </h3>
-            <p id="quizResultDesc" style="color: #553a2f; max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6; font-size: 0.95rem;">
-              Your palate craves bright, energetic fruit acids balanced by silky stone-ground cacao. This micro-batch confection satisfies your desire for clean, unforgettable berry brilliance.
-            </p>
-            <button class="btn btn-primary" onclick="alert('Profile confection added to your tasting flight!');">
-              Add To Tasting Flight ($14.00)
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. PRIVATE SALON & MASTERCLASS BOOKING -->
-    <section style="padding-block: 6rem; background: #fdfbf7; border-bottom: 1px solid #ebdcd0;">
-      <div class="container">
-        <div class="text-center" data-aos="fade-up" style="margin-bottom: 3.5rem;">
-          <span class="section-sub-title">Intimate Confectionery Gatherings</span>
-          <h2 class="section-main-title">Private Salon &amp; Masterclass Bookings</h2>
-          <p style="max-width: 680px; margin: 0 auto; color: #6a5146; font-size: 1.05rem;">
-            Step past the velvet curtains into our private confectionery salon. Available for private couple flights or small group masterclasses.
-          </p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;" data-aos="fade-up">
-          
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 16px; padding: 3rem 2.25rem; box-shadow: 0 8px 24px rgba(53, 22, 13, 0.06);">
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); letter-spacing: 0.15em; text-transform: uppercase;">OPTION A • 90 MINUTES</span>
-            <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: #35160d; margin: 0.5rem 0 1rem;">
-              Private Tasting Salon for Two
-            </h3>
-            <p style="color: #553a2f; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-              An intimate candlelit tasting table reserved exclusively for you. Includes a 6-course single-origin flight, paired wines or espresso, and a keepsake gift box to take home.
-            </p>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #35160d; margin-bottom: 1.5rem;">$120 / couple</div>
-            <a href="services.html#inquiryFormCard" class="btn btn-primary" style="width: 100%; text-align: center;">Book Salon Table</a>
-          </div>
-
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 16px; padding: 3rem 2.25rem; box-shadow: 0 8px 24px rgba(53, 22, 13, 0.06);">
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); letter-spacing: 0.15em; text-transform: uppercase;">OPTION B • 3 HOURS</span>
-            <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: #35160d; margin: 0.5rem 0 1rem;">
-              Marble Slab Tempering Masterclass
-            </h3>
-            <p style="color: #553a2f; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-              Don an artisan apron and join our Master Chocolatier at the Vermont granite table. Hand-roast beans, temper chocolate by hand, and roll 24 bespoke truffles to take home.
-            </p>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #35160d; margin-bottom: 1.5rem;">$195 / person</div>
-            <a href="services.html#inquiryFormCard" class="btn btn-primary" style="width: 100%; text-align: center;">Enroll In Masterclass</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- 9. CONNOISSEUR & CRITIC ACCOLADES -->
     <section style="padding-block: 5rem; background: #f7f0e7;">
       <div class="container text-center" data-aos="fade-up">
         <span class="section-sub-title">Critic Reviews</span>
         <h2 class="section-main-title" style="font-size: 2.2rem; margin-bottom: 3rem;">Echoes of Pure Appreciation</h2>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; text-align: left;">
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 12px; padding: 2rem; box-shadow: 0 6px 18px rgba(53, 22, 13, 0.05);">
+        <div class="critic-reviews-grid">
+          <div class="critic-review-card">
             <p style="font-style: italic; color: #4a1f13; line-height: 1.6; margin-bottom: 1.25rem;">
               "Schmitten's single-estate Madagascar 72% redefines artisan confectionery. The natural citrus blossom and raspberry acidity without any flavorings is a triumph."
             </p>
             <div style="font-weight: 700; color: var(--gold-copper);">— Le Figaro Gourmet Review</div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 12px; padding: 2rem; box-shadow: 0 6px 18px rgba(53, 22, 13, 0.05);">
+          <div class="critic-review-card">
             <p style="font-style: italic; color: #4a1f13; line-height: 1.6; margin-bottom: 1.25rem;">
               "The Bourbon Cask aged dark bar is a masterclass in subtlety. The oak tannins never overpower the delicate floral notes of the Arriba Nacional beans."
             </p>
             <div style="font-weight: 700; color: var(--gold-copper);">— Forbes Connoisseur Collection</div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 12px; padding: 2rem; box-shadow: 0 6px 18px rgba(53, 22, 13, 0.05);">
+          <div class="critic-review-card">
             <p style="font-style: italic; color: #4a1f13; line-height: 1.6; margin-bottom: 1.25rem;">
               "The Grand Cru Society subscription is the highlight of my month. Unboxing the insulated cold packs reveals chocolate that tastes like it was poured five minutes ago."
             </p>
@@ -696,9 +508,24 @@
 
   </main>
 
-  <!-- 10. GLOBAL LUXURY FOOTER (Exact 6-Page Sequence) -->
+  <!-- 10. GLOBAL LUXURY FOOTER -->
   <footer class="global-luxury-footer" style="background:var(--choco-deep); color:#ffffff; padding:5.5rem 0 2.5rem; border-top:1px solid rgba(197,155,99,0.25);">
     <div class="container">
+      <!-- 10% OFF Newsletter Banner -->
+      <div class="offer-card" data-aos="fade-up" style="margin-bottom:3.5rem;">
+        <div class="offer-badge">
+          10%<span>OFF</span>
+        </div>
+        <div>
+          <h3 class="section-main-title text-yellow" style="font-size: 1.8rem; margin-bottom: 0.3rem;">Newsletter Subscription</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin: 0;">Subscribe and get 10% OFF on your first luxury chocolate order.</p>
+        </div>
+        <form class="newsletter-form" id="FooterSubscribeForm">
+          <input type="email" class="newsletter-input" placeholder="Enter Email ID" required>
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        </form>
+      </div>
+
       <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:3.5rem; margin-bottom:4rem;">
         <!-- Col 1: Brand Info -->
         <div>
@@ -746,6 +573,7 @@
             <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Orders</a></li>
             <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Services</a></li>
             <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Blog</a></li>
+            <li><a href="contact.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Contact</a></li>
           </ul>
         </div>
 
@@ -756,7 +584,7 @@
             <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Order Tracking</a></li>
             <li><a href="about.html#values" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Cold-Pack Guarantee</a></li>
             <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Corporate Gifting</a></li>
-            <li><a href="about.html#craft" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Bean to Bar Craft</a></li>
+            <li><a href="about.html#journey" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Our Journey</a></li>
             <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">News &amp; Media</a></li>
           </ul>
         </div>
@@ -779,3 +607,4 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+

@@ -7,6 +7,7 @@
   <meta name="description" content="Discover handcrafted bean-to-bar chocolates, single-origin truffles, luxury gift boxes, seasonal collections and chocolate subscriptions.">
   <link rel="icon" href="assets/img/artisan/signature_truffles.jpg" type="image/jpeg">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mobile-fixes.css">
 </head>
 <body>
 
@@ -56,7 +57,7 @@
         </a>
       </div>
 
-      <!-- Main Navigation Menu: Home → Home2 → About → Orders → Services → Blog -->
+      <!-- Main Navigation Menu: Home → About → Orders → Services → Blog -->
       <nav aria-label="Main Navigation">
         <ul class="main-menu">
           <li><a href="index.html" class="active">Home</a></li>
@@ -65,6 +66,7 @@
           <li><a href="orders.html">Orders</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
@@ -99,6 +101,22 @@
           <span style="font-size:1.2rem;">👤</span>
         </button>
 
+        <!-- Theme Toggle (Dark / Light Mode) -->
+        <button class="nav-circle-btn theme-toggle-btn" id="themeToggleBtn" type="button" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button class="nav-circle-btn rtl-toggle-btn" id="rtlToggleBtn" type="button" title="Toggle RTL / LTR" aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+
         <!-- Mobile Menu Toggle -->
         <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Open Navigation Menu">
           <span style="font-size:1.4rem; color:var(--meridian-gold-light);">☰</span>
@@ -130,7 +148,22 @@
         <a href="orders.html">Orders</a>
         <a href="services.html">Services</a>
         <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.15);">
+        <button class="nav-circle-btn theme-toggle-btn" type="button" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="nav-circle-btn rtl-toggle-btn" type="button" title="Toggle RTL / LTR" aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+      </div>
     </div>
     <div style="color: rgba(255,255,255,0.7); font-size: 0.85rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.15);">
       <p style="margin-bottom:0.25rem;">Master Chocolatier Concierge:</p>
@@ -183,26 +216,7 @@
         </div>
 
         <div class="signature-grid">
-          <!-- Product 1: Madagascar Dark Chocolate 70% -->
-          <div class="sig-card" data-aos="fade-up">
-            <div class="sig-img-box">
-              <span class="badge-cocoa">70% Cocoa</span>
-              <button class="btn-card-wishlist" data-wishlist="madagascar-dark-70" aria-label="Add to Wishlist">♥</button>
-              <img src="assets/img/artisan/signature_truffles.jpg" alt="Madagascar Dark Chocolate 70%" loading="lazy">
-            </div>
-            <div class="sig-content">
-              <h3 class="sig-title">Madagascar Dark Chocolate 70%</h3>
-              <div class="sig-flavor-tag">Wild Raspberry &amp; Citrus Honey Notes</div>
-              <p class="sig-desc">Direct-trade Criollo cocoa from the Sambirano Valley. Clean citrus snap, gentle acidity, and an extraordinarily long fruit finish.</p>
-              <div class="sig-meta-row">
-                <span class="sig-price">$12.50</span>
-                <span class="sig-rating">★★★★★ 4.9 <span style="color:#887063; font-weight:400;">(148)</span></span>
-              </div>
-              <button class="btn-sig-cart" data-add-item="madagascar-dark-70" data-name="Madagascar Dark Chocolate 70%" data-price="12.50">
-                <span>Add to Cart</span> <span>🛒</span>
-              </button>
-            </div>
-          </div>
+
 
           <!-- Product 2: Hazelnut Crunch -->
           <div class="sig-card" data-aos="fade-up" data-aos-delay="100">
@@ -454,112 +468,7 @@
               </li>
             </ul>
             <div>
-              <a href="#custom-box" class="btn-meridian-primary">Explore Gift Collection</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. CREATE YOUR OWN CHOCOLATE BOX -->
-    <section class="box-builder-section" id="custom-box">
-      <div class="container">
-        <div style="text-align:center;" data-aos="fade-up">
-          <div class="section-eyebrow" style="color:var(--meridian-gold-light);">CUSTOM CONFECTIONERY ATELIER</div>
-          <h2 class="section-hero-title light">Your Chocolates. Your Way.</h2>
-          <p class="section-subtitle light">
-            Design a custom gift box tailored to your exact palate. Choose your preferred box size, select your favorite bonbon varieties, pick elegant packaging, and pen a personal message.
-          </p>
-        </div>
-
-        <div class="builder-layout-grid">
-          <!-- Left: Live Preview Box -->
-          <div class="builder-preview-panel" data-aos="fade-right">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
-              <span style="font-family:var(--meridian-serif); font-size:1.3rem; color:var(--meridian-gold-light);">Box Preview</span>
-              <span style="font-size:0.85rem; background:rgba(197,155,99,0.25); border:1px solid var(--meridian-gold); padding:0.2rem 0.6rem; border-radius:4px;" id="boxCapacityLabel">16 Pieces Selected</span>
-            </div>
-
-            <div class="builder-box-visual" id="boxVisualContainer">
-              <div class="box-selected-tray">
-                <div class="tray-cell">70%</div>
-                <div class="tray-cell">Caramel</div>
-                <div class="tray-cell">Hazelnut</div>
-                <div class="tray-cell">Pistachio</div>
-                <div class="tray-cell">Truffle</div>
-                <div class="tray-cell">Espresso</div>
-                <div class="tray-cell">Berry</div>
-                <div class="tray-cell">70%</div>
-                <div class="tray-cell">Caramel</div>
-                <div class="tray-cell">Gold</div>
-                <div class="tray-cell">Hazelnut</div>
-                <div class="tray-cell">Matcha</div>
-                <div class="tray-cell">Pistachio</div>
-                <div class="tray-cell">Truffle</div>
-                <div class="tray-cell">Berry</div>
-                <div class="tray-cell">Fleur</div>
-              </div>
-              <div style="font-size:0.92rem; color:rgba(255,255,255,0.85);">
-                <strong id="boxPackagingName" style="color:var(--meridian-gold-light);">Midnight Velvet Box</strong> • 16-Piece Tasting Flight
-              </div>
-            </div>
-
-            <div style="background:rgba(20,7,4,0.4); padding:1.25rem; border-radius:6px; border:1px solid rgba(255,255,255,0.1);">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--meridian-gold-light); margin-bottom:0.35rem;">Personalized Card Preview</div>
-              <div id="messagePreviewText" style="font-family:var(--meridian-serif); font-style:italic; font-size:1.05rem; color:#fff5e8;">
-                "Wishing you timeless sweetness and unforgettable moments."
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Interactive Controls -->
-          <div class="builder-controls-panel" data-aos="fade-left">
-            <!-- Step 1: Size -->
-            <div class="builder-step-block">
-              <div class="builder-step-label">Step 1: Choose Quantities</div>
-              <div class="pill-selector-group" id="sizeSelectorGroup">
-                <button class="builder-pill" data-size="8" data-price="24.00">8 Pieces ($24)</button>
-                <button class="builder-pill active" data-size="16" data-price="44.00">16 Pieces ($44)</button>
-                <button class="builder-pill" data-size="32" data-price="78.00">32 Pieces ($78)</button>
-              </div>
-            </div>
-
-            <!-- Step 2: Packaging -->
-            <div class="builder-step-block">
-              <div class="builder-step-label">Step 2: Select Packaging Style</div>
-              <div class="pill-selector-group" id="packSelectorGroup">
-                <button class="builder-pill active" data-pack="Midnight Velvet">Midnight Velvet</button>
-                <button class="builder-pill" data-pack="Terracotta Silk">Terracotta Silk</button>
-                <button class="builder-pill" data-pack="Champagne Gold">Champagne Gold</button>
-              </div>
-            </div>
-
-            <!-- Step 3: Select Chocolates -->
-            <div class="builder-step-block">
-              <div class="builder-step-label">Step 3: Preferred Chocolate Selection</div>
-              <div class="pill-selector-group" id="varietySelectorGroup">
-                <button class="builder-pill active" data-variety="Chef Curated Harmony">Chef Curated</button>
-                <button class="builder-pill" data-variety="Pure Dark Flight">Pure Dark Flight</button>
-                <button class="builder-pill" data-variety="Caramel & Nut Reverie">Caramel &amp; Nuts</button>
-                <button class="builder-pill" data-variety="Exotic Reserve">Exotic Reserve</button>
-              </div>
-            </div>
-
-            <!-- Step 4: Personalized Message -->
-            <div class="builder-step-block">
-              <div class="builder-step-label">Step 4: Personalized Message</div>
-              <textarea class="builder-msg-textarea" id="builderMessageInput" placeholder="Type your personalized gift note here (up to 180 characters)...">Wishing you timeless sweetness and unforgettable moments.</textarea>
-            </div>
-
-            <!-- Summary Bar -->
-            <div class="builder-summary-row">
-              <div>
-                <span style="font-size:0.85rem; color:rgba(255,255,255,0.7); display:block;">Custom Box Total:</span>
-                <span style="font-family:var(--meridian-sans); font-size:2rem; font-weight:700; color:var(--meridian-gold-light);" id="customBoxPriceLabel">$44.00</span>
-              </div>
-              <button class="btn-meridian-primary" id="btnBuildBoxCart">
-                Build Your Box
-              </button>
+              <a href="gift-box.html" class="btn-meridian-primary">Explore Gift Collection</a>
             </div>
           </div>
         </div>
@@ -616,7 +525,7 @@
         </div>
 
         <div style="text-align:center; margin-top:3.5rem;" data-aos="fade-up">
-          <a href="#custom-box" class="btn-meridian-primary">Explore Pairing Guide</a>
+          <a href="pairings.html" class="btn-meridian-primary">Explore Pairing Guide</a>
         </div>
       </div>
     </section>
@@ -713,7 +622,7 @@
         </div>
 
         <div style="text-align:center; margin-top:3.5rem;" data-aos="fade-up">
-          <a href="#custom-box" class="btn-meridian-primary">Explore Seasonal Collection</a>
+          <a href="seasonal.html" class="btn-meridian-primary">Explore Seasonal Collection</a>
         </div>
       </div>
     </section>
@@ -838,32 +747,26 @@
       </div>
     </section>
 
-    <!-- 14. NEWSLETTER -->
-    <section class="newsletter-section">
-      <div class="container">
-        <div class="newsletter-box" data-aos="fade-up">
-          <div class="section-eyebrow" style="color:var(--meridian-gold-light);">STAY INFORMED</div>
-          <h2 class="section-hero-title light">Stay in the Sweetest Loop</h2>
-          <p style="color:rgba(255,255,255,0.8); font-size:1rem; line-height:1.7;">
-            Subscribe to receive private announcements for rare single-harvest releases, seasonal collection launches, exclusive subscriber gifts, and inspiring chocolate stories.
-          </p>
-
-          <form id="newsletterForm" class="newsletter-form-row">
-            <input type="email" class="newsletter-input-field" placeholder="Enter your email address" required id="newsletterEmail">
-            <button type="submit" class="btn-meridian-primary">Subscribe</button>
-          </form>
-          <div style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:0.75rem;">
-            We respect your inbox. Unsubscribe at any time with a single click.
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- 15. FOOTER -->
   <footer class="global-luxury-footer" style="background:var(--meridian-dark); color:#ffffff; padding:5.5rem 0 2.5rem; border-top:1px solid rgba(197,155,99,0.25);">
     <div class="container">
+      <!-- 10% OFF Newsletter Banner -->
+      <div class="offer-card" data-aos="fade-up" style="margin-bottom:3.5rem;">
+        <div class="offer-badge">
+          10%<span>OFF</span>
+        </div>
+        <div>
+          <h3 class="section-main-title text-yellow" style="font-size: 1.8rem; margin-bottom: 0.3rem;">Newsletter Subscription</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin: 0;">Subscribe and get 10% OFF on your first luxury chocolate order.</p>
+        </div>
+        <form class="newsletter-form" id="FooterSubscribeForm">
+          <input type="email" class="newsletter-input" placeholder="Enter Email ID" required>
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        </form>
+      </div>
+
       <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:3.5rem; margin-bottom:4rem;">
         <!-- Col 1: Brand Info -->
         <div>
@@ -912,6 +815,7 @@
             <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Orders</a></li>
             <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Services</a></li>
             <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Blog</a></li>
+            <li><a href="contact.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Contact</a></li>
           </ul>
         </div>
 
@@ -922,7 +826,7 @@
             <li><a href="orders.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Order Tracking</a></li>
             <li><a href="about.html#values" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Cold-Pack Guarantee</a></li>
             <li><a href="services.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Corporate Gifting</a></li>
-            <li><a href="about.html#craft" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Bean to Bar Craft</a></li>
+            <li><a href="about.html#journey" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">Our Journey</a></li>
             <li><a href="blog.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.92rem;">News &amp; Media</a></li>
           </ul>
         </div>
@@ -945,3 +849,4 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+

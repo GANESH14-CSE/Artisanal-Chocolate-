@@ -10,6 +10,16 @@
    - Newsletter submission handling
    ========================================================================== */
 
+// Immediately apply saved theme & dir to prevent any flash
+(function() {
+  try {
+    const t = localStorage.getItem('schmitten_theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    const d = localStorage.getItem('schmitten_dir');
+    if (d) document.documentElement.setAttribute('dir', d);
+  } catch(e) {}
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 1. Header Sticky Effect & Mobile Drawer ---------- */
@@ -988,6 +998,75 @@ document.addEventListener('DOMContentLoaded', () => {
     closeQuickView();
     showToast(`Added "${name}" to your sweet selection.`);
     openCart();
+  });
+
+  /* ---------- 14. Theme (Dark/Light) & RTL Toggles ---------- */
+  const savedTheme = localStorage.getItem('schmitten_theme') || 'light';
+  const savedDir = localStorage.getItem('schmitten_dir') || 'ltr';
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('schmitten_theme', theme);
+    document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+      const sun = btn.querySelector('.sun-icon');
+      const moon = btn.querySelector('.moon-icon');
+      if (theme === 'dark') {
+        if (sun) sun.style.display = 'none';
+        if (moon) moon.style.display = 'block';
+        btn.setAttribute('title', 'Switch to Light Mode');
+        btn.setAttribute('aria-label', 'Switch to Light Mode');
+      } else {
+        if (sun) sun.style.display = 'block';
+        if (moon) moon.style.display = 'none';
+        btn.setAttribute('title', 'Switch to Dark Mode');
+        btn.setAttribute('aria-label', 'Switch to Dark Mode');
+      }
+    });
+  }
+
+  function applyDir(dir) {
+    document.documentElement.setAttribute('dir', dir);
+    localStorage.setItem('schmitten_dir', dir);
+    document.querySelectorAll('.rtl-toggle-btn').forEach(btn => {
+      const label = btn.querySelector('.rtl-label');
+      if (label) label.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
+      btn.setAttribute('title', dir === 'rtl' ? 'Switch to LTR' : 'Switch to RTL');
+      btn.setAttribute('aria-label', dir === 'rtl' ? 'Switch to LTR' : 'Switch to RTL');
+      if (dir === 'rtl') {
+        btn.classList.add('active-rtl');
+      } else {
+        btn.classList.remove('active-rtl');
+      }
+    });
+  }
+
+  applyTheme(savedTheme);
+  applyDir(savedDir);
+
+  document.addEventListener('click', (e) => {
+    const themeBtn = e.target.closest('.theme-toggle-btn');
+    if (themeBtn) {
+      e.preventDefault();
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      if (typeof showToast === 'function') {
+        showToast(next === 'dark' ? 'Switched to Dark Mode' : 'Switched to Light Mode');
+      }
+      return;
+    }
+
+    const rtlBtn = e.target.closest('.rtl-toggle-btn');
+    if (rtlBtn) {
+      e.preventDefault();
+      const current = document.documentElement.getAttribute('dir') || 'ltr';
+      const next = current === 'rtl' ? 'ltr' : 'rtl';
+      applyDir(next);
+      if (typeof showToast === 'function') {
+        showToast(next === 'rtl' ? 'Switched to RTL Layout' : 'Switched to LTR Layout');
+      }
+      return;
+    }
   });
 
 });

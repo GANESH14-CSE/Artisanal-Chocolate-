@@ -1,151 +1,384 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Contact and visits — Meridian Cacao</title>
-<meta name="description" content="Find the workshop, book a tasting, or ask about corporate gifting.">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact & Concierge — Schmitten Luxury Chocolates</title>
+  <meta name="description" content="Get in touch with our master chocolatiers, book an atelier tasting, or request bespoke corporate and wedding gifting consultations.">
+  <link rel="icon" href="assets/img/schmitten/logo.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mobile-fixes.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="masthead">
-  <div class="wrap masthead__inner">
-    <a class="logo" href="index.html">
-      <img class="logo__mark" src="assets/img/logo.svg" alt="">
-      <span class="logo__name">Meridian Cacao<span>Bean to bar</span></span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-    <nav class="nav" id="primary-nav" data-open="false" aria-label="Primary">
-      <a href="home-2.html">Home 2</a>
-      <a href="collections.html">Collections</a>
-      <a href="truffles.html">Truffles</a>
-      <a href="pairings.html">Pairing guide</a>
-      <a href="gift-box.html">Gift boxes</a>
-      <a href="seasonal.html">Seasonal</a>
-      <a href="subscription.html">Subscription</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-</header>
-<main id="main">
-<section class="page-head">
-  <div class="wrap">
-    <p class="crumb"><a href="index.html">Home</a> · Contact</p>
-    <h1>Come by, or write to us</h1>
-    <p>The workshop is open Tuesday to Sunday. Somebody is always on the bench, so knock even if the shop front looks quiet.</p>
-  </div>
-</section>
 
-<section class="section">
-  <div class="wrap split">
-    <div>
-      <h2>Send a message</h2>
-      <form data-demo="Thank you — we reply to everything within one working day." class="form-grid">
-        <div>
-          <label for="c-name">Your name</label>
-          <input id="c-name" type="text" required>
-        </div>
-        <div>
-          <label for="c-email">Email</label>
-          <input id="c-email" type="email" required>
-        </div>
-        <div class="full">
-          <label for="c-topic">What is this about?</label>
-          <select id="c-topic">
-            <option>An order I have placed</option>
-            <option>Corporate or wedding gifting</option>
-            <option>Booking a Saturday tasting</option>
-            <option>Subscription question</option>
-            <option>Wholesale and stockists</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div class="full">
-          <label for="c-msg">Message</label>
-          <textarea id="c-msg" rows="5" required></textarea>
-        </div>
-        <div class="full">
-          <button class="btn" type="submit">Send message</button>
-          <p class="status-msg" role="status"></p>
-          <p class="note">This is a demonstration form. It validates and confirms in the page; connect it to your own mail handler before going live.</p>
-        </div>
-      </form>
+  <!-- Toast Notification -->
+  <div id="added" role="status">
+    <span class="check-icon">✓</span>
+    <strong>Message sent successfully. Our concierge will contact you shortly.</strong>
+  </div>
+
+  <!-- Main Header Navigation -->
+  <header class="header">
+    <div class="main-header">
+      <div class="logo">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation in exact specified order: Home → Home2 → About → Orders → Services → Blog → Contact -->
+      <nav aria-label="Main Navigation">
+        <ul class="main-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home-2.html">Home2</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right Utilities -->
+      <div class="main-menu-right">
+        <a href="orders.html" class="header-action-link" title="Sweetlist">
+          <div class="header-icon-wrap">
+            <span style="font-size: 1.2rem; color: var(--gold);">♥</span>
+            <span class="sweetlist-count">0</span>
+          </div>
+        </a>
+
+        <a href="javascript:void(0);" class="header-action-link open-cart-btn" id="menu-cart" title="Cart">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/cart.png" alt="Cart">
+            <span class="cart-count">0</span>
+          </div>
+        </a>
+
+        <a href="contact.html" class="header-action-link active" title="Store Locator">
+          <div class="header-icon-wrap">
+            <img src="assets/img/schmitten/location.png" alt="Store Locator">
+          </div>
+        </a>
+
+        <!-- Theme Toggle (Dark / Light Mode) -->
+        <button class="nav-circle-btn theme-toggle-btn" id="themeToggleBtn" type="button" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button class="nav-circle-btn rtl-toggle-btn" id="rtlToggleBtn" type="button" title="Toggle RTL / LTR" aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+
+        <button class="mobile-toggle" aria-label="Open Navigation Menu">
+          <img src="assets/img/schmitten/menu.png" alt="Menu">
+        </button>
+      </div>
     </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
     <div>
-      <h2>Find us</h2>
-      <table class="spec">
-        <tbody>
-          <tr><th>Workshop and shop</th><td>14 Cookson Lane, Richmond Town, Bengaluru 560001</td></tr>
-          <tr><th>Opening hours</th><td>Tuesday to Sunday, 10.00–19.00. Closed Monday.</td></tr>
-          <tr><th>Saturday tasting</th><td>11.00, twelve seats, ₹950 redeemable against a purchase</td></tr>
-          <tr><th>Telephone</th><td><a class="link-quiet" href="tel:+918040000000">+91 80 4000 0000</a></td></tr>
-          <tr><th>Email</th><td><a class="link-quiet" href="mailto:hello@meridiancacao.example">hello@meridiancacao.example</a></td></tr>
-          <tr><th>Wholesale</th><td><a class="link-quiet" href="mailto:trade@meridiancacao.example">trade@meridiancacao.example</a></td></tr>
-        </tbody>
-      </table>
-      <div class="plate" style="--plate-a:#3E5940;--plate-b:#241510;margin-top:2rem"><span>Richmond Town, Bengaluru</span></div>
+      <button class="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+      <div style="margin-bottom: 2rem;">
+        <a href="index.html" class="custom-brand-logo">
+          <div class="brand-crest-box">
+            <span class="crest-icon">✦</span>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title">SCHMITTEN</span>
+            <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+          </div>
+        </a>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="home-2.html">Home2</a>
+        <a href="about.html">About</a>
+        <a href="orders.html">Orders</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.15);">
+        <button class="nav-circle-btn theme-toggle-btn" type="button" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="nav-circle-btn rtl-toggle-btn" type="button" title="Toggle RTL / LTR" aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+      </div>
+    </div>
+    <div style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">
+      <p>Need assistance?</p>
+      <p style="color: var(--gold); font-weight: 600;">relations@schmitten.co</p>
+    </div>
+  </aside>
+
+  <!-- Cart Modal Drawer -->
+  <div class="cart-modal" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3>Your Sweet Selection</h3>
+        <button class="cart-close" aria-label="Close Cart">&times;</button>
+      </div>
+      <div class="cart-body">
+        <div class="cart-empty" style="text-align: center; padding: 3rem 1rem;">
+          <p style="font-size: 1.1rem; color: #765d52;">Your selection is currently empty.</p>
+          <a href="orders.html" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Discover Chocolates</a>
+        </div>
+        <div class="cart-items-list"></div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Subtotal</span>
+          <span class="cart-subtotal-val">$0.00</span>
+        </div>
+        <button class="btn btn-primary btn-checkout" style="width: 100%; margin-top: 1rem;">Proceed to Checkout</button>
+      </div>
     </div>
   </div>
-</section>
-</main>
-<footer class="colophon">
-  <div class="wrap">
-    <div class="colophon__grid">
-      <div>
-        <a class="logo" href="index.html" style="margin-bottom:1rem">
-          <img class="logo__mark" src="assets/img/logo.svg" alt="">
-          <span class="logo__name">Meridian Cacao<span>Bean to bar</span></span>
-        </a>
-        <p>We buy cacao at origin, roast it in Bengaluru, and make everything in one room. Nothing leaves the workshop that we would not eat ourselves.</p>
-        <form class="newsletter" data-demo="Thank you — your first origin note is on its way.">
-          <label for="nl-email">Get the monthly origin note, plus new releases before they sell out.</label>
-          <input id="nl-email" type="email" required placeholder="you@example.com">
-          <button class="btn" type="submit">Subscribe</button>
-          <p class="status-msg" role="status" style="width:100%"></p>
+
+  <main id="main">
+
+    <!-- 1. CONTACT HERO BANNER -->
+    <section class="about-hero-banner" style="background-image: linear-gradient(180deg, rgba(20, 7, 4, 0.45) 0%, rgba(20, 7, 4, 0.75) 100%), url('assets/img/artisan/about_hero_atelier.jpg');">
+      <div class="container" data-aos="fade-up">
+        <div class="section-eyebrow" style="color:var(--meridian-gold-light);">ATELIER &amp; CONCIERGE</div>
+        <h1 class="section-hero-title light" style="font-size:clamp(2.4rem, 5vw, 4rem); margin-bottom:1.25rem;">
+          We Would Love to Hear from You
+        </h1>
+        <p class="section-subtitle light" style="max-width:680px; margin:0 auto;">
+          Whether you are looking for custom confectionery commissions, private sommelier flights, or ordering advice, our master chocolatiers are at your service.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. CONTACT CONTENT SECTION -->
+    <section style="padding: 5.5rem 0; background-color: var(--meridian-cream, #fdfaf6);">
+      <div class="container">
+        <div class="contact-main-grid">
+          
+          <!-- Left: Contact Form -->
+          <div class="contact-form-card" data-aos="fade-up">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Direct Inquiry</span>
+            <h2 style="font-family: var(--font-serif); font-size: 2rem; color: #35160d; margin-bottom: 1.5rem;">Send a Message</h2>
+            
+            <form id="contactForm" onsubmit="event.preventDefault(); const toast = document.getElementById('added'); if(toast){ toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3500); this.reset(); }">
+              <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div>
+                  <label for="contact_name" style="display: block; font-size: 0.88rem; font-weight: 600; color: #4a2113; margin-bottom: 0.4rem;">Your Name *</label>
+                  <input type="text" id="contact_name" class="form-control" required placeholder="e.g. Eleanor Vance" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid #d8c5b4; border-radius: 6px; font-size: 0.95rem;">
+                </div>
+                <div>
+                  <label for="contact_email" style="display: block; font-size: 0.88rem; font-weight: 600; color: #4a2113; margin-bottom: 0.4rem;">Email Address *</label>
+                  <input type="email" id="contact_email" class="form-control" required placeholder="e.g. eleanor@example.com" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid #d8c5b4; border-radius: 6px; font-size: 0.95rem;">
+                </div>
+                <div>
+                  <label for="contact_topic" style="display: block; font-size: 0.88rem; font-weight: 600; color: #4a2113; margin-bottom: 0.4rem;">What is your inquiry regarding? *</label>
+                  <select id="contact_topic" class="form-control" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid #d8c5b4; border-radius: 6px; font-size: 0.95rem; background: #fff;">
+                    <option value="Tasting Salon Booking">Booking a Tasting Salon Table</option>
+                    <option value="Corporate Gifting">Corporate Milestone &amp; Executive Gifting</option>
+                    <option value="Wedding Favors">Bespoke Wedding &amp; Anniversary Monograms</option>
+                    <option value="Order Tracking">Existing Order Status &amp; Tracking</option>
+                    <option value="Masterclasses">Masterclass &amp; Workshop Inquiries</option>
+                    <option value="General Question">General Connoisseur Question</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="contact_message" style="display: block; font-size: 0.88rem; font-weight: 600; color: #4a2113; margin-bottom: 0.4rem;">Your Message *</label>
+                  <textarea id="contact_message" rows="5" class="form-control" required placeholder="Tell us how our master chocolatiers can assist you..." style="width: 100%; padding: 0.85rem 1rem; border: 1px solid #d8c5b4; border-radius: 6px; font-size: 0.95rem;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 0.95rem; font-weight: 700; border-radius: 6px; margin-top: 0.5rem; width: 100%;">Send Message</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right: Atelier & Salon Details -->
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-info-card">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Flagship Sanctuary</span>
+              <h2 style="font-family: var(--font-serif); font-size: 2rem; color: #35160d; margin-bottom: 1.5rem;">Atelier &amp; Boutique</h2>
+
+              <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+                
+                <div style="display: flex; gap: 1.25rem;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: #fdf6ed; border: 1px solid #ebdcd0; display: flex; align-items: center; justify-content: center; color: var(--gold-copper); font-size: 1.25rem; flex-shrink: 0;">
+                    📍
+                  </div>
+                  <div>
+                    <h4 style="font-size: 1.05rem; color: #35160d; margin-bottom: 0.25rem;">Address</h4>
+                    <p style="color: #6a5146; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                      14 Cookson Lane, Richmond Town,<br>
+                      Bengaluru, Karnataka 560001
+                    </p>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 1.25rem;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: #fdf6ed; border: 1px solid #ebdcd0; display: flex; align-items: center; justify-content: center; color: var(--gold-copper); font-size: 1.25rem; flex-shrink: 0;">
+                    ⏰
+                  </div>
+                  <div>
+                    <h4 style="font-size: 1.05rem; color: #35160d; margin-bottom: 0.25rem;">Hours of Operation</h4>
+                    <p style="color: #6a5146; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                      Tuesday – Sunday: 10:00 AM – 7:00 PM<br>
+                      <span style="font-style: italic; color: #8c7368;">Closed on Mondays for estate cacao conching.</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 1.25rem;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: #fdf6ed; border: 1px solid #ebdcd0; display: flex; align-items: center; justify-content: center; color: var(--gold-copper); font-size: 1.25rem; flex-shrink: 0;">
+                    📞
+                  </div>
+                  <div>
+                    <h4 style="font-size: 1.05rem; color: #35160d; margin-bottom: 0.25rem;">Telephone Concierge</h4>
+                    <p style="color: #6a5146; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                      <a href="tel:+912612961100" style="color: var(--gold-copper); text-decoration: none; font-weight: 600;">+91 261 2961100</a> / 
+                      <a href="tel:+918040000000" style="color: var(--gold-copper); text-decoration: none; font-weight: 600;">+91 80 4000 0000</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 1.25rem;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: #fdf6ed; border: 1px solid #ebdcd0; display: flex; align-items: center; justify-content: center; color: var(--gold-copper); font-size: 1.25rem; flex-shrink: 0;">
+                    ✉️
+                  </div>
+                  <div>
+                    <h4 style="font-size: 1.05rem; color: #35160d; margin-bottom: 0.25rem;">Email Dispatch</h4>
+                    <p style="color: #6a5146; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                      General: <a href="mailto:relations@schmitten.co" style="color: var(--gold-copper); text-decoration: none;">relations@schmitten.co</a><br>
+                      Concierge: <a href="mailto:concierge@schmitten.co" style="color: var(--gold-copper); text-decoration: none;">concierge@schmitten.co</a>
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #2b1107 0%, #150603 100%); border-radius: 14px; padding: 2rem; color: #ffffff; border: 1px solid rgba(197, 155, 99, 0.3);">
+              <h4 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--gold-champagne); margin-bottom: 0.5rem;">Private Tasting Bookings</h4>
+              <p style="font-size: 0.92rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 1.25rem;">
+                Saturday sensory cupping sessions take place at 11:00 AM (twelve seats per flight). Reservation fee is fully redeemable against any chocolate selection on the day.
+              </p>
+              <a href="services.html" class="btn btn-primary" style="font-size: 0.88rem; padding: 0.65rem 1.4rem;">Explore Tasting Services</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Luxury Footer & 10% OFF Newsletter Banner -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="offer-card" data-aos="fade-up">
+        <div class="offer-badge">
+          10%<span>OFF</span>
+        </div>
+        <div>
+          <h3 class="section-main-title text-yellow" style="font-size: 1.8rem; margin-bottom: 0.3rem;">Newsletter Subscription</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin: 0;">Subscribe and get 10% OFF on your first luxury chocolate order.</p>
+        </div>
+        <form class="newsletter-form" id="FooterSubscribeForm">
+          <input type="email" class="newsletter-input" placeholder="Enter Email ID" required>
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
         </form>
       </div>
-      <div>
-        <h4>Chocolate</h4>
-        <ul>
-          <li><a href="collections.html">Bean-to-bar collection</a></li>
-          <li><a href="truffles.html">Truffle varieties</a></li>
-          <li><a href="seasonal.html">Seasonal releases</a></li>
-          <li><a href="gift-box.html">Build a gift box</a></li>
-          <li><a href="pairings.html">Flavour pairing guide</a></li>
-        </ul>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <div style="margin-bottom: 1.25rem;">
+            <a href="index.html" class="custom-brand-logo">
+              <div class="brand-crest-box">
+                <span class="crest-icon">✦</span>
+              </div>
+              <div class="brand-text-block">
+                <span class="brand-title">SCHMITTEN</span>
+                <span class="brand-tagline">ARTISANAL CHOCOLATIER</span>
+              </div>
+            </a>
+          </div>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+            Crafted with European precision and cocoa beans from Ghana and Madagascar. Delivering timeless moments of pure bliss.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="orders.html">All Chocolates</a></li>
+            <li><a href="orders.html">Schmitten Luxury Bars</a></li>
+            <li><a href="orders.html">Hoppits Energy Bars</a></li>
+            <li><a href="orders.html">Schmitten Barks</a></li>
+            <li><a href="orders.html">Gift Assortments</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home2</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Phone:</strong><br>
+              <a href="tel:+912612961100">+91 261 2961100</a>
+            </li>
+            <li style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              <strong style="color: var(--gold);">Email:</strong><br>
+              <a href="mailto:relations@schmitten.co">relations@schmitten.co</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>Meridian</h4>
-        <ul>
-          <li><a href="about.html">About the workshop</a></li>
-          <li><a href="about.html#sourcing">How we source</a></li>
-          <li><a href="subscription.html">Chocolate of the month</a></li>
-          <li><a href="home-2.html">Home 2</a></li>
-          <li><a href="contact.html">Contact and visits</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Workshop</h4>
-        <ul>
-          <li><a href="contact.html">14 Cookson Lane, Bengaluru 560001</a></li>
-          <li><a href="tel:+918040000000">+91 80 4000 0000</a></li>
-          <li><a href="mailto:hello@meridiancacao.example">hello@meridiancacao.example</a></li>
-          <li><span style="color:rgba(243,231,211,.6);font-size:.85rem">Tue–Sun, 10.00–19.00</span></li>
-        </ul>
+
+      <div class="copyright-bar">
+        <div>© 2026 Schmitten Luxury Chocolates. All Rights Reserved.</div>
+        <div class="copyright-links">
+          <a href="about.html">Privacy Policy</a>
+          <a href="about.html">Terms &amp; Conditions</a>
+          <a href="services.html">Delivery &amp; Returns</a>
+        </div>
       </div>
     </div>
-    <div class="colophon__base">
-      <span>&copy; <span id="year">2026</span> Meridian Cacao. Sample project, original design and copy.</span>
-      <span>Cacao bought direct. Prices include tax.</span>
-    </div>
-  </div>
-</footer>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/main.js"></script>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

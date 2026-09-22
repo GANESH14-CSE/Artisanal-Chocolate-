@@ -354,19 +354,21 @@ h1, h2, h3, h4, h5 {
 .mobile-drawer {
   position: fixed;
   top: 0; right: -100%;
-  width: min(340px, 85vw);
+  width: min(320px, 86vw);
   height: 100vh;
-  background: var(--choco-deep);
-  background-image: url('../img/schmitten/menu-bg.png');
-  background-position: bottom right;
-  background-repeat: no-repeat;
+  max-height: 100vh;
+  background: #140704;
+  background: linear-gradient(180deg, #1b0a06 0%, #120502 100%);
+  border-left: 1px solid rgba(197, 155, 99, 0.3);
   z-index: 2000;
-  box-shadow: -5px 0 25px rgba(0,0,0,0.6);
-  padding: 2.5rem 1.75rem;
+  box-shadow: -10px 0 35px rgba(0,0,0,0.7);
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-drawer.open {
@@ -376,7 +378,7 @@ h1, h2, h3, h4, h5 {
 .mobile-drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
   backdrop-filter: blur(4px);
   z-index: 1999;
   opacity: 0;
@@ -394,31 +396,40 @@ h1, h2, h3, h4, h5 {
   background: transparent;
   border: none;
   color: var(--gold);
-  font-size: 1.75rem;
+  font-size: 2rem;
   cursor: pointer;
   line-height: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.drawer-close:hover {
+  transform: rotate(90deg);
 }
 
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.85rem;
 }
 
 .mobile-nav-links a {
   color: var(--text-light);
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  border-bottom: 1px solid rgba(189, 153, 103, 0.2);
-  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(189, 153, 103, 0.15);
+  padding-bottom: 0.55rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .mobile-nav-links a:hover,
 .mobile-nav-links a.active {
   color: var(--gold);
   padding-left: 0.5rem;
+  border-bottom-color: var(--gold);
 }
 
 /* ==========================================================================
@@ -1989,25 +2000,34 @@ h1, h2, h3, h4, h5 {
    ========================================================================== */
 #added {
   position: fixed;
-  top: -100px;
+  top: -200px;
   left: 50%;
-  transform: translateX(-50%);
-  background: var(--choco-deep);
-  color: var(--white);
-  border: 2px solid var(--gold);
-  border-radius: var(--radius-pill);
-  padding: 1rem 2.2rem;
+  transform: translateX(-50%) translateY(-20px);
+  background: var(--choco-deep, #140704);
+  color: var(--white, #ffffff);
+  border: 1.5px solid var(--gold, #c59b63);
+  border-radius: var(--radius-pill, 50px);
+  padding: 0.85rem 1.8rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  z-index: 3000;
-  transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  font-size: 0.95rem;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.65);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), top 0.35s ease, bottom 0.35s ease;
+  font-size: 0.92rem;
+  max-width: 90vw;
+  white-space: nowrap;
 }
 
 #added.show {
   top: 30px;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 #added .check-icon {
@@ -3502,13 +3522,27 @@ h1, h2, h3, h4, h5 {
    14. ABOUT PAGE SPECIFIC COMPONENTS
    ========================================================================== */
 .about-hero-banner {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--meridian-dark);
-  background-image: linear-gradient(180deg, rgba(20, 7, 4, 0.5) 0%, rgba(20, 7, 4, 0.85) 100%), url('../img/artisan/bean_to_bar_craft.jpg');
+  background-image: linear-gradient(180deg, rgba(20, 7, 4, 0.32) 0%, rgba(20, 7, 4, 0.42) 50%, rgba(20, 7, 4, 0.72) 100%), url('../img/artisan/about_hero_atelier.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 32%;
+  background-repeat: no-repeat;
   padding: 8rem 1.5rem 6rem;
   text-align: center;
   color: #ffffff;
+}
+
+.about-hero-banner .section-hero-title {
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8);
+}
+
+.about-hero-banner .section-subtitle {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
 }
 
 .founders-section {
@@ -5029,10 +5063,273 @@ h1, h2, h3, h4, h5 {
   color: #765d52;
 }
 
-.search-result-price {
-  font-size: 0.82rem;
-  color: var(--gold-copper);
+/* ==========================================================================
+   CIRCULAR NAV TOGGLES (DARK/LIGHT & RTL)
+   ========================================================================== */
+.nav-circle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(197, 155, 99, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--meridian-gold-light, #f0dfc8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.8rem;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  transition: all 0.25s ease;
+  text-decoration: none;
   flex-shrink: 0;
+  line-height: 1;
 }
 
+.nav-circle-btn:hover {
+  background: rgba(197, 155, 99, 0.22);
+  border-color: var(--gold, #c59b63);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(197, 155, 99, 0.25);
+}
+
+.nav-circle-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.nav-circle-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  transition: transform 0.35s ease;
+}
+
+.nav-circle-btn:hover svg {
+  transform: rotate(25deg);
+}
+
+.rtl-toggle-btn.active-rtl {
+  background: var(--gold, #c59b63);
+  color: #140704;
+  border-color: var(--gold, #c59b63);
+  box-shadow: 0 0 12px rgba(197, 155, 99, 0.5);
+}
+
+/* ==========================================================================
+   DARK THEME (LUXURY NOIR CHOCOLATIER)
+   ========================================================================== */
+[data-theme="dark"] {
+  --cream:           #140704;
+  --cream-darker:    #1e0b06;
+  --white:           #1a0b07;
+  --text-dark:       #fcf8f4;
+  --text-muted:      #c7b2a6;
+  --meridian-cream:  #140704;
+  --meridian-beige:  #1a0b07;
+  --meridian-warm-beige: #220e08;
+}
+
+[data-theme="dark"] body {
+  background-color: #140704;
+  color: #fcf8f4;
+}
+
+[data-theme="dark"] .main-header,
+[data-theme="dark"] .header {
+  background-color: #0e0402 !important;
+  border-bottom: 1px solid rgba(197, 155, 99, 0.25) !important;
+}
+
+[data-theme="dark"] .story-preview-section,
+[data-theme="dark"] .gift-split-section,
+[data-theme="dark"] .why-chocolate-section,
+[data-theme="dark"] .blog-section,
+[data-theme="dark"] .services-section,
+[data-theme="dark"] .collections-page-section,
+[data-theme="dark"] .flavor-section,
+[data-theme="dark"] section[style*="background:#ffffff"],
+[data-theme="dark"] section[style*="background: #ffffff"],
+[data-theme="dark"] section[style*="background-color: var(--meridian-cream)"],
+[data-theme="dark"] section[style*="background-color: var(--meridian-beige)"],
+[data-theme="dark"] div[style*="background:#ffffff"],
+[data-theme="dark"] div[style*="background: #ffffff"],
+[data-theme="dark"] div[style*="background: #fdfaf6"],
+[data-theme="dark"] div[style*="background:#fdfaf6"] {
+  background-color: #180905 !important;
+  color: #fcf8f4 !important;
+}
+
+[data-theme="dark"] .why-block,
+[data-theme="dark"] .step-card,
+[data-theme="dark"] .founder-card,
+[data-theme="dark"] .pairing-card,
+[data-theme="dark"] .service-card-luxury,
+[data-theme="dark"] .blog-card-item,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .order-product-card,
+[data-theme="dark"] .form-card,
+[data-theme="dark"] .filter-sidebar,
+[data-theme="dark"] .cart-panel,
+[data-theme="dark"] .mobile-drawer {
+  background: #220e08 !important;
+  border-color: rgba(197, 155, 99, 0.3) !important;
+  color: #fcf8f4 !important;
+}
+
+[data-theme="dark"] .service-card-body,
+[data-theme="dark"] .blog-card-body,
+[data-theme="dark"] .founder-info-content {
+  background: #220e08 !important;
+  color: #fcf8f4 !important;
+}
+
+[data-theme="dark"] h1:not(.light), 
+[data-theme="dark"] h2:not(.light), 
+[data-theme="dark"] h3:not(.light), 
+[data-theme="dark"] h4:not(.light), 
+[data-theme="dark"] h5:not(.light),
+[data-theme="dark"] .section-hero-title:not(.light),
+[data-theme="dark"] .section-main-title:not(.light),
+[data-theme="dark"] .product-title,
+[data-theme="dark"] .service-name {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] .section-subtitle:not(.light),
+[data-theme="dark"] .why-text,
+[data-theme="dark"] .pairing-desc,
+[data-theme="dark"] .step-text {
+  color: #d6c1b3 !important;
+}
+
+[data-theme="dark"] input:not([type="submit"]):not([type="button"]),
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: #140704 !important;
+  color: #ffffff !important;
+  border-color: rgba(197, 155, 99, 0.4) !important;
+}
+
+[data-theme="dark"] .search-live-dropdown {
+  background: #220e08 !important;
+  border-color: rgba(197, 155, 99, 0.35) !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.6) !important;
+}
+
+[data-theme="dark"] .search-result-item {
+  border-bottom-color: rgba(197, 155, 99, 0.15) !important;
+}
+
+[data-theme="dark"] .search-result-item:hover {
+  background: #2d130b !important;
+}
+
+[data-theme="dark"] .search-result-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .search-result-sub {
+  color: #c9b4a7 !important;
+}
+
+[data-theme="dark"] .milestones-stat-grid > div {
+  border-color: rgba(197, 155, 99, 0.25) !important;
+}
+
+/* ==========================================================================
+   RTL MODE (RIGHT-TO-LEFT SUPPORT)
+   ========================================================================== */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .main-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .main-menu {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .main-menu-right {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .breadcrumbs {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .breadcrumbs span {
+  display: inline-block;
+}
+
+[dir="rtl"] .nav-badge {
+  right: auto;
+  left: -2px;
+}
+
+[dir="rtl"] .mobile-drawer {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .mobile-drawer.open {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .drawer-close {
+  right: auto;
+  left: 1.5rem;
+}
+
+[dir="rtl"] .cart-panel {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .cart-modal.open .cart-panel,
+[dir="rtl"] .cart-drawer.open .cart-panel {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .header-inline-search-field {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .search-live-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .footer-nav-grid,
+[dir="rtl"] .global-luxury-footer .container > div:not(.offer-card) {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-col ul,
+[dir="rtl"] .gift-feature-list {
+  padding-right: 0;
+  padding-left: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .gift-feature-item {
+  flex-direction: row;
+}
+
+[dir="rtl"] .service-header-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .text-center {
+  text-align: center;
+}
