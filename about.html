@@ -71,10 +71,17 @@
 
       <!-- Utility Icons -->
       <div class="main-menu-right">
-        <a href="index.html#signature" class="nav-utility-btn" id="wishlistBtn" title="Your Wishlist" aria-label="Wishlist">
-          <span style="color:var(--meridian-gold-light); font-size:1.25rem;">♥</span>
-          <span class="nav-badge" id="wishlistCountBadge">0</span>
-        </a>
+        <!-- In-Place Search Bar -->
+        <div class="header-inline-search-wrap" id="headerSearchWrap">
+          <button class="nav-utility-btn" id="searchTriggerBtn" title="Search Chocolates" aria-label="Search">
+            <span style="font-size:1.15rem;">🔍</span>
+          </button>
+          <div class="header-inline-search-field" id="headerSearchField">
+            <input type="text" id="siteSearchInput" placeholder="Search chocolates, truffles..." autocomplete="off" aria-label="Search confections">
+            <button type="button" id="closeSearchBtn" class="search-inline-close" aria-label="Close search">&times;</button>
+          </div>
+          <div class="search-live-dropdown" id="searchLiveDropdown" style="display:none;"></div>
+        </div>
 
         <button class="nav-utility-btn" id="cartTriggerBtn" title="Shopping Cart" aria-label="Cart">
           <span style="font-size:1.2rem;">🛒</span>

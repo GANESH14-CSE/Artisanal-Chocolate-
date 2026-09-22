@@ -47,25 +47,28 @@
 
       <!-- Header Right Utilities -->
       <div class="main-menu-right">
-        <a href="orders.html" class="header-action-link" title="Sweetlist">
-          <div class="header-icon-wrap">
-            <span style="font-size: 1.2rem; color: var(--gold);">♥</span>
-            <span class="sweetlist-count">0</span>
+        <!-- In-Place Search Bar -->
+        <div class="header-inline-search-wrap" id="headerSearchWrap">
+          <button class="nav-utility-btn" id="searchTriggerBtn" title="Search Chocolates" aria-label="Search">
+            <span style="font-size:1.15rem;">🔍</span>
+          </button>
+          <div class="header-inline-search-field" id="headerSearchField">
+            <input type="text" id="siteSearchInput" placeholder="Search chocolates, truffles..." autocomplete="off" aria-label="Search confections">
+            <button type="button" id="closeSearchBtn" class="search-inline-close" aria-label="Close search">&times;</button>
           </div>
-        </a>
+          <div class="search-live-dropdown" id="searchLiveDropdown" style="display:none;"></div>
+        </div>
 
-        <a href="javascript:void(0);" class="header-action-link open-cart-btn" id="menu-cart" title="Cart">
-          <div class="header-icon-wrap">
-            <img src="assets/img/schmitten/cart.png" alt="Cart">
-            <span class="cart-count">0</span>
-          </div>
-        </a>
+        <!-- Cart Icon -->
+        <button class="nav-utility-btn" id="cartTriggerBtn" title="Shopping Cart" aria-label="Cart">
+          <span style="font-size:1.2rem;">🛒</span>
+          <span class="nav-badge" id="cartCountBadge">0</span>
+        </button>
 
-        <a href="contact.html" class="header-action-link" title="Store Locator">
-          <div class="header-icon-wrap">
-            <img src="assets/img/schmitten/location.png" alt="Store Locator">
-          </div>
-        </a>
+        <!-- Account Icon -->
+        <button class="nav-utility-btn" onclick="alert('Meridian Connoisseur Portal: Please sign in or register to view order history and subscription deliveries.');" title="My Account" aria-label="Account">
+          <span style="font-size:1.2rem;">👤</span>
+        </button>
 
         <!-- Theme Toggle (Dark / Light Mode) -->
         <button class="nav-circle-btn theme-toggle-btn" id="themeToggleBtn" type="button" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
@@ -83,18 +86,19 @@
           <span class="rtl-label">RTL</span>
         </button>
 
-        <button class="mobile-toggle" aria-label="Open Navigation Menu">
-          <img src="assets/img/schmitten/menu.png" alt="Menu">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Open Navigation Menu">
+          <span style="font-size:1.4rem; color:var(--meridian-gold-light);">☰</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
     <div>
-      <button class="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+      <button class="drawer-close" id="mobileDrawerClose" aria-label="Close Navigation Menu">&times;</button>
       <div style="margin-bottom: 2rem;">
         <a href="index.html" class="custom-brand-logo">
           <div class="brand-crest-box">
@@ -130,9 +134,9 @@
         </button>
       </div>
     </div>
-    <div style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">
-      <p>Need assistance?</p>
-      <p style="color: var(--gold); font-weight: 600;">relations@schmitten.co</p>
+    <div style="color: rgba(255,255,255,0.7); font-size: 0.85rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.15);">
+      <p style="margin-bottom:0.25rem;">Master Chocolatier Concierge:</p>
+      <p style="color: var(--meridian-gold-light); font-weight: 600;">concierge@meridiancacao.com</p>
     </div>
   </aside>
 

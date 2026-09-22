@@ -71,19 +71,24 @@
 
       <!-- Utility Icons -->
       <div class="main-menu-right">
-        <a href="orders.html" class="header-action-link" title="Sweetlist">
-          <div class="header-icon-wrap">
-            <span style="font-size: 1.2rem; color: var(--gold);">♥</span>
-            <span class="sweetlist-count" id="wishlistCountBadge">0</span>
+        <!-- In-Place Search Bar -->
+        <div class="header-inline-search-wrap" id="headerSearchWrap">
+          <button class="nav-utility-btn" id="searchTriggerBtn" title="Search Chocolates" aria-label="Search">
+            <span style="font-size:1.15rem;">🔍</span>
+          </button>
+          <div class="header-inline-search-field" id="headerSearchField">
+            <input type="text" id="siteSearchInput" placeholder="Search chocolates, truffles..." autocomplete="off" aria-label="Search confections">
+            <button type="button" id="closeSearchBtn" class="search-inline-close" aria-label="Close search">&times;</button>
           </div>
-        </a>
+          <div class="search-live-dropdown" id="searchLiveDropdown" style="display:none;"></div>
+        </div>
 
         <button class="nav-utility-btn" id="cartTriggerBtn" title="Shopping Cart" aria-label="Cart">
           <span style="font-size:1.2rem;">🛒</span>
           <span class="nav-badge" id="cartCountBadge">0</span>
         </button>
 
-        <button class="nav-utility-btn" onclick="alert('Schmitten Grand Cru Portal: Welcome back to your connoisseur account.');" title="My Account" aria-label="Account">
+        <button class="nav-utility-btn" onclick="alert('Meridian Connoisseur Portal: Please sign in or register to view order history and subscription deliveries.');" title="My Account" aria-label="Account">
           <span style="font-size:1.2rem;">👤</span>
         </button>
 

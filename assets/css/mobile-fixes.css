@@ -1092,4 +1092,273 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   18. MOBILE COMPACTNESS — REDUCE EXCESSIVE SCROLLING
+   Tightens section padding, grid gaps, hero heights, card spacing
+   and footer padding to minimize scroll length on mobile while
+   keeping content readable and well-aligned.
+   ========================================================================== */
+@media (max-width: 768px) {
 
+  /* --- A. Section Vertical Padding (override inline styles) --- */
+  section,
+  .artisan-hero,
+  .signature-section,
+  .flavor-section,
+  .why-chocolate-section,
+  .gift-split-section,
+  .reviews-section,
+  .sub-section,
+  .about-hero-banner,
+  .services-section,
+  .collections-page-section,
+  .corp-showcase-section,
+  .salon-hero,
+  .page-head {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* Even tighter on smaller hero/banner sections */
+  .artisan-hero,
+  .about-hero-banner,
+  .salon-hero {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    min-height: auto !important;
+  }
+
+  /* --- B. Section Headings — Reduce Bottom Margin --- */
+  .section-eyebrow {
+    margin-bottom: 0.4rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .section-hero-title,
+  .section-main-title {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .section-subtitle {
+    margin-bottom: 1.25rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .hero-description {
+    margin-bottom: 1.25rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* --- C. Grid Gaps — Tighter on Mobile --- */
+  .signature-grid,
+  .flavor-grid,
+  .reviews-grid,
+  .blog-list,
+  .services-grid-8,
+  .vault-batch-grid,
+  .society-grid,
+  .critic-reviews-grid,
+  .founder-cards-grid,
+  .schmitten-products-grid {
+    gap: 1.25rem !important;
+  }
+
+  .sub-cards-grid {
+    gap: 1.5rem !important;
+  }
+
+  /* --- D. Card Internal Padding — More Compact --- */
+  .sig-card,
+  .flavor-card,
+  .review-card,
+  .blog-card,
+  .vault-card,
+  .society-card,
+  .critic-review-card,
+  .order-product-card,
+  .service-card-luxury {
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .sig-card .sig-card-body,
+  .blog-card-content,
+  .service-card-body {
+    padding: 1rem 1rem !important;
+  }
+
+  /* --- E. Card Image Heights — Shorter to Save Scroll --- */
+  .sig-card-img,
+  .sig-card-img img {
+    max-height: 200px !important;
+    object-fit: cover !important;
+  }
+
+  .blog-card-img {
+    height: 160px !important;
+    min-height: 160px !important;
+  }
+
+  .service-card-photo {
+    height: 180px !important;
+  }
+
+  .founder-card img {
+    height: 220px !important;
+  }
+
+  /* --- F. Footer Compactness --- */
+  .global-luxury-footer {
+    padding-top: 3rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .footer-nav-grid {
+    gap: 1.5rem !important;
+  }
+
+  .footer-col h4 {
+    margin-bottom: 0.6rem !important;
+  }
+
+  .footer-col ul {
+    gap: 0.35rem !important;
+  }
+
+  /* --- G. Offer / Newsletter Card --- */
+  .offer-card {
+    padding: 1.5rem 1rem !important;
+    margin-bottom: 1.5rem !important;
+    gap: 1rem !important;
+  }
+
+  /* --- H. Hero CTA Section --- */
+  .hero-inner-container {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .hero-trust-bar {
+    margin-top: 1rem !important;
+    gap: 0.5rem !important;
+  }
+
+  /* --- I. Hide Search Bar on Mobile Header (too wide) --- */
+  .header-inline-search-wrap .header-inline-search-field,
+  .header-inline-search-wrap .search-live-dropdown {
+    /* Keep the 🔍 button but hide the expanded field on very small screens */
+  }
+
+  /* Search trigger remains visible, but make it compact */
+  .header-inline-search-wrap {
+    position: relative !important;
+  }
+
+  .header-inline-search-wrap.active .header-inline-search-field {
+    position: fixed !important;
+    top: 60px !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    width: auto !important;
+    z-index: 3000 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+  }
+
+  .header-inline-search-wrap .search-live-dropdown {
+    position: fixed !important;
+    top: 108px !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    width: auto !important;
+    z-index: 3000 !important;
+  }
+
+  /* --- J. Subscription Plan Cards --- Compact */
+  .sub-plan-card {
+    padding: 1.75rem 1.15rem 1.5rem !important;
+  }
+
+  .sub-plan-title {
+    font-size: 1.4rem !important;
+  }
+
+  .sub-plan-price {
+    font-size: 2rem !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  /* --- K. About page sections --- */
+  .journey-split-layout {
+    gap: 1.75rem !important;
+  }
+
+  .values-grid {
+    gap: 1rem !important;
+  }
+
+  .stages-grid {
+    gap: 1rem !important;
+  }
+
+  /* --- L. Contact page compact --- */
+  .contact-main-grid {
+    gap: 1.5rem !important;
+  }
+
+  .contact-form-card,
+  .contact-info-card {
+    padding: 1.5rem 1rem !important;
+  }
+
+  /* --- M. Process / How We Work Section --- */
+  .process-grid-4 {
+    gap: 1rem !important;
+  }
+
+  .process-step-card {
+    padding: 1.25rem 1rem !important;
+  }
+
+  /* --- N. Milestones / Stats Grid --- */
+  .milestones-stat-grid {
+    gap: 1rem !important;
+  }
+
+  .stat-number {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* Extra small: even more compact */
+@media (max-width: 480px) {
+  section,
+  .artisan-hero,
+  .signature-section,
+  .flavor-section,
+  .why-chocolate-section,
+  .gift-split-section,
+  .reviews-section,
+  .sub-section,
+  .services-section,
+  .collections-page-section,
+  .corp-showcase-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .artisan-hero,
+  .about-hero-banner,
+  .salon-hero {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .global-luxury-footer {
+    padding-top: 2.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .hero-inner-container {
+    padding: 1rem 0.75rem !important;
+  }
+}
