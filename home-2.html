@@ -88,7 +88,7 @@
           <span class="nav-badge" id="cartCountBadge">0</span>
         </button>
 
-        <button class="nav-utility-btn" onclick="alert('Meridian Connoisseur Portal: Please sign in or register to view order history and subscription deliveries.');" title="My Account" aria-label="Account">
+        <button class="nav-utility-btn" onclick="window.location.href='login.html';" title="My Account" aria-label="Account">
           <span style="font-size:1.2rem;">👤</span>
         </button>
 
@@ -362,42 +362,42 @@
     </section>
 
     <!-- 5. LIVE ATELIER STATUS (Master Craftsman Dashboard) -->
-    <section style="padding-block: 5.5rem; background: #f7f0e7; border-bottom: 1px solid #ebdcd0;">
+    <section class="atelier-status-section" style="padding-block: 5.5rem; border-bottom: 1px solid #ebdcd0;">
       <div class="container">
         <div class="text-center" data-aos="fade-up" style="margin-bottom: 3.5rem;">
           <span class="section-sub-title">Live From The Hudson Valley</span>
           <h2 class="section-main-title">Live Atelier Status Dashboard</h2>
-          <p style="color: #6a5146; max-width: 600px; margin: 0 auto;">Real-time confectionery conditions from our temperature-controlled stone conche room.</p>
+          <p class="atelier-subtitle" style="max-width: 600px; margin: 0 auto;">Real-time confectionery conditions from our temperature-controlled stone conche room.</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.75rem;" data-aos="fade-up">
           
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 16px rgba(53, 22, 13, 0.04);">
+          <div class="atelier-metric-card">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌡️</div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Ambient Atelier Temp</div>
-            <div style="font-family: var(--font-serif); font-size: 2.2rem; color: #35160d; font-weight: 700;">19.5°C</div>
-            <div style="font-size: 0.82rem; color: #2b753a; font-weight: 600; margin-top: 0.35rem;">● Optimal Beta-V Crystal Curve</div>
+            <div class="atelier-card-label">Ambient Atelier Temp</div>
+            <div class="atelier-card-val">19.5°C</div>
+            <div class="atelier-card-status status-good">● Optimal Beta-V Crystal Curve</div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 16px rgba(53, 22, 13, 0.04);">
+          <div class="atelier-metric-card">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">💧</div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Relative Humidity</div>
-            <div style="font-family: var(--font-serif); font-size: 2.2rem; color: #35160d; font-weight: 700;">46% RH</div>
-            <div style="font-size: 0.82rem; color: #2b753a; font-weight: 600; margin-top: 0.35rem;">● Anti-Bloom Climate Control</div>
+            <div class="atelier-card-label">Relative Humidity</div>
+            <div class="atelier-card-val">46% RH</div>
+            <div class="atelier-card-status status-good">● Anti-Bloom Climate Control</div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 16px rgba(53, 22, 13, 0.04);">
+          <div class="atelier-metric-card">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚙️</div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Granite Conche Run</div>
-            <div style="font-family: var(--font-serif); font-size: 2.2rem; color: #35160d; font-weight: 700;">68.4 Hrs</div>
-            <div style="font-size: 0.82rem; color: #4a1f13; font-weight: 600; margin-top: 0.35rem;">● North Madagascar Criollo</div>
+            <div class="atelier-card-label">Granite Conche Run</div>
+            <div class="atelier-card-val">68.4 Hrs</div>
+            <div class="atelier-card-status">● North Madagascar Criollo</div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid #ebdcd0; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 16px rgba(53, 22, 13, 0.04);">
+          <div class="atelier-metric-card">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">✨</div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--gold-copper); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Today's Handcraft</div>
-            <div style="font-family: var(--font-serif); font-size: 1.4rem; color: #35160d; font-weight: 700; margin-top: 0.5rem;">24K Gold Leaf Domes</div>
-            <div style="font-size: 0.82rem; color: #4a1f13; font-weight: 600; margin-top: 0.35rem;">● Hand-dipped by Julian Vance</div>
+            <div class="atelier-card-label">Today's Handcraft</div>
+            <div class="atelier-card-val" style="font-size: 1.4rem; margin-top: 0.5rem;">24K Gold Leaf Domes</div>
+            <div class="atelier-card-status">● Hand-dipped by Julian Vance</div>
           </div>
 
         </div>
@@ -481,7 +481,7 @@
     </section>
 
     <!-- 9. CONNOISSEUR & CRITIC ACCOLADES -->
-    <section style="padding-block: 5rem; background: #f7f0e7;">
+    <section style="padding-block: 5rem; background: var(--meridian-beige);">
       <div class="container text-center" data-aos="fade-up">
         <span class="section-sub-title">Critic Reviews</span>
         <h2 class="section-main-title" style="font-size: 2.2rem; margin-bottom: 3rem;">Echoes of Pure Appreciation</h2>
@@ -612,4 +612,5 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
 

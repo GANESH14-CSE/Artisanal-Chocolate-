@@ -354,13 +354,21 @@ html, body {
     padding-left: 1.5rem !important;
   }
 
+  .milestones-card-wrap {
+    padding: 1.25rem 1rem !important;
+  }
+
   .milestones-stat-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: 1.5rem !important;
+    gap: 1.25rem 0.75rem !important;
+  }
+
+  .milestone-item:not(:last-child)::after {
+    display: none !important;
   }
 
   .stat-number {
-    font-size: 2.2rem !important;
+    font-size: 1.85rem !important;
   }
 }
 
@@ -416,7 +424,7 @@ html, body {
    Fixes screenshot 1 issue where Mahogany Chest card was cut off on right
    ========================================================================== */
 .vault-showcase-box {
-  background: #ffffff;
+  background: #fff9f2;
   border-radius: var(--radius-lg);
   border: 1px solid #ebdcd0;
   padding: 2.5rem;
@@ -493,7 +501,7 @@ html, body {
 }
 
 .critic-review-card {
-  background: #ffffff;
+  background: #fff9f2;
   border: 1px solid #ebdcd0;
   border-radius: 12px;
   padding: 2rem;
@@ -759,9 +767,9 @@ html, body {
 
 .contact-form-card,
 .contact-info-card {
-  background: #ffffff;
+  background: #fff9f2;
   border-radius: 14px;
-  border: 1px solid #e5d7c8;
+  border: 1px solid #ebdcd0;
   padding: 2.75rem 2.25rem;
   box-shadow: 0 10px 30px rgba(33, 13, 8, 0.05);
 }
@@ -1321,11 +1329,15 @@ html, body {
 
   /* --- N. Milestones / Stats Grid --- */
   .milestones-stat-grid {
-    gap: 1rem !important;
+    gap: 1rem 0.6rem !important;
   }
 
   .stat-number {
-    font-size: 1.8rem !important;
+    font-size: 1.6rem !important;
+  }
+
+  .stat-label-text {
+    font-size: 0.72rem !important;
   }
 }
 
@@ -1361,4 +1373,28 @@ html, body {
   .hero-inner-container {
     padding: 1rem 0.75rem !important;
   }
+}
+
+/* ==========================================================================
+   Dark Theme Overrides for Mobile Fixes Components
+   ========================================================================== */
+[data-theme="dark"] .vault-showcase-box,
+[data-theme="dark"] .critic-review-card,
+[data-theme="dark"] .contact-form-card,
+[data-theme="dark"] .contact-info-card {
+  background: #200d07 !important;
+  border-color: rgba(197, 155, 99, 0.3) !important;
+  color: #fcf8f4 !important;
+}
+
+[data-theme="dark"] .vault-showcase-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .vault-showcase-price {
+  color: #dfba7e !important;
+}
+
+[data-theme="dark"] .vault-showcase-desc {
+  color: #d6c1b3 !important;
 }
