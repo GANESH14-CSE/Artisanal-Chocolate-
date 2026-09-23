@@ -58,7 +58,7 @@ body {
   background-color: var(--cream);
   color: var(--text-dark);
   line-height: 1.6;
-  padding-top: 76px;
+  padding-top: 61px;
 }
 
 main {
@@ -209,7 +209,8 @@ h1, h2, h3, h4, h5 {
    ========================================================================== */
 .header {
   position: fixed;
-  top: 0;
+  top: 0 !important;
+  margin: 0 !important;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -228,7 +229,7 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 2rem;
+  padding: 0.4rem 2rem;
   max-width: 1400px;
   margin-inline: auto;
 }
